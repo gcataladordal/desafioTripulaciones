@@ -18,8 +18,18 @@ function Register() {
             password
         }
 
-        axios.post("/register", Usuario).then((res) => {
-            console.log(res.data)
+        axios.post("/registrar", Usuario).then((res) => {
+            if (res.data === "insertOk") {
+                alert("Usuario registrado correctamente")
+            }
+            if (res.data === "campoIncorrecto") {
+                alert("Campo Incorrecto")
+            }
+            if (res.data === "userExiste") {
+                alert("Este usuario ya existe")
+            }
+
+            
         })
     }
 
@@ -47,7 +57,7 @@ function Register() {
                     <br />
                     <label>Email</label>
                     <br />
-                    <input type="text" name="email" placeholder="Ej: correo@ejemplo.com" onChange={(e) => setEmail(e.target.value)}></input>
+                    <input type="email" name="email" placeholder="Ej: correo@ejemplo.com" onChange={(e) => setEmail(e.target.value)}></input>
                     <br />
                     <br />
                     <label>Password (debe contener almenos una letra, símbolo y numero)</label>

@@ -3,7 +3,10 @@ const user = require("../controllers/user.controllers");
 
 
 
-router.post("/register", user.register)
+router.post("/registrar", user.registrar);
+
+router.post("/loguear", user.loguear);
+
 
 
 module.exports = router;
