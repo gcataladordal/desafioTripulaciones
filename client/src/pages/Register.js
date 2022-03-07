@@ -8,6 +8,7 @@ function Register() {
     const [email, setEmail] = useState("");
     const [dni, setDni] = useState("");
     const [password, setPassword] = useState("");
+    const [password2, setPassword2] = useState("");
 
     const enviarDatos = () => {
         let Usuario = {
@@ -15,7 +16,8 @@ function Register() {
             apellidos,
             email,
             dni,
-            password
+            password,
+            password2
         }
 
         axios.post("/registrar", Usuario).then((res) => {
@@ -63,6 +65,11 @@ function Register() {
                     <label>Password (debe contener almenos una letra, símbolo y numero)</label>
                     <br />
                     <input type="password" name="password" placeholder="Ej: 123456Y+" onChange={(e) => setPassword(e.target.value)}></input>
+                    <br />
+                    <br />
+                    <label>Confirma Password</label>
+                    <br />
+                    <input type="password" name="password2" placeholder="Ej: 123456Y+" onChange={(e) => setPassword2(e.target.value)}></input>
                     <br />
                     <br />
                     <br />

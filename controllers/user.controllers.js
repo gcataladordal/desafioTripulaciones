@@ -19,6 +19,7 @@ async function registro(req, res) {
     let email = req.body.email;
     let dni = req.body.dni;
     let password = req.body.password;
+    let password2 = req.body.password2;
 
     var regExpDni = new RegExp(/^[0-9]{8}\-?[a-zA-Z]{1}/);
     var regExpName = new RegExp(/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ]+$/u); //agregado espacio para poner dos apellidos
@@ -29,7 +30,8 @@ async function registro(req, res) {
     let apellidosOk = regExpName.test(apellidos);
     let emailOk = regExpEmail.test(email);
     let dniOk = regExpDni.test(dni) && validacionDni(dni);
-    let passwordOk = regExpPass.test(password);
+    let passwordOk = regExpPass.test(password) && (password === password2);
+
 
     let todoOk = nombreOk && apellidosOk && emailOk && dniOk && passwordOk
     
