@@ -6,9 +6,12 @@ const objetoUserSchema = {
     nombre: String,
     apellidos: String,
     email: String,
-    dni: String,
+    direccion: String,
+    ciudad:String,
+    cp: String,
+    telefono:String,
     password: String,
-    admin: Boolean
+    tipo_usuario: String
 };
 
 const userSchema = mongoose.Schema(objetoUserSchema, {versionKey: false})

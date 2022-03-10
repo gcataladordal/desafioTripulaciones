@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-function Register() {
+function RegisterUser() {
 
     const [nombre, setNombre] = useState("");
     const [apellidos, setApellidos] = useState("");
+    const [direccion, setDireccion] = useState("");
+    const [ciudad, setCiudad] = useState("");
+    const [cp, setCP] = useState("");
+    const [telefono, setTelefono] = useState("");
     const [email, setEmail] = useState("");
-    const [dni, setDni] = useState("");
     const [password, setPassword] = useState("");
     const [password2, setPassword2] = useState("");
 
@@ -14,13 +17,16 @@ function Register() {
         let Usuario = {
             nombre,
             apellidos,
+            direccion,
+            ciudad,
+            cp, 
+            telefono,
             email,
-            dni,
             password,
-            password2
+            password2,
         }
 
-        axios.post("/registrar", Usuario).then((res) => {
+        axios.post("/registrarusuario", Usuario).then((res) => {
             if (res.data === "insertOk") {
                 alert("Usuario registrado correctamente")
             }
@@ -39,7 +45,6 @@ function Register() {
     return (
         <div>
             <br />
-            <br />
             <form>
                 <div>
                     <label>Nombre</label>
@@ -52,9 +57,24 @@ function Register() {
                     <input type="text" name="apellidos" placeholder="Ej: Sanchez Fernandez" onChange={(e) => setApellidos(e.target.value)}></input>
                     <br />
                     <br />
-                    <label>Dni</label>
+                    <label>Ciudad</label>
                     <br />
-                    <input type="text" name="dni" placeholder="Ej: 12345678X" onChange={(e) => setDni(e.target.value)}></input>
+                    <input type="text" name="ciudad" placeholder="Ej: Madrid" onChange={(e) => setCiudad(e.target.value)}></input>
+                    <br />
+                    <br />
+                    <label>Direccion</label>
+                    <br />
+                    <input type="text" name="direccion" placeholder="Ej: Calle Paco de Lucia nº5" onChange={(e) => setDireccion(e.target.value)}></input>
+                    <br />
+                    <br />
+                    <label>Código Postal</label>
+                    <br />
+                    <input type="text" name="cp" placeholder="Ej: 06432" onChange={(e) => setCP(e.target.value)}></input>
+                    <br />
+                    <br />
+                    <br /><label>Teléfono</label>
+                    <br />
+                    <input type="text" name="telefono" placeholder="559 577 837" onChange={(e) => setTelefono(e.target.value)}></input>
                     <br />
                     <br />
                     <label>Email</label>
@@ -62,7 +82,7 @@ function Register() {
                     <input type="email" name="email" placeholder="Ej: correo@ejemplo.com" onChange={(e) => setEmail(e.target.value)}></input>
                     <br />
                     <br />
-                    <label>Password (debe contener almenos una letra, símbolo y numero)</label>
+                    <label>Password (debe contener almenos una letra, un símbolo y un numero)</label>
                     <br />
                     <input type="password" name="password" placeholder="Ej: 123456Y+" onChange={(e) => setPassword(e.target.value)}></input>
                     <br />
@@ -81,4 +101,4 @@ function Register() {
     )
 }
 
-export default Register
+export default RegisterUser
