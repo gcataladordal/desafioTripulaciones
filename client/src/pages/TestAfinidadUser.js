@@ -29,16 +29,21 @@ function TestAfinidadUser() {
     const [lavabo, setLavabo] = useState("");
     const [exteriores, setExteriores] = useState("");
     const [gente, setGente] = useState("")
+    const [actividades, setActividades] = useState("");
 
     const [viewCaracter, setViewCaracter] = useState(false);
     const [viewMusica, setViewMusica] = useState(false);
     const [viewPeliculas, setViewPeliculas] = useState(false);
     const [viewEstiloVida, setViewEstiloVida] = useState(false);
     const [viewDeportes, setViewDeportes] = useState(false);
+    const [viewActividades, setViewActividades] = useState(false);
+    const [viewActividadesAireLibre, setViewActividadesAireLibre] = useState(false);
+
 
     const cambiosCheckboxRegion = (valoresMarcados) => {
         setRegion(valoresMarcados)
     }
+
 
     const cambiosCheckboxIdiomas = (valoresMarcados) => {
         setIdiomas(valoresMarcados)
@@ -48,27 +53,16 @@ function TestAfinidadUser() {
         setOficio(valoresMarcados)
     }
 
-    const cambiosCheckboxAficiones = (valoresMarcados) => {
-        setAficiones(valoresMarcados)
-    }
-
-    const cambiosCheckboxEstiloVida = (valoresMarcados) => {
-        setEstiloVida(valoresMarcados)
-    }
-
-    const cambiosCheckboxMusica = (valoresMarcados) => {
-        setMusica(valoresMarcados)
-    }
-
-    const cambiosCheckboxDeportes = (valoresMarcados) => {
-        setDeportes(valoresMarcados)
-    }
-
-    const cambiosCheckboxPelículas = (valoresMarcados) => {
-        setPeliculas(valoresMarcados)
-    }
     const cambiosCheckboxRangoEdad = (valoresMarcados) => {
         setRangoEdad(valoresMarcados)
+    }
+
+    const cambiosCheckboxExteriores = (valoresMarcados) => {
+        setExteriores(valoresMarcados)
+    }
+
+    const cambiosCheckboxInstalaciones = (valoresMarcados) => {
+        setInstalaciones(valoresMarcados)
     }
 
     function enviarDatos(e) {
@@ -198,7 +192,7 @@ function TestAfinidadUser() {
                 </div>
                 <br />
                 <div>
-                    <label>¿Qué Idiomas hablas</label>
+                    <label>¿Qué Idiomas hablas?</label>
                     <br />
                     <div id="respuestasIdiomas">
                         <Checkbox.Group onChange={(e) => cambiosCheckboxIdiomas(e)}>
@@ -1065,12 +1059,12 @@ function TestAfinidadUser() {
                                         <Radio value="excursionismo: 5">5</Radio>
                                     </Radio.Group>
                                     <Radio.Group onChange={(e) => setDeportes((deportes) => [...deportes, e.target.value])}>
-                                        <label forhtml="caballo">Montar a caballo:&nbsp;</label>
-                                        <Radio value="caballo: 1">1</Radio>
-                                        <Radio value="caballo: 2">2</Radio>
-                                        <Radio value="caballo: 3">3</Radio>
-                                        <Radio value="caballo: 4">4</Radio>
-                                        <Radio value="caballo: 5">5</Radio>
+                                        <label forhtml="hipica">Hípica:&nbsp;</label>
+                                        <Radio value="hipica: 1">1</Radio>
+                                        <Radio value="hipica: 2">2</Radio>
+                                        <Radio value="hipica: 3">3</Radio>
+                                        <Radio value="hipica: 4">4</Radio>
+                                        <Radio value="hipica: 5">5</Radio>
                                     </Radio.Group>
                                     <Radio.Group onChange={(e) => setDeportes((deportes) => [...deportes, e.target.value])}>
                                         <label forhtml="padel">Pádel:&nbsp;</label>
@@ -1178,6 +1172,15 @@ function TestAfinidadUser() {
                                         <Radio value="yoga: 4">4</Radio>
                                         <Radio value="yoga: 5">5</Radio>
                                     </Radio.Group>
+                                    <Radio.Group onChange={(e) => setDeportes((deportes) => [...deportes, e.target.value])}>
+                                        <label forhtml="pesca">Pesca:&nbsp;</label>
+                                        <Radio value="pesca: 1">1</Radio>
+                                        <Radio value="pesca: 2">2</Radio>
+                                        <Radio value="pesca: 3">3</Radio>
+                                        <Radio value="pesca: 4">4</Radio>
+                                        <Radio value="pesca: 5">5</Radio>
+                                    </Radio.Group>
+
 
 
 
@@ -1197,83 +1200,205 @@ function TestAfinidadUser() {
                                 <label>¿Qué tipo de películas te gustan?</label>
                                 <br />
                                 {viewPeliculas ? (<div>
-                                    <Checkbox name="peliculas" value="accion" id="accion">
-                                        <label forhtml="accion">&nbsp;Acción</label>
-                                    </Checkbox>
-                                    &nbsp;&nbsp;
-                                    <Checkbox name="peliculas" value="aventura" id="aventura">
-                                        <label forhtml="aventura">&nbsp;Aventura</label>
-                                    </Checkbox>
-                                    &nbsp;&nbsp;
-                                    <Checkbox name="peliculas" value="animacion" id="animacion">
-                                        <label forhtml="animacion">&nbsp;Animación</label>
-                                    </Checkbox>
-                                    &nbsp;&nbsp;
-                                    <Checkbox name="peliculas" value="comedia" id="comedia">
-                                        <label forhtml="comedia">&nbsp;Comedia</label>
-                                    </Checkbox>
-                                    &nbsp;&nbsp;
-                                    <Checkbox name="peliculas" value="policiaco" id="policiaco">
-                                        <label forhtml="policiaco">&nbsp;Cine policiáco</label>
-                                    </Checkbox>
-                                    &nbsp;&nbsp;
-                                    <Checkbox name="peliculas" value="documental" id="documental">
-                                        <label forhtml="documental">&nbsp;Documental</label>
-                                    </Checkbox>
-                                    &nbsp;&nbsp;
-                                    <Checkbox name="peliculas" value="drama" id="drama">
-                                        <label forhtml="drama">&nbsp;Drama</label>
-                                    </Checkbox>
-                                    &nbsp;&nbsp;
-                                    <Checkbox name="peliculas" value="fantasia" id="fantasia">
-                                        <label forhtml="fantasia">&nbsp;Fantasía</label>
-                                    </Checkbox>
-                                    &nbsp;&nbsp;
-                                    <Checkbox name="peliculas" value="historica" id="historica">
-                                        <label forhtml="historica">&nbsp;Histórica</label>
-                                    </Checkbox>
-                                    &nbsp;&nbsp;
-                                    <Checkbox name="peliculas" value="terror" id="terror">
-                                        <label forhtml="terror">&nbsp;Terror</label>
-                                    </Checkbox>
-                                    &nbsp;&nbsp;
-                                    <Checkbox name="peliculas" value="misterios" id="misterios">
-                                        <label forhtml="misterios">&nbsp;Entusiasta</label>
-                                    </Checkbox>
-                                    &nbsp;&nbsp;
-                                    <Checkbox name="peliculas" value="politica" id="politica">
-                                        <label forhtml="politica">&nbsp;Política</label>
-                                    </Checkbox>
-                                    &nbsp;&nbsp;
-                                    <Checkbox name="peliculas" value="romantica" id="romantica">
-                                        <label forhtml="romantica">&nbsp;Romántica</label>
-                                    </Checkbox>
-                                    &nbsp;&nbsp;
-                                    <Checkbox name="peliculas" value="saga" id="saga">
-                                        <label forhtml="saga">&nbsp;Saga</label>
-                                    </Checkbox>
-                                    &nbsp;&nbsp;
-                                    <Checkbox name="peliculas" value="satira" id="satira">
-                                        <label forhtml="satira">&nbsp;Sátira</label>
-                                    </Checkbox>
-                                    &nbsp;&nbsp;
-                                    <Checkbox name="peliculas" value="cienciaficcion" id="cienciaficcion">
-                                        <label forhtml="cienciaficcion">&nbsp;Ciencia ficción</label>
-                                    </Checkbox>
-                                    &nbsp;&nbsp;
-                                    <Checkbox name="peliculas" value="thriller" id="thriller">
-                                        <label forhtml="thriller">&nbsp;Thriller</label>
-                                    </Checkbox>
-                                    &nbsp;&nbsp;
-                                    <Checkbox name="peliculas" value="western" id="western">
-                                        <label forhtml="western">&nbsp;Western</label>
-                                    </Checkbox>
+                                    <Radio.Group onChange={(e) => setPeliculas((peliculas) => [...peliculas, e.target.value])}>
+                                        <label forhtml="accion">Acción:&nbsp;</label>
+                                        <Radio value="accion: 1">1</Radio>
+                                        <Radio value="accion: 2">2</Radio>
+                                        <Radio value="accion: 3">3</Radio>
+                                        <Radio value="accion: 4">4</Radio>
+                                        <Radio value="accion: 5">5</Radio>
+                                    </Radio.Group>
+                                    <Radio.Group onChange={(e) => setPeliculas((peliculas) => [...peliculas, e.target.value])}>
+                                        <label forhtml="aventura">Aventura:&nbsp;</label>
+                                        <Radio value="aventura: 1">1</Radio>
+                                        <Radio value="aventura: 2">2</Radio>
+                                        <Radio value="aventura: 3">3</Radio>
+                                        <Radio value="aventura: 4">4</Radio>
+                                        <Radio value="aventura: 5">5</Radio>
+                                    </Radio.Group>
+                                    <Radio.Group onChange={(e) => setPeliculas((peliculas) => [...peliculas, e.target.value])}>
+                                        <label forhtml="comedia">Comedia:&nbsp;</label>
+                                        <Radio value="comedia: 1">1</Radio>
+                                        <Radio value="comedia: 2">2</Radio>
+                                        <Radio value="comedia: 3">3</Radio>
+                                        <Radio value="comedia: 4">4</Radio>
+                                        <Radio value="comedia: 5">5</Radio>
+                                    </Radio.Group>
+                                    <Radio.Group onChange={(e) => setPeliculas((peliculas) => [...peliculas, e.target.value])}>
+                                        <label forhtml="documental">Documental:&nbsp;</label>
+                                        <Radio value="documental: 1">1</Radio>
+                                        <Radio value="documental: 2">2</Radio>
+                                        <Radio value="documental: 3">3</Radio>
+                                        <Radio value="documental: 4">4</Radio>
+                                        <Radio value="documental: 5">5</Radio>
+                                    </Radio.Group>
+                                    <Radio.Group onChange={(e) => setPeliculas((peliculas) => [...peliculas, e.target.value])}>
+                                        <label forhtml="drama">Drama:&nbsp;</label>
+                                        <Radio value="drama: 1">1</Radio>
+                                        <Radio value="drama: 2">2</Radio>
+                                        <Radio value="drama: 3">3</Radio>
+                                        <Radio value="drama: 4">4</Radio>
+                                        <Radio value="drama: 5">5</Radio>
+                                    </Radio.Group>
+                                    <Radio.Group onChange={(e) => setPeliculas((peliculas) => [...peliculas, e.target.value])}>
+                                        <label forhtml="crimen">Crimen:&nbsp;</label>
+                                        <Radio value="crimen: 1">1</Radio>
+                                        <Radio value="crimen: 2">2</Radio>
+                                        <Radio value="crimen: 3">3</Radio>
+                                        <Radio value="crimen: 4">4</Radio>
+                                        <Radio value="crimen: 5">5</Radio>
+                                    </Radio.Group>
+                                    <Radio.Group onChange={(e) => setPeliculas((peliculas) => [...peliculas, e.target.value])}>
+                                        <label forhtml="negro">Cine negro:&nbsp;</label>
+                                        <Radio value="negro: 1">1</Radio>
+                                        <Radio value="negro: 2">2</Radio>
+                                        <Radio value="negro: 3">3</Radio>
+                                        <Radio value="negro: 4">4</Radio>
+                                        <Radio value="negro: 5">5</Radio>
+                                    </Radio.Group>
+                                    <Radio.Group onChange={(e) => setPeliculas((peliculas) => [...peliculas, e.target.value])}>
+                                        <label forhtml="fantasia">Fantasía:&nbsp;</label>
+                                        <Radio value="fantasia: 1">1</Radio>
+                                        <Radio value="fantasia: 2">2</Radio>
+                                        <Radio value="fantasia: 3">3</Radio>
+                                        <Radio value="fantasia: 4">4</Radio>
+                                        <Radio value="fantasia: 5">5</Radio>
+                                    </Radio.Group>
+                                    <Radio.Group onChange={(e) => setPeliculas((peliculas) => [...peliculas, e.target.value])}>
+                                        <label forhtml="historia">Historia:&nbsp;</label>
+                                        <Radio value="historia: 1">1</Radio>
+                                        <Radio value="historia: 2">2</Radio>
+                                        <Radio value="historia: 3">3</Radio>
+                                        <Radio value="historia: 4">4</Radio>
+                                        <Radio value="historia: 5">5</Radio>
+                                    </Radio.Group>
+                                    <Radio.Group onChange={(e) => setPeliculas((peliculas) => [...peliculas, e.target.value])}>
+                                        <label forhtml="terror">Terror:&nbsp;</label>
+                                        <Radio value="terror: 1">1</Radio>
+                                        <Radio value="terror: 2">2</Radio>
+                                        <Radio value="terror: 3">3</Radio>
+                                        <Radio value="terror: 4">4</Radio>
+                                        <Radio value="terror: 5">5</Radio>
+                                    </Radio.Group>
+                                    <Radio.Group onChange={(e) => setPeliculas((peliculas) => [...peliculas, e.target.value])}>
+                                        <label forhtml="misterio">Misterio:&nbsp;</label>
+                                        <Radio value="misterio: 1">1</Radio>
+                                        <Radio value="misterio: 2">2</Radio>
+                                        <Radio value="misterio: 3">3</Radio>
+                                        <Radio value="misterio: 4">4</Radio>
+                                        <Radio value="misterio: 5">5</Radio>
+                                    </Radio.Group>
+                                    <Radio.Group onChange={(e) => setPeliculas((peliculas) => [...peliculas, e.target.value])}>
+                                        <label forhtml="politica">Política:&nbsp;</label>
+                                        <Radio value="politica: 1">1</Radio>
+                                        <Radio value="politica: 2">2</Radio>
+                                        <Radio value="politica: 3">3</Radio>
+                                        <Radio value="politica: 4">4</Radio>
+                                        <Radio value="politica: 5">5</Radio>
+                                    </Radio.Group>
+                                    <Radio.Group onChange={(e) => setPeliculas((peliculas) => [...peliculas, e.target.value])}>
+                                        <label forhtml="romantica">Romántica:&nbsp;</label>
+                                        <Radio value="romantica: 1">1</Radio>
+                                        <Radio value="romantica: 2">2</Radio>
+                                        <Radio value="romantica: 3">3</Radio>
+                                        <Radio value="romantica: 4">4</Radio>
+                                        <Radio value="romantica: 5">5</Radio>
+                                    </Radio.Group>
+                                    <Radio.Group onChange={(e) => setPeliculas((peliculas) => [...peliculas, e.target.value])}>
+                                        <label forhtml="cienciaficcion">Ciencia ficción:&nbsp;</label>
+                                        <Radio value="cienciaficcion: 1">1</Radio>
+                                        <Radio value="cienciaficcion: 2">2</Radio>
+                                        <Radio value="cienciaficcion: 3">3</Radio>
+                                        <Radio value="cienciaficcion: 4">4</Radio>
+                                        <Radio value="cienciaficcion: 5">5</Radio>
+                                    </Radio.Group>
+                                    <Radio.Group onChange={(e) => setPeliculas((peliculas) => [...peliculas, e.target.value])}>
+                                        <label forhtml="suspense">Suspense:&nbsp;</label>
+                                        <Radio value="suspense: 1">1</Radio>
+                                        <Radio value="suspense: 2">2</Radio>
+                                        <Radio value="suspense: 3">3</Radio>
+                                        <Radio value="suspense: 4">4</Radio>
+                                        <Radio value="suspense: 5">5</Radio>
+                                    </Radio.Group>
+                                    <Radio.Group onChange={(e) => setPeliculas((peliculas) => [...peliculas, e.target.value])}>
+                                        <label forhtml="musical">Musical:&nbsp;</label>
+                                        <Radio value="musical: 1">1</Radio>
+                                        <Radio value="musical: 2">2</Radio>
+                                        <Radio value="musical: 3">3</Radio>
+                                        <Radio value="musical: 4">4</Radio>
+                                        <Radio value="musical: 5">5</Radio>
+                                    </Radio.Group>
+                                    <Radio.Group onChange={(e) => setPeliculas((peliculas) => [...peliculas, e.target.value])}>
+                                        <label forhtml="belico">Bélico:&nbsp;</label>
+                                        <Radio value="belico: 1">1</Radio>
+                                        <Radio value="belico: 2">2</Radio>
+                                        <Radio value="belico: 3">3</Radio>
+                                        <Radio value="belico: 4">4</Radio>
+                                        <Radio value="belico: 5">5</Radio>
+                                    </Radio.Group>
+                                    <Radio.Group onChange={(e) => setPeliculas((peliculas) => [...peliculas, e.target.value])}>
+                                        <label forhtml="western">Western:&nbsp;</label>
+                                        <Radio value="western: 1">1</Radio>
+                                        <Radio value="western: 2">2</Radio>
+                                        <Radio value="western: 3">3</Radio>
+                                        <Radio value="western: 4">4</Radio>
+                                        <Radio value="western: 5">5</Radio>
+                                    </Radio.Group>
                                 </div>) : ""}
                             </Checkbox>
                         </div>
                         <br />
+                        <div>
+                            <Checkbox name="aficiones" value="actividades" id="actividades" onChange={() => {
+                                if (viewActividades === true) {
+                                    setViewActividades(false)
+                                } else if (viewActividades === false) {
+                                    setViewActividades(true)
+                                }
+                            }}>
+                                <label>¿Cuáles son tus aficiones?</label>
+                                <br />
+                                {viewActividades ? (<div>
+                                    <Checkbox.Group>
+                                        <Checkbox name="airelibre" value="airelibre" id="airelibre" onChange={() => {
+                                            if (viewActividadesAireLibre === true) {
+                                                setViewActividadesAireLibre(false)
+                                            } else if (viewActividadesAireLibre === false) {
+                                                setViewActividadesAireLibre(true)
+                                            }
+                                        }}>
+                                            <label>Actividades al aire libre</label>
+                                            {viewActividadesAireLibre ? (
+                                            <div>
+                                                <Radio.Group onChange={(e) => setActividades((actividades) => [...actividades, e.target.value])}>
+                                                    <label forhtml="playa">Actividades en la playa:&nbsp;</label>
+                                                    <Radio value="playa: 1">1</Radio>
+                                                    <Radio value="playa: 2">2</Radio>
+                                                    <Radio value="playa: 3">3</Radio>
+                                                    <Radio value="playa: 4">4</Radio>
+                                                    <Radio value="playa: 5">5</Radio>
+                                                </Radio.Group>
+                                                <Radio.Group onChange={(e) => setActividades((actividades) => [...actividades, e.target.value])}>
+                                                    <label forhtml="aves">Observación de aves:&nbsp;</label>
+                                                    <Radio value="aves: 1">1</Radio>
+                                                    <Radio value="aves: 2">2</Radio>
+                                                    <Radio value="aves: 3">3</Radio>
+                                                    <Radio value="aves: 4">4</Radio>
+                                                    <Radio value="aves: 5">5</Radio>
+                                                </Radio.Group>
+                                            
+                                            
+                                            
+                                            </div>): ""}
+                                        </Checkbox>
+                                    </Checkbox.Group>
+                                </div>) : ""}
+                            </Checkbox>
+                        </div>
                     </Checkbox.Group>
                 </div>
+
+
 
                 <br />
                 <div>
@@ -1379,56 +1504,161 @@ function TestAfinidadUser() {
                 </div>
 
                 <br />
+                <div>
+                    <label>Instalaciones:</label>
+                    <br />
+                    <div id="respuestasInstalaciones">
+                        <Checkbox.Group onChange={(e) => cambiosCheckboxInstalaciones(e)}>
+                            <Checkbox name="idiomas" value="castellano" id="castellano">
+                                <label forhtml="castellano">&nbsp;Castellano</label>
+                            </Checkbox>&nbsp;
+                            <Checkbox name="idiomas" value="catalan" id="catalan" >
+                                <label forhtml="catalan">&nbsp;Catalán</label>
+                            </Checkbox>&nbsp;
+                            <Checkbox name="idiomas" value="euskera" id="euskera" >
+                                <label forhtml="euskera">&nbsp;Euskera</label>
+                            </Checkbox>&nbsp;
+                            <Checkbox name="idiomas" value="portugues" id="portugues" >
+                                <label forhtml="portugues">&nbsp;Portugués</label>
+                            </Checkbox>&nbsp;
+                            <Checkbox name="idiomas" value="coreano" id="coreano">
+                                <label forhtml="coreano">&nbsp;Coreano</label>
+                            </Checkbox>&nbsp;
+                            <Checkbox name="idiomas" value="chino" id="chino" >
+                                <label forhtml="chino">&nbsp;Chino</label>
+                            </Checkbox>&nbsp;
+                            <Checkbox name="idiomas" value="japones" id="japones" >
+                                <label forhtml="japones">&nbsp;Japonés</label>
+                            </Checkbox>&nbsp;
+                            <Checkbox name="idiomas" value="ingles" id="ingles" >
+                                <label forhtml="ingles">&nbsp;Inglés</label>
+                            </Checkbox>&nbsp;
+                            <Checkbox name="idiomas" value="italiano" id="italiano" >
+                                <label forhtml="italiano">&nbsp;Italiano</label>
+                            </Checkbox>&nbsp;
+                            <Checkbox name="idiomas" value="aleman" id="aleman" >
+                                <label forhtml="aleman">&nbsp;Alemán</label>
+                            </Checkbox>&nbsp;
+                            <Checkbox name="idiomas" value="frances" id="frances" >
+                                <label forhtml="frances">&nbsp;Francés</label>
+                            </Checkbox>
+                            <Checkbox name="idiomas" value="ruso" id="ruso" >
+                                <label forhtml="ruso">&nbsp;Ruso</label>
+                            </Checkbox>
+                            <Checkbox name="idiomas" value="neerlandes" id="neerlandes" >
+                                <label forhtml="neerlandes">&nbsp;Neerlandés</label>
+                            </Checkbox>
+                        </Checkbox.Group>
+                    </div>
+                </div>
+                <br />
+                <div>
+                    <label>Rango Edad:</label>
+                    <br />
+                    <Checkbox.Group onChange={(e) => cambiosCheckboxRangoEdad(e)}>
+                        <Checkbox name="rangoEdad" value="50-60" id="50-60">
+                            <label forhtml="50-60">&nbsp;Entre 50 y 60 años</label>
+                        </Checkbox>&nbsp;
+                        <Checkbox name="rangoEdad" value="60-70" id="60-70">
+                            <label forhtml="60-70">&nbsp;Entre 60 y 70 años</label>
+                        </Checkbox>&nbsp;
+                        <Checkbox name="rangoEdad" value="70-80" id="70-80">
+                            <label forhtml="70-80">&nbsp;Entre 70 y 80 años</label>
+                        </Checkbox>&nbsp;
+                        <Checkbox name="rangoEdad" value="+80" id="+80">
+                            <label forhtml="+80">&nbsp;Más de 80</label>
+                        </Checkbox>&nbsp;
+                    </Checkbox.Group>
+                </div>
+                <br />
+                <div>
+                    <br />
+                    <label>Dinero máximo que gastaría (mensual):</label>
+                    <br />
+                    <select name="metros" id="metros" onChange={(e) => setDinero(e.target.value)}>
+                        <option></option>
+                        <option value="200">Hasta 200 €</option>
+                        <option value="300">Hasta 300 €</option>
+                        <option value="400">Hasta 400 €</option>
+                        <option value="500">Hasta 500 €</option>
+                        <option value="600">Hasta 600 €</option>
+                        <option value="700">Hasta 700 €</option>
+                        <option value="800">Hasta 800 €</option>
+                        <option value="900">Hasta 900 €</option>
+                        <option value="1000">Hasta 1000 €</option>
+                        <option value="1100">Hasta 1100 €</option>
+                        <option value="1200">Hasta 1200 €</option>
+                        <option value="1300">Hasta 1300 €</option>
+                        <option value="1400">Hasta 1400 €</option>
+                        <option value="1500">Hasta 1500 €</option>
+                    </select>
+                </div>
+                <br />
 
-                {/* INSTALACIONES */}
-                <br />
-                <label>Rango Edad:</label>
-                <br />
-                <Checkbox.Group onChange={(e) => cambiosCheckboxRangoEdad(e)}>
-                    <Checkbox name="rangoEdad" value="50-60" id="50-60">
-                        <label forhtml="50-60">&nbsp;Entre 50 y 60 años</label>
-                    </Checkbox>&nbsp;
-                    <Checkbox name="rangoEdad" value="60-70" id="60-70">
-                        <label forhtml="60-70">&nbsp;Entre 60 y 70 años</label>
-                    </Checkbox>&nbsp;
-                    <Checkbox name="rangoEdad" value="70-80" id="70-80">
-                        <label forhtml="70-80">&nbsp;Entre 70 y 80 años</label>
-                    </Checkbox>&nbsp;
-                    <Checkbox name="rangoEdad" value="+80" id="+80">
-                        <label forhtml="+80">&nbsp;Más de 80</label>
-                    </Checkbox>&nbsp;
-                </Checkbox.Group>
-                <br />
-                <br />
-                <label>Dinero máximo que gastaría (mensual):</label>
-                <br />
-                <select name="metros" id="metros" onChange={(e) => setDinero(e.target.value)}>
-                    <option></option>
-                    <option value="200">Hasta 200 €</option>
-                    <option value="300">Hasta 300 €</option>
-                    <option value="400">Hasta 400 €</option>
-                    <option value="500">Hasta 500 €</option>
-                    <option value="600">Hasta 600 €</option>
-                    <option value="700">Hasta 700 €</option>
-                    <option value="800">Hasta 800 €</option>
-                    <option value="900">Hasta 900 €</option>
-                    <option value="1000">Hasta 1000 €</option>
-                    <option value="1100">Hasta 1100 €</option>
-                    <option value="1200">Hasta 1200 €</option>
-                    <option value="1300">Hasta 1300 €</option>
-                    <option value="1400">Hasta 1400 €</option>
-                    <option value="1500">Hasta 1500 €</option>
-                </select>
-                <br />
-                {/* DINERO */}
+                <div>
+                    <label>M&sup2; totales del immueble:</label>
+                    <br />
+                    <select name="metros" id="metros" onChange={(e) => setMetros(e.target.value)}>
+                        <option></option>
+                        <option value="100">100 m&sup2;</option>
+                        <option value="200">200 m&sup2;</option>
+                        <option value="300">300 m&sup2;</option>
+                        <option value="400">400 m&sup2;</option>
+                        <option value="500">500 m&sup2;</option>
+                        <option value="600">600 m&sup2;</option>
+                        <option value="700">700 m&sup2;</option>
+                        <option value="800">800 m&sup2;</option>
+                        <option value="900">900 m&sup2;</option>
+                        <option value="1000">1000 m&sup2;</option>
+                        <option value="1500">1500 m&sup2;</option>
+                        <option value="+1500">Más de 1500 m&sup2;</option>
+                    </select>
 
-                {/* METROS2 */}
+                </div>
+                <br />
+                <div>
+                    <label>Baños:</label>
+                    <br />
+                    <input type="radio" name="lavabo" value="privado" id="privado" onChange={(e) => setLavabo(e.target.value)}></input><label htmlFor="privado">&nbsp;Privado</label>
+                    <br />
+                    <input type="radio" name="lavabo" value="compartido" id="compartido" onChange={(e) => setLavabo(e.target.value)}></input><label htmlFor="compartido">&nbsp;Compartido</label>
+                    <br />
+                </div>
+                <br />
 
-                {/* BAÑO */}
-
-                {/* Exteriores */}
-
-                {/* GENTE */}
+                <div>
+                    <label>Exteriores:</label>
+                    <br />
+                    <div id="respuestasExteriores">
+                        <Checkbox.Group onChange={(e) => cambiosCheckboxExteriores(e)}>
+                            <Checkbox name="exteriores" value="no" id="no">
+                                <label forhtml="no">&nbsp;No</label>
+                            </Checkbox>&nbsp;
+                            <Checkbox name="exteriores" value="jardin" id="jardin" >
+                                <label forhtml="jardin">&nbsp;Jardín</label>
+                            </Checkbox>&nbsp;
+                            <Checkbox name="exteriores" value="terraza" id="terraza" >
+                                <label forhtml="terraza">&nbsp;Terraza</label>
+                            </Checkbox>&nbsp;
+                            <Checkbox name="exteriores" value="piscina" id="piscina" >
+                                <label forhtml="piscina">&nbsp;Piscina</label>
+                            </Checkbox>&nbsp;
+                        </Checkbox.Group>
+                    </div>
+                </div>
+                <br />
+                <div>
+                    <label>¿Con cuánta gente como máximo compartirías coliving?</label>
+                    <br />
+                    <select name="gente" id="gente" onChange={(e) => setGente(e.target.value)}>
+                        <option></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
                 <br />
                 <br />
                 <br />
