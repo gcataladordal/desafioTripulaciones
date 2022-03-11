@@ -1,7 +1,9 @@
 const Usuario = require("../models/userModel");
+const Colivings = require("../models/colivingModel");
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-const primeraInformacion = require("../models/primeraInformacion")
+const primeraInformacion = require("../models/primeraInformacion");
+const jwt = require("jsonwebtoken")
 
 const userActions = {
     registrarUsuario: (req, res) => {
@@ -116,57 +118,44 @@ async function registroUsuario(req, res) {
 async function registroColiving(req, res) {
     console.log(req.body)
     let nombre = req.body.nombre;
+    let idUserAdmin = req.body.idUserAdmin;
+    let activo = req.body.activo;
     let direccion = req.body.direccion;
     let ciudad = req.body.ciudad;
     let cp = req.body.cp;
     let telefono = req.body.telefono;
     let email = req.body.email;
-    let password = req.body.password;
-    let password2 = req.body.password2;
+    let gente = req.body.gente;
+    let capacidad = req.body.capacidad;
+    let idiomas = req.body.idiomas;
+    let orientacionSexual = req.body.orientacionSexual;
+    let religion = req.body.religion;
+    let mascota = req.body.mascota;
+    let fumador = req.body.fumador;
+    let ubicacion = req.body.ubicacion;
+    let tipoVivienda = req.body.tipoVivienda;
+    let rangoEdad = req.body.rangoEdad;
+    let dinero = req.body.dinero;
+    let metros = req.body.metros;
+    let lavabo = req.body.lavabo;
+    let exteriores = req.body.exteriores;
+    let facilAcceso = req.body.facilAcceso;
+    let instalaciones = req.body.instalaciones;
+    let ids = req.body.ids;
 
-    var regExpName = new RegExp(/^[a-zA-ZÀ-ÿ]+(\s[a-zA-ZÀ-ÿ]+)?$/);
-    var regExpEmail = new RegExp(/^[A-Za-z0-9]+[\w$&.-]+[A-Za-z0-9]+@[A-Za-z0-9]+[A-Za-z0-9-]+[A-Za-z0-9].[A-Za-z0-9]+$/);
-    var regExpPass = new RegExp(/^[\w-!¡@#$%&().¿?]{6,10}/);
-    var regExpDir = new RegExp(/W*/);
-    var regExpCp = new RegExp(/^\d{5}$/);
-    var regExpTelefono = new RegExp(/^[0-9]{9}$/);
-    var regExpCiudad = new RegExp(/^[a-zA-ZÀ-ÿ]+(\s[a-zA-ZÀ-ÿ]+)?$/);
-
-    let nombreOk = regExpName.test(nombre);
-    let direccionOK = regExpDir.test(direccion);
-    let ciudadOk = regExpCiudad.test(ciudad);
-    let cpOk = regExpCp.test(cp);
-    let telefonoOk = regExpTelefono.test(telefono);
-    let emailOk = regExpEmail.test(email);
-    let passwordOk = regExpPass.test(password) && (password === password2);
-    console.log("nombre:" + nombreOk)
-    console.log("direccion:" + direccionOK)
-    console.log("ciudad:" + ciudadOk)
-    console.log("cp:" + cpOk)
-    console.log("tel:" + telefonoOk)
-    console.log("email:" + emailOk)
-    console.log("pass:" + passwordOk)
-
-    let todoOk = nombreOk && direccionOK && ciudadOk && telefonoOk && emailOk && passwordOk && cpOk
-
-    if (todoOk) {
-        // Busqueda en la BBDD si el usuario existe
-        let usuarioExiste = await busquedaUsuarioEmail(email)
-        if (usuarioExiste[0] == null) {
-            // El usuario no existe, por tanto lo guardamos en la Base de Datos
-            let passEnc = "";
-            passEnc = await bcrypt.hash(password, saltRounds);
-            let inserta = await insertarUsuarioColiving(nombre, email, direccion, ciudad, cp, telefono, passEnc); //!!este es el orden de cómo se guarda en MongoDB
-            console.log("Usuario registrado correctamente")
-            res.json("insertOk")
-        } else {
-            console.log("Este usuario ya existe")
-            res.json("userExiste")
-        }
+    // Busqueda en la BBDD si el usuario existe
+    let usuarioExiste = await busquedaColivingEmail(email)
+    if (usuarioExiste[0] == null) {
+        // El usuario no existe, por tanto lo guardamos en la Base de Datos
+        
+        let inserta = await insertarColiving(nombre, idUserAdmin, activo, direccion, ciudad, cp, telefono, email, gente, capacidad, idiomas, orientacionSexual, religion, mascota, fumador, ubicacion, tipoVivienda, rangoEdad, dinero, metros, lavabo, exteriores, facilAcceso, instalaciones, ids); //!!este es el orden de cómo se guarda en MongoDB
+        console.log("Usuario registrado correctamente")
+        res.json("insertOk")
     } else {
-        console.log("Algún campo incorrecto")
-        res.json("campoIncorrecto")
+        console.log("Este usuario ya existe")
+        res.json("userExiste")
     }
+
 
 }
 
@@ -204,6 +193,12 @@ async function busquedaUsuarioEmail(email) {
     return datos;
 }
 
+
+async function busquedaColivingEmail(email) {
+    let datos = await Colivings.find({ email: email });
+    return datos;
+}
+
 //Función insertar usuario
 async function insertarUsuarioPersona(nombre, apellidos, email, direccion, ciudad, cp, telefono, password) {
     let usuario = {
@@ -227,22 +222,38 @@ async function insertarUsuarioPersona(nombre, apellidos, email, direccion, ciuda
     });
 }
 //Función insertar Coliving
-async function insertarUsuarioColiving(nombre, email, direccion, ciudad, cp, telefono, password) {
-    let usuario = {
-        nombre: nombre,
-        apellidos: "",
-        email: email,
-        direccion: direccion,
-        ciudad: ciudad,
-        cp: cp,
-        telefono: telefono,
-        password: password,
-        tipo_usuario: "coliving"
+async function insertarColiving(nombre, idUserAdmin, activo, direccion, ciudad, cp, telefono, email, gente, capacidad, idiomas, orientacionSexual, religion, mascota, fumador, ubicacion, tipoVivienda, rangoEdad, dinero, metros, lavabo, exteriores, facilAcceso, instalaciones, ids) {
+    let coliving = {
+        nombre,
+        idUserAdmin,
+        activo,
+        direccion,
+        ciudad,
+        cp,
+        telefono,
+        email,
+        gente,
+        capacidad,
+        idiomas,
+        orientacionSexual,
+        religion,
+        mascota,
+        fumador,
+        ubicacion,
+        tipoVivienda,
+        rangoEdad,
+        dinero,
+        metros,
+        lavabo,
+        exteriores,
+        facilAcceso,
+        instalaciones,
+        ids
     };
 
-    let nuevoUsuario = new Usuario(usuario);
+    let nuevoColiving = new Colivings(coliving);
 
-    nuevoUsuario.save(function (err) {
+    nuevoColiving.save(function (err) {
         if (err) throw err;
         console.log(`Inserción correcta del coliving ${email}`);
 

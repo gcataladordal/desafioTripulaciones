@@ -46,5 +46,11 @@
 }
 
 #map {
-  height: 500px;
+  display:flex;
+  justify-content: center; 
+}
+
+.leaflet-container {
+  width: 700px; 
+  height: 600px;
 }

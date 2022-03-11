@@ -8,7 +8,7 @@ function FormBusqueda() {
 
     const [region, setRegion] = useState("");
     const [idiomas, setIdiomas] = useState("");
-    const [orientacionSexual, setOrientacionSexual] = useState("");
+    const [pareja, setPareja] = useState("");
 
 
     const cambiosCheckboxRegion = (valoresMarcados) => {
@@ -25,7 +25,7 @@ function FormBusqueda() {
         let variables = {
             region: region,
             idiomas: idiomas,
-            orientacionSexual: orientacionSexual
+            pareja: pareja,
 
 
 
@@ -168,9 +168,9 @@ function FormBusqueda() {
                 <div>
                     <label>¿Quién se muda?</label>
                     <br />
-                    <input type="radio" name="solo_pareja" value="soloyo" id="soloyo" onChange={(e) => setDrogas(e.target.value)}></input><label htmlFor="soloyo">&nbsp;Sólo yo</label>
+                    <input type="radio" name="pareja" value="soloyo" id="soloyo" onChange={(e) => setPareja(e.target.value)}></input><label htmlFor="soloyo">&nbsp;Sólo yo</label>
                     <br />
-                    <input type="radio" name="solo_pareja" value="otrayyo" id="otrayyo" onChange={(e) => setDrogas(e.target.value)}></input><label htmlFor="otrayyo">&nbsp;Otra persona y yo</label>
+                    <input type="radio" name="pareja" value="otrayyo" id="otrayyo" onChange={(e) => setPareja(e.target.value)}></input><label htmlFor="otrayyo">&nbsp;Otra persona y yo</label>
                 </div>
 
 

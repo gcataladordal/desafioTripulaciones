@@ -17,8 +17,7 @@ function NavBar() {
         <div className="topnav">     
             <Link to="/">Home</Link>
             <Link to="/colivings">Colivings</Link>
-            {showRegister ? (<Link to="/registeruser">Registro</Link>) : ""}
-            {showRegister ? (<Link to="/registercoliving">Registro Coliving</Link>) : ""}             
+            {showRegister ? (<Link to="/registeruser">Registro</Link>) : ""}          
             {showIniciarSesion ? (<Link to="/login">Iniciar Sesión</Link>) : ""} 
             {showPerfil ? (<Link to="/testusuario">Test</Link>) : ""} 
             {showPerfil ? (<Link to="/formbusqueda">Busqueda Coliving</Link>) : ""} 
