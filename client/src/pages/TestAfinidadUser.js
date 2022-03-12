@@ -30,6 +30,15 @@ function TestAfinidadUser() {
     const [exteriores, setExteriores] = useState("");
     const [gente, setGente] = useState("")
     const [actividades, setActividades] = useState("");
+    const [manualidades, setManualidades] = useState("");
+    const [cocina, setCocina] = useState("");
+    const [artes, setArtes] = useState("");
+    const [entretenimiento, setEntretenimiento] = useState("");
+    const [sociedad, setSociedad] = useState("");
+    const [grupales, setGrupales] = useState("");
+    const [coleccionismo, setColeccionismo] = useState("");
+    const [ciencias, setCiencias] = useState("");
+
 
     const [viewCaracter, setViewCaracter] = useState(false);
     const [viewMusica, setViewMusica] = useState(false);
@@ -38,6 +47,14 @@ function TestAfinidadUser() {
     const [viewDeportes, setViewDeportes] = useState(false);
     const [viewActividades, setViewActividades] = useState(false);
     const [viewActividadesAireLibre, setViewActividadesAireLibre] = useState(false);
+    const [viewActividadesManuales, setViewActividadesManuales] = useState(false);
+    const [viewActividadesCocina, setViewActividadesCocina] = useState(false);
+    const [viewActividadesArtes, setViewActividadesArtes] = useState(false);
+    const [viewActividadesEntretenimiento, setViewActividadesEntretenimiento] = useState(false);
+    const [viewActividadesSociedad, setViewActividadesSociedad] = useState(false);
+    const [viewActividadesGrupales, setViewActividadesGrupales] = useState(false);
+    const [viewActividadesColeccionismo, setViewActividadesColeccionismo] = useState(false);
+    const [viewActividadesCiencias, setViewActividadesCiencias] = useState(false);
 
 
     const cambiosCheckboxRegion = (valoresMarcados) => {
@@ -200,43 +217,43 @@ function TestAfinidadUser() {
                                 <label forhtml="castellano">&nbsp;Castellano</label>
                             </Checkbox>&nbsp;
                             <Checkbox name="idiomas" value="catalan" id="catalan" >
-                                <label forhtml="catalan">&nbsp;Catalán</label>
+                                <label forhtml="catalan">&nbsp;Catalá</label>
                             </Checkbox>&nbsp;
                             <Checkbox name="idiomas" value="euskera" id="euskera" >
-                                <label forhtml="euskera">&nbsp;Euskera</label>
+                                <label forhtml="euskera">&nbsp;Euskara</label>
                             </Checkbox>&nbsp;
                             <Checkbox name="idiomas" value="gallego" id="gallego" >
-                                <label forhtml="gallego">&nbsp;Gallego</label>
+                                <label forhtml="gallego">&nbsp;Galego</label>
                             </Checkbox>&nbsp;
                             <Checkbox name="idiomas" value="valenciano" id="valenciano" >
-                                <label forhtml="valenciano">&nbsp;Valenciano</label>
+                                <label forhtml="valenciano">&nbsp;Valencià</label>
                             </Checkbox>
                             <Checkbox name="idiomas" value="coreano" id="coreano">
-                                <label forhtml="coreano">&nbsp;Coreano</label>
+                                <label forhtml="coreano">&nbsp;한국어</label>
                             </Checkbox>&nbsp;
                             <Checkbox name="idiomas" value="chino" id="chino" >
-                                <label forhtml="chino">&nbsp;Chino</label>
+                                <label forhtml="chino">&nbsp;中文</label>
                             </Checkbox>&nbsp;
                             <Checkbox name="idiomas" value="japones" id="japones" >
-                                <label forhtml="japones">&nbsp;Japonés</label>
+                                <label forhtml="japones">&nbsp;日本語</label>
                             </Checkbox>&nbsp;
                             <Checkbox name="idiomas" value="ingles" id="ingles" >
-                                <label forhtml="ingles">&nbsp;Inglés</label>
+                                <label forhtml="ingles">&nbsp;English</label>
                             </Checkbox>&nbsp;
                             <Checkbox name="idiomas" value="italiano" id="italiano" >
                                 <label forhtml="italiano">&nbsp;Italiano</label>
                             </Checkbox>&nbsp;
                             <Checkbox name="idiomas" value="aleman" id="aleman" >
-                                <label forhtml="aleman">&nbsp;Alemán</label>
+                                <label forhtml="aleman">&nbsp;Deutsch</label>
                             </Checkbox>&nbsp;
                             <Checkbox name="idiomas" value="frances" id="frances" >
-                                <label forhtml="frances">&nbsp;Francés</label>
+                                <label forhtml="frances">&nbsp;Français</label>
                             </Checkbox>
                             <Checkbox name="idiomas" value="ruso" id="ruso" >
-                                <label forhtml="ruso">&nbsp;Ruso</label>
+                                <label forhtml="ruso">&nbsp;Pусский</label>
                             </Checkbox>
                             <Checkbox name="idiomas" value="neerlandes" id="neerlandes" >
-                                <label forhtml="neerlandes">&nbsp;Neerlandés</label>
+                                <label forhtml="neerlandes">&nbsp;Nederlands</label>
                             </Checkbox>
 
                         </Checkbox.Group>
@@ -306,14 +323,15 @@ function TestAfinidadUser() {
                             }}>
                                 <label>¿Cómo eres?</label>
                                 <br />
-                                {viewCaracter ? (<div><Radio.Group onChange={(e) => setCaracter((caracter) => [...caracter, e.target.value])}>
-                                    <label forhtml="activo">Activo:&nbsp;</label>
-                                    <Radio value="activo: 1">1</Radio>
-                                    <Radio value="activo: 2">2</Radio>
-                                    <Radio value="activo: 3">3</Radio>
-                                    <Radio value="activo: 4">4</Radio>
-                                    <Radio value="activo: 5">5</Radio>
-                                </Radio.Group>
+                                {viewCaracter ? (<div>
+                                    <Radio.Group onChange={(e) => setCaracter((caracter) => [...caracter, e.target.value])}>
+                                        <label forhtml="activo">Activo:&nbsp;</label>
+                                        <Radio value="activo: 1">1</Radio>
+                                        <Radio value="activo: 2">2</Radio>
+                                        <Radio value="activo: 3">3</Radio>
+                                        <Radio value="activo: 4">4</Radio>
+                                        <Radio value="activo: 5">5</Radio>
+                                    </Radio.Group>
                                     <Radio.Group onChange={(e) => setCaracter((caracter) => [...caracter, e.target.value])}>
                                         <label forhtml="deportista">Deportista:&nbsp;</label>
                                         <Radio value="deportista: 1">1</Radio>
@@ -497,6 +515,14 @@ function TestAfinidadUser() {
                                         <Radio value="sociable: 3">3</Radio>
                                         <Radio value="sociable: 4">4</Radio>
                                         <Radio value="sociable: 5">5</Radio>
+                                    </Radio.Group>
+                                    <Radio.Group onChange={(e) => setCaracter((caracter) => [...caracter, e.target.value])}>
+                                        <label forhtml="generoso">Generoso:&nbsp;</label>
+                                        <Radio value="generoso: 1">1</Radio>
+                                        <Radio value="generoso: 2">2</Radio>
+                                        <Radio value="generoso: 3">3</Radio>
+                                        <Radio value="generoso: 4">4</Radio>
+                                        <Radio value="generoso: 5">5</Radio>
                                     </Radio.Group>
                                 </div>) : ""}
                             </Checkbox>
@@ -1369,28 +1395,820 @@ function TestAfinidadUser() {
                                         }}>
                                             <label>Actividades al aire libre</label>
                                             {viewActividadesAireLibre ? (
-                                            <div>
-                                                <Radio.Group onChange={(e) => setActividades((actividades) => [...actividades, e.target.value])}>
-                                                    <label forhtml="playa">Actividades en la playa:&nbsp;</label>
-                                                    <Radio value="playa: 1">1</Radio>
-                                                    <Radio value="playa: 2">2</Radio>
-                                                    <Radio value="playa: 3">3</Radio>
-                                                    <Radio value="playa: 4">4</Radio>
-                                                    <Radio value="playa: 5">5</Radio>
-                                                </Radio.Group>
-                                                <Radio.Group onChange={(e) => setActividades((actividades) => [...actividades, e.target.value])}>
-                                                    <label forhtml="aves">Observación de aves:&nbsp;</label>
-                                                    <Radio value="aves: 1">1</Radio>
-                                                    <Radio value="aves: 2">2</Radio>
-                                                    <Radio value="aves: 3">3</Radio>
-                                                    <Radio value="aves: 4">4</Radio>
-                                                    <Radio value="aves: 5">5</Radio>
-                                                </Radio.Group>
-                                            
-                                            
-                                            
-                                            </div>): ""}
+                                                <div>
+                                                    <Radio.Group onChange={(e) => setActividades((actividades) => [...actividades, e.target.value])}>
+                                                        <label forhtml="playa">Actividades en la playa:&nbsp;</label>
+                                                        <Radio value="playa: 1">1</Radio>
+                                                        <Radio value="playa: 2">2</Radio>
+                                                        <Radio value="playa: 3">3</Radio>
+                                                        <Radio value="playa: 4">4</Radio>
+                                                        <Radio value="playa: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setActividades((actividades) => [...actividades, e.target.value])}>
+                                                        <label forhtml="aves">Observación de aves:&nbsp;</label>
+                                                        <Radio value="aves: 1">1</Radio>
+                                                        <Radio value="aves: 2">2</Radio>
+                                                        <Radio value="aves: 3">3</Radio>
+                                                        <Radio value="aves: 4">4</Radio>
+                                                        <Radio value="aves: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setActividades((actividades) => [...actividades, e.target.value])}>
+                                                        <label forhtml="jardineria">Jardinería:&nbsp;</label>
+                                                        <Radio value="jardineria: 1">1</Radio>
+                                                        <Radio value="jardineria: 2">2</Radio>
+                                                        <Radio value="jardineria: 3">3</Radio>
+                                                        <Radio value="jardineria: 4">4</Radio>
+                                                        <Radio value="jardineria: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setActividades((actividades) => [...actividades, e.target.value])}>
+                                                        <label forhtml="montanismo">Montañismo:&nbsp;</label>
+                                                        <Radio value="montanismo: 1">1</Radio>
+                                                        <Radio value="montanismo: 2">2</Radio>
+                                                        <Radio value="montanismo: 3">3</Radio>
+                                                        <Radio value="montanismo: 4">4</Radio>
+                                                        <Radio value="montanismo: 5">5</Radio>
+                                                    </Radio.Group>
+
+                                                </div>) : ""}
                                         </Checkbox>
+                                        <br />
+                                        <Checkbox name="manualidades" value="manualidades" id="manualidades" onChange={() => {
+                                            if (viewActividadesManuales === true) {
+                                                setViewActividadesManuales(false)
+                                            } else if (viewActividadesManuales === false) {
+                                                setViewActividadesManuales(true)
+                                            }
+                                        }}>
+                                            <label>Hazlo tu mismo</label>
+                                            {viewActividadesManuales ? (
+                                                <div>
+                                                    <Radio.Group onChange={(e) => setManualidades((manualidades) => [...manualidades, e.target.value])}>
+                                                        <label forhtml="manualidades">Manualidades:&nbsp;</label>
+                                                        <Radio value="manualidades: 1">1</Radio>
+                                                        <Radio value="manualidades: 2">2</Radio>
+                                                        <Radio value="manualidades: 3">3</Radio>
+                                                        <Radio value="manualidades: 4">4</Radio>
+                                                        <Radio value="manualidades: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setManualidades((manualidades) => [...manualidades, e.target.value])}>
+                                                        <label forhtml="artesanias">Artesanías:&nbsp;</label>
+                                                        <Radio value="artesanias: 1">1</Radio>
+                                                        <Radio value="artesanias: 2">2</Radio>
+                                                        <Radio value="artesanias: 3">3</Radio>
+                                                        <Radio value="artesanias: 4">4</Radio>
+                                                        <Radio value="artesanias: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setManualidades((manualidades) => [...manualidades, e.target.value])}>
+                                                        <label forhtml="tejido">Tejido:&nbsp;</label>
+                                                        <Radio value="tejido: 1">1</Radio>
+                                                        <Radio value="tejido: 2">2</Radio>
+                                                        <Radio value="tejido: 3">3</Radio>
+                                                        <Radio value="tejido: 4">4</Radio>
+                                                        <Radio value="tejido: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setManualidades((manualidades) => [...manualidades, e.target.value])}>
+                                                        <label forhtml="croche">Croché:&nbsp;</label>
+                                                        <Radio value="croche: 1">1</Radio>
+                                                        <Radio value="croche: 2">2</Radio>
+                                                        <Radio value="croche: 3">3</Radio>
+                                                        <Radio value="croche: 4">4</Radio>
+                                                        <Radio value="croche: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setManualidades((manualidades) => [...manualidades, e.target.value])}>
+                                                        <label forhtml="ganchillo">Ganchillo:&nbsp;</label>
+                                                        <Radio value="ganchillo: 1">1</Radio>
+                                                        <Radio value="ganchillo: 2">2</Radio>
+                                                        <Radio value="ganchillo: 3">3</Radio>
+                                                        <Radio value="ganchillo: 4">4</Radio>
+                                                        <Radio value="ganchillo: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setManualidades((manualidades) => [...manualidades, e.target.value])}>
+                                                        <label forhtml="macrame">Macramé:&nbsp;</label>
+                                                        <Radio value="macrame: 1">1</Radio>
+                                                        <Radio value="macrame: 2">2</Radio>
+                                                        <Radio value="macrame: 3">3</Radio>
+                                                        <Radio value="macrame: 4">4</Radio>
+                                                        <Radio value="macrame: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setManualidades((manualidades) => [...manualidades, e.target.value])}>
+                                                        <label forhtml="bordado">Bordado:&nbsp;</label>
+                                                        <Radio value="bordado: 1">1</Radio>
+                                                        <Radio value="bordado: 2">2</Radio>
+                                                        <Radio value="bordado: 3">3</Radio>
+                                                        <Radio value="bordado: 4">4</Radio>
+                                                        <Radio value="bordado: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setManualidades((manualidades) => [...manualidades, e.target.value])}>
+                                                        <label forhtml="puntocruz">Punto de cruz:&nbsp;</label>
+                                                        <Radio value="puntocruz: 1">1</Radio>
+                                                        <Radio value="puntocruz: 2">2</Radio>
+                                                        <Radio value="puntocruz: 3">3</Radio>
+                                                        <Radio value="puntocruz: 4">4</Radio>
+                                                        <Radio value="puntocruz: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setManualidades((manualidades) => [...manualidades, e.target.value])}>
+                                                        <label forhtml="puntocruz">Punto de cruz:&nbsp;</label>
+                                                        <Radio value="puntocruz: 1">1</Radio>
+                                                        <Radio value="puntocruz: 2">2</Radio>
+                                                        <Radio value="puntocruz: 3">3</Radio>
+                                                        <Radio value="puntocruz: 4">4</Radio>
+                                                        <Radio value="puntocruz: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setManualidades((manualidades) => [...manualidades, e.target.value])}>
+                                                        <label forhtml="bolillo">Bolillo:&nbsp;</label>
+                                                        <Radio value="bolillo: 1">1</Radio>
+                                                        <Radio value="bolillo: 2">2</Radio>
+                                                        <Radio value="bolillo: 3">3</Radio>
+                                                        <Radio value="bolillo: 4">4</Radio>
+                                                        <Radio value="bolillo: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setManualidades((manualidades) => [...manualidades, e.target.value])}>
+                                                        <label forhtml="ceramica">Ceramica:&nbsp;</label>
+                                                        <Radio value="ceramica: 1">1</Radio>
+                                                        <Radio value="ceramica: 2">2</Radio>
+                                                        <Radio value="ceramica: 3">3</Radio>
+                                                        <Radio value="ceramica: 4">4</Radio>
+                                                        <Radio value="ceramica: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setManualidades((manualidades) => [...manualidades, e.target.value])}>
+                                                        <label forhtml="modelismo">Modelismo:&nbsp;</label>
+                                                        <Radio value="modelismo: 1">1</Radio>
+                                                        <Radio value="modelismo: 2">2</Radio>
+                                                        <Radio value="modelismo: 3">3</Radio>
+                                                        <Radio value="modelismo: 4">4</Radio>
+                                                        <Radio value="modelismo: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setManualidades((manualidades) => [...manualidades, e.target.value])}>
+                                                        <label forhtml="carpinteria">Carpinteria:&nbsp;</label>
+                                                        <Radio value="carpinteria: 1">1</Radio>
+                                                        <Radio value="carpinteria: 2">2</Radio>
+                                                        <Radio value="carpinteria: 3">3</Radio>
+                                                        <Radio value="carpinteria: 4">4</Radio>
+                                                        <Radio value="carpinteria: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setManualidades((manualidades) => [...manualidades, e.target.value])}>
+                                                        <label forhtml="costura">Costura:&nbsp;</label>
+                                                        <Radio value="costura: 1">1</Radio>
+                                                        <Radio value="costura: 2">2</Radio>
+                                                        <Radio value="costura: 3">3</Radio>
+                                                        <Radio value="costura: 4">4</Radio>
+                                                        <Radio value="costura: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setManualidades((manualidades) => [...manualidades, e.target.value])}>
+                                                        <label forhtml="bricolage">Bricolage:&nbsp;</label>
+                                                        <Radio value="bricolage: 1">1</Radio>
+                                                        <Radio value="bricolage: 2">2</Radio>
+                                                        <Radio value="bricolage: 3">3</Radio>
+                                                        <Radio value="bricolage: 4">4</Radio>
+                                                        <Radio value="bricolage: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setManualidades((manualidades) => [...manualidades, e.target.value])}>
+                                                        <label forhtml="robotica">Robótica:&nbsp;</label>
+                                                        <Radio value="robotica: 1">1</Radio>
+                                                        <Radio value="robotica: 2">2</Radio>
+                                                        <Radio value="robotica: 3">3</Radio>
+                                                        <Radio value="robotica: 4">4</Radio>
+                                                        <Radio value="robotica: 5">5</Radio>
+                                                    </Radio.Group>
+                                                </div>) : ""}
+                                        </Checkbox>
+                                        <br />
+                                        <Checkbox name="cocina" value="cocina" id="cocina" onChange={() => {
+                                            if (viewActividadesCocina === true) {
+                                                setViewActividadesCocina(false)
+                                            } else if (viewActividadesCocina === false) {
+                                                setViewActividadesCocina(true)
+                                            }
+                                        }}>
+                                            <label>Actividades de cocina</label>
+                                            {viewActividadesCocina ? (
+                                                <div>
+                                                    <Radio.Group onChange={(e) => setCocina((cocina) => [...cocina, e.target.value])}>
+                                                        <label forhtml="cerveza">Cerveza artesanal:&nbsp;</label>
+                                                        <Radio value="cerveza: 1">1</Radio>
+                                                        <Radio value="cerveza: 2">2</Radio>
+                                                        <Radio value="cerveza: 3">3</Radio>
+                                                        <Radio value="cerveza: 4">4</Radio>
+                                                        <Radio value="cerveza: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setCocina((cocina) => [...cocina, e.target.value])}>
+                                                        <label forhtml="cocina">Cocina:&nbsp;</label>
+                                                        <Radio value="cocina: 1">1</Radio>
+                                                        <Radio value="cocina: 2">2</Radio>
+                                                        <Radio value="cocina: 3">3</Radio>
+                                                        <Radio value="cocina: 4">4</Radio>
+                                                        <Radio value="cocina: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setCocina((cocina) => [...cocina, e.target.value])}>
+                                                        <label forhtml="reposteria">Repostería:&nbsp;</label>
+                                                        <Radio value="reposteria: 1">1</Radio>
+                                                        <Radio value="reposteria: 2">2</Radio>
+                                                        <Radio value="reposteria: 3">3</Radio>
+                                                        <Radio value="reposteria: 4">4</Radio>
+                                                        <Radio value="reposteria: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setCocina((cocina) => [...cocina, e.target.value])}>
+                                                        <label forhtml="gastronomia">Gastronomia molecular:&nbsp;</label>
+                                                        <Radio value="gastronomia: 1">1</Radio>
+                                                        <Radio value="gastronomia: 2">2</Radio>
+                                                        <Radio value="gastronomia: 3">3</Radio>
+                                                        <Radio value="gastronomia: 4">4</Radio>
+                                                        <Radio value="gastronomia: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setCocina((cocina) => [...cocina, e.target.value])}>
+                                                        <label forhtml="india">Cocina india:&nbsp;</label>
+                                                        <Radio value="india: 1">1</Radio>
+                                                        <Radio value="india: 2">2</Radio>
+                                                        <Radio value="india: 3">3</Radio>
+                                                        <Radio value="india: 4">4</Radio>
+                                                        <Radio value="india: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setCocina((cocina) => [...cocina, e.target.value])}>
+                                                        <label forhtml="oriental">Cocina oriental:&nbsp;</label>
+                                                        <Radio value="oriental: 1">1</Radio>
+                                                        <Radio value="oriental: 2">2</Radio>
+                                                        <Radio value="oriental: 3">3</Radio>
+                                                        <Radio value="oriental: 4">4</Radio>
+                                                        <Radio value="oriental: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setCocina((cocina) => [...cocina, e.target.value])}>
+                                                        <label forhtml="mexicana">Cocina mexicana:&nbsp;</label>
+                                                        <Radio value="mexicana: 1">1</Radio>
+                                                        <Radio value="mexicana: 2">2</Radio>
+                                                        <Radio value="mexicana: 3">3</Radio>
+                                                        <Radio value="mexicana: 4">4</Radio>
+                                                        <Radio value="mexicana: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setCocina((cocina) => [...cocina, e.target.value])}>
+                                                        <label forhtml="mediterranea">Cocina mediterránea:&nbsp;</label>
+                                                        <Radio value="mediterranea: 1">1</Radio>
+                                                        <Radio value="mediterranea: 2">2</Radio>
+                                                        <Radio value="mediterranea: 3">3</Radio>
+                                                        <Radio value="mediterranea: 4">4</Radio>
+                                                        <Radio value="mediterranea: 5">5</Radio>
+                                                    </Radio.Group>
+                                                </div>) : ""}
+                                        </Checkbox>
+                                        <br />
+                                        <Checkbox name="artes" value="artes" id="artes" onChange={() => {
+                                            if (viewActividadesArtes === true) {
+                                                setViewActividadesArtes(false)
+                                            } else if (viewActividadesArtes === false) {
+                                                setViewActividadesArtes(true)
+                                            }
+                                        }}>
+                                            <label>Actividades de arte</label>
+                                            {viewActividadesArtes ? (
+                                                <div>
+                                                    <Radio.Group onChange={(e) => setArtes((artes) => [...artes, e.target.value])}>
+                                                        <label forhtml="museos">Museos:&nbsp;</label>
+                                                        <Radio value="museos: 1">1</Radio>
+                                                        <Radio value="museos: 2">2</Radio>
+                                                        <Radio value="museos: 3">3</Radio>
+                                                        <Radio value="museos: 4">4</Radio>
+                                                        <Radio value="museos: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setArtes((artes) => [...artes, e.target.value])}>
+                                                        <label forhtml="escritura">Escritura:&nbsp;</label>
+                                                        <Radio value="escritura: 1">1</Radio>
+                                                        <Radio value="escritura: 2">2</Radio>
+                                                        <Radio value="escritura: 3">3</Radio>
+                                                        <Radio value="escritura: 4">4</Radio>
+                                                        <Radio value="escritura: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setArtes((artes) => [...artes, e.target.value])}>
+                                                        <label forhtml="beatboxing">Beatboxing:&nbsp;</label>
+                                                        <Radio value="beatboxing: 1">1</Radio>
+                                                        <Radio value="beatboxing: 2">2</Radio>
+                                                        <Radio value="beatboxing: 3">3</Radio>
+                                                        <Radio value="beatboxing: 4">4</Radio>
+                                                        <Radio value="beatboxing: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setArtes((artes) => [...artes, e.target.value])}>
+                                                        <label forhtml="musica">Componer musica:&nbsp;</label>
+                                                        <Radio value="musica: 1">1</Radio>
+                                                        <Radio value="musica: 2">2</Radio>
+                                                        <Radio value="musica: 3">3</Radio>
+                                                        <Radio value="musica: 4">4</Radio>
+                                                        <Radio value="musica: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setArtes((artes) => [...artes, e.target.value])}>
+                                                        <label forhtml="baile">Baile:&nbsp;</label>
+                                                        <Radio value="baile: 1">1</Radio>
+                                                        <Radio value="baile: 2">2</Radio>
+                                                        <Radio value="baile: 3">3</Radio>
+                                                        <Radio value="baile: 4">4</Radio>
+                                                        <Radio value="baile: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setArtes((artes) => [...artes, e.target.value])}>
+                                                        <label forhtml="fotografia">Fotografía:&nbsp;</label>
+                                                        <Radio value="fotografia: 1">1</Radio>
+                                                        <Radio value="fotografia: 2">2</Radio>
+                                                        <Radio value="fotografia: 3">3</Radio>
+                                                        <Radio value="fotografia: 4">4</Radio>
+                                                        <Radio value="fotografia: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setArtes((artes) => [...artes, e.target.value])}>
+                                                        <label forhtml="dibujo">Dibujo:&nbsp;</label>
+                                                        <Radio value="dibujo: 1">1</Radio>
+                                                        <Radio value="dibujo: 2">2</Radio>
+                                                        <Radio value="dibujo: 3">3</Radio>
+                                                        <Radio value="dibujo: 4">4</Radio>
+                                                        <Radio value="dibujo: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setArtes((artes) => [...artes, e.target.value])}>
+                                                        <label forhtml="dibujo">Dibujo:&nbsp;</label>
+                                                        <Radio value="dibujo: 1">1</Radio>
+                                                        <Radio value="dibujo: 2">2</Radio>
+                                                        <Radio value="dibujo: 3">3</Radio>
+                                                        <Radio value="dibujo: 4">4</Radio>
+                                                        <Radio value="dibujo: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setArtes((artes) => [...artes, e.target.value])}>
+                                                        <label forhtml="instrumentos">Instrumentos musicales:&nbsp;</label>
+                                                        <Radio value="instrumentos: 1">1</Radio>
+                                                        <Radio value="instrumentos: 2">2</Radio>
+                                                        <Radio value="instrumentos: 3">3</Radio>
+                                                        <Radio value="instrumentos: 4">4</Radio>
+                                                        <Radio value="instrumentos: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setArtes((artes) => [...artes, e.target.value])}>
+                                                        <label forhtml="canto">Canto:&nbsp;</label>
+                                                        <Radio value="canto: 1">1</Radio>
+                                                        <Radio value="canto: 2">2</Radio>
+                                                        <Radio value="canto: 3">3</Radio>
+                                                        <Radio value="canto: 4">4</Radio>
+                                                        <Radio value="canto: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setArtes((artes) => [...artes, e.target.value])}>
+                                                        <label forhtml="conciertos">Conciertos:&nbsp;</label>
+                                                        <Radio value="conciertos: 1">1</Radio>
+                                                        <Radio value="conciertos: 2">2</Radio>
+                                                        <Radio value="conciertos: 3">3</Radio>
+                                                        <Radio value="conciertos: 4">4</Radio>
+                                                        <Radio value="conciertos: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setArtes((artes) => [...artes, e.target.value])}>
+                                                        <label forhtml="teatro">Teatro:&nbsp;</label>
+                                                        <Radio value="teatro: 1">1</Radio>
+                                                        <Radio value="teatro: 2">2</Radio>
+                                                        <Radio value="teatro: 3">3</Radio>
+                                                        <Radio value="teatro: 4">4</Radio>
+                                                        <Radio value="teatro: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setArtes((artes) => [...artes, e.target.value])}>
+                                                        <label forhtml="opera">Ópera:&nbsp;</label>
+                                                        <Radio value="opera: 1">1</Radio>
+                                                        <Radio value="opera: 2">2</Radio>
+                                                        <Radio value="opera: 3">3</Radio>
+                                                        <Radio value="opera: 4">4</Radio>
+                                                        <Radio value="opera: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setArtes((artes) => [...artes, e.target.value])}>
+                                                        <label forhtml="pintura">Pintura:&nbsp;</label>
+                                                        <Radio value="pintura: 1">1</Radio>
+                                                        <Radio value="pintura: 2">2</Radio>
+                                                        <Radio value="pintura: 3">3</Radio>
+                                                        <Radio value="pintura: 4">4</Radio>
+                                                        <Radio value="pintura: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setArtes((artes) => [...artes, e.target.value])}>
+                                                        <label forhtml="literatura">Literatura:&nbsp;</label>
+                                                        <Radio value="literatura: 1">1</Radio>
+                                                        <Radio value="literatura: 2">2</Radio>
+                                                        <Radio value="literatura: 3">3</Radio>
+                                                        <Radio value="literatura: 4">4</Radio>
+                                                        <Radio value="literatura: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setArtes((artes) => [...artes, e.target.value])}>
+                                                        <label forhtml="poesia">Poesía:&nbsp;</label>
+                                                        <Radio value="poesia: 1">1</Radio>
+                                                        <Radio value="poesia: 2">2</Radio>
+                                                        <Radio value="poesia: 3">3</Radio>
+                                                        <Radio value="poesia: 4">4</Radio>
+                                                        <Radio value="poesia: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setArtes((artes) => [...artes, e.target.value])}>
+                                                        <label forhtml="comics">Cómics:&nbsp;</label>
+                                                        <Radio value="comics: 1">1</Radio>
+                                                        <Radio value="comics: 2">2</Radio>
+                                                        <Radio value="comics: 3">3</Radio>
+                                                        <Radio value="comics: 4">4</Radio>
+                                                        <Radio value="comics: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setArtes((artes) => [...artes, e.target.value])}>
+                                                        <label forhtml="blogging">Blogging:&nbsp;</label>
+                                                        <Radio value="blogging: 1">1</Radio>
+                                                        <Radio value="blogging: 2">2</Radio>
+                                                        <Radio value="blogging: 3">3</Radio>
+                                                        <Radio value="blogging: 4">4</Radio>
+                                                        <Radio value="blogging: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setArtes((artes) => [...artes, e.target.value])}>
+                                                        <label forhtml="cine">Cine:&nbsp;</label>
+                                                        <Radio value="cine: 1">1</Radio>
+                                                        <Radio value="cine: 2">2</Radio>
+                                                        <Radio value="cine: 3">3</Radio>
+                                                        <Radio value="cine: 4">4</Radio>
+                                                        <Radio value="cine: 5">5</Radio>
+                                                    </Radio.Group>
+                                                </div>) : ""}
+                                        </Checkbox>
+                                        <br />
+                                        <Checkbox name="entretenimiento" value="entretenimiento" id="entretenimiento" onChange={() => {
+                                            if (viewActividadesEntretenimiento === true) {
+                                                setViewActividadesEntretenimiento(false)
+                                            } else if (viewActividadesEntretenimiento === false) {
+                                                setViewActividadesEntretenimiento(true)
+                                            }
+                                        }}>
+                                            <label>Actividades de entretenimiento</label>
+                                            {viewActividadesEntretenimiento ? (
+                                                <div>
+                                                    <Radio.Group onChange={(e) => setEntretenimiento((entretenimiento) => [...entretenimiento, e.target.value])}>
+                                                        <label forhtml="mesa">Juegos de mesa:&nbsp;</label>
+                                                        <Radio value="mesa: 1">1</Radio>
+                                                        <Radio value="mesa: 2">2</Radio>
+                                                        <Radio value="mesa: 3">3</Radio>
+                                                        <Radio value="mesa: 4">4</Radio>
+                                                        <Radio value="mesa: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setEntretenimiento((entretenimiento) => [...entretenimiento, e.target.value])}>
+                                                        <label forhtml="dardos">Dardos:&nbsp;</label>
+                                                        <Radio value="dardos: 1">1</Radio>
+                                                        <Radio value="dardos: 2">2</Radio>
+                                                        <Radio value="dardos: 3">3</Radio>
+                                                        <Radio value="dardos: 4">4</Radio>
+                                                        <Radio value="dardos: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setEntretenimiento((entretenimiento) => [...entretenimiento, e.target.value])}>
+                                                        <label forhtml="crucigramas">Crucigramas:&nbsp;</label>
+                                                        <Radio value="crucigramas: 1">1</Radio>
+                                                        <Radio value="crucigramas: 2">2</Radio>
+                                                        <Radio value="crucigramas: 3">3</Radio>
+                                                        <Radio value="crucigramas: 4">4</Radio>
+                                                        <Radio value="crucigramas: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setEntretenimiento((entretenimiento) => [...entretenimiento, e.target.value])}>
+                                                        <label forhtml="cartas">Juegos de cartas:&nbsp;</label>
+                                                        <Radio value="cartas: 1">1</Radio>
+                                                        <Radio value="cartas: 2">2</Radio>
+                                                        <Radio value="cartas: 3">3</Radio>
+                                                        <Radio value="cartas: 4">4</Radio>
+                                                        <Radio value="cartas: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setEntretenimiento((entretenimiento) => [...entretenimiento, e.target.value])}>
+                                                        <label forhtml="rompecabezas">Rompecabezas:&nbsp;</label>
+                                                        <Radio value="rompecabezas: 1">1</Radio>
+                                                        <Radio value="rompecabezas: 2">2</Radio>
+                                                        <Radio value="rompecabezas: 3">3</Radio>
+                                                        <Radio value="rompecabezas: 4">4</Radio>
+                                                        <Radio value="rompecabezas: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setEntretenimiento((entretenimiento) => [...entretenimiento, e.target.value])}>
+                                                        <label forhtml="poker">Póker:&nbsp;</label>
+                                                        <Radio value="poker: 1">1</Radio>
+                                                        <Radio value="poker: 2">2</Radio>
+                                                        <Radio value="poker: 3">3</Radio>
+                                                        <Radio value="poker: 4">4</Radio>
+                                                        <Radio value="poker: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setEntretenimiento((entretenimiento) => [...entretenimiento, e.target.value])}>
+                                                        <label forhtml="videojuegos">Videojuegos:&nbsp;</label>
+                                                        <Radio value="videojuegos: 1">1</Radio>
+                                                        <Radio value="videojuegos: 2">2</Radio>
+                                                        <Radio value="videojuegos: 3">3</Radio>
+                                                        <Radio value="videojuegos: 4">4</Radio>
+                                                        <Radio value="videojuegos: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setEntretenimiento((entretenimiento) => [...entretenimiento, e.target.value])}>
+                                                        <label forhtml="bingo">Bingo:&nbsp;</label>
+                                                        <Radio value="bingo: 1">1</Radio>
+                                                        <Radio value="bingo: 2">2</Radio>
+                                                        <Radio value="bingo: 3">3</Radio>
+                                                        <Radio value="bingo: 4">4</Radio>
+                                                        <Radio value="bingo: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setEntretenimiento((entretenimiento) => [...entretenimiento, e.target.value])}>
+                                                        <label forhtml="casino">Casino:&nbsp;</label>
+                                                        <Radio value="casino: 1">1</Radio>
+                                                        <Radio value="casino: 2">2</Radio>
+                                                        <Radio value="casino: 3">3</Radio>
+                                                        <Radio value="casino: 4">4</Radio>
+                                                        <Radio value="casino: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setEntretenimiento((entretenimiento) => [...entretenimiento, e.target.value])}>
+                                                        <label forhtml="magia">Magia:&nbsp;</label>
+                                                        <Radio value="magia: 1">1</Radio>
+                                                        <Radio value="magia: 2">2</Radio>
+                                                        <Radio value="magia: 3">3</Radio>
+                                                        <Radio value="magia: 4">4</Radio>
+                                                        <Radio value="magia: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setEntretenimiento((entretenimiento) => [...entretenimiento, e.target.value])}>
+                                                        <label forhtml="telenovelas">Telenovelas:&nbsp;</label>
+                                                        <Radio value="telenovelas: 1">1</Radio>
+                                                        <Radio value="telenovelas: 2">2</Radio>
+                                                        <Radio value="telenovelas: 3">3</Radio>
+                                                        <Radio value="telenovelas: 4">4</Radio>
+                                                        <Radio value="telenovelas: 5">5</Radio>
+                                                    </Radio.Group>
+
+                                                </div>) : ""}
+                                        </Checkbox>
+                                        <br />
+                                        <Checkbox name="sociedad" value="sociedad" id="sociedad" onChange={() => {
+                                            if (viewActividadesSociedad === true) {
+                                                setViewActividadesSociedad(false)
+                                            } else if (viewActividadesSociedad === false) {
+                                                setViewActividadesSociedad(true)
+                                            }
+                                        }}>
+                                            <label>Actividades de sociedad</label>
+                                            {viewActividadesSociedad ? (
+                                                <div>
+                                                    <Radio.Group onChange={(e) => setSociedad((sociedad) => [...sociedad, e.target.value])}>
+                                                        <label forhtml="reciclaje">Reciclaje:&nbsp;</label>
+                                                        <Radio value="reciclaje: 1">1</Radio>
+                                                        <Radio value="reciclaje: 2">2</Radio>
+                                                        <Radio value="reciclaje: 3">3</Radio>
+                                                        <Radio value="reciclaje: 4">4</Radio>
+                                                        <Radio value="reciclaje: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setSociedad((sociedad) => [...sociedad, e.target.value])}>
+                                                        <label forhtml="iglesia">Actividades de iglesia:&nbsp;</label>
+                                                        <Radio value="iglesia: 1">1</Radio>
+                                                        <Radio value="iglesia: 2">2</Radio>
+                                                        <Radio value="iglesia: 3">3</Radio>
+                                                        <Radio value="iglesia: 4">4</Radio>
+                                                        <Radio value="iglesia: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setSociedad((sociedad) => [...sociedad, e.target.value])}>
+                                                        <label forhtml="socializar">Socializar:&nbsp;</label>
+                                                        <Radio value="socializar: 1">1</Radio>
+                                                        <Radio value="socializar: 2">2</Radio>
+                                                        <Radio value="socializar: 3">3</Radio>
+                                                        <Radio value="socializar: 4">4</Radio>
+                                                        <Radio value="socializar: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setSociedad((sociedad) => [...sociedad, e.target.value])}>
+                                                        <label forhtml="voluntario">Voluntario:&nbsp;</label>
+                                                        <Radio value="voluntario: 1">1</Radio>
+                                                        <Radio value="voluntario: 2">2</Radio>
+                                                        <Radio value="voluntario: 3">3</Radio>
+                                                        <Radio value="voluntario: 4">4</Radio>
+                                                        <Radio value="voluntario: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setSociedad((sociedad) => [...sociedad, e.target.value])}>
+                                                        <label forhtml="voluntariado">Voluntariado:&nbsp;</label>
+                                                        <Radio value="voluntariado: 1">1</Radio>
+                                                        <Radio value="voluntariado: 2">2</Radio>
+                                                        <Radio value="voluntariado: 3">3</Radio>
+                                                        <Radio value="voluntariado: 4">4</Radio>
+                                                        <Radio value="voluntariado: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setSociedad((sociedad) => [...sociedad, e.target.value])}>
+                                                        <label forhtml="animales">Animales:&nbsp;</label>
+                                                        <Radio value="animales: 1">1</Radio>
+                                                        <Radio value="animales: 2">2</Radio>
+                                                        <Radio value="animales: 3">3</Radio>
+                                                        <Radio value="animales: 4">4</Radio>
+                                                        <Radio value="animales: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setSociedad((sociedad) => [...sociedad, e.target.value])}>
+                                                        <label forhtml="astrologia">Astrología:&nbsp;</label>
+                                                        <Radio value="astrologia: 1">1</Radio>
+                                                        <Radio value="astrologia: 2">2</Radio>
+                                                        <Radio value="astrologia: 3">3</Radio>
+                                                        <Radio value="astrologia: 4">4</Radio>
+                                                        <Radio value="astrologia: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setSociedad((sociedad) => [...sociedad, e.target.value])}>
+                                                        <label forhtml="tarot">Tarot:&nbsp;</label>
+                                                        <Radio value="tarot: 1">1</Radio>
+                                                        <Radio value="tarot: 2">2</Radio>
+                                                        <Radio value="tarot: 3">3</Radio>
+                                                        <Radio value="tarot: 4">4</Radio>
+                                                        <Radio value="tarot: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setSociedad((sociedad) => [...sociedad, e.target.value])}>
+                                                        <label forhtml="meditacion">Meditación:&nbsp;</label>
+                                                        <Radio value="meditacion: 1">1</Radio>
+                                                        <Radio value="meditacion: 2">2</Radio>
+                                                        <Radio value="meditacion: 3">3</Radio>
+                                                        <Radio value="meditacion: 4">4</Radio>
+                                                        <Radio value="meditacion: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setSociedad((sociedad) => [...sociedad, e.target.value])}>
+                                                        <label forhtml="corazon">Prensa del corazón:&nbsp;</label>
+                                                        <Radio value="corazon: 1">1</Radio>
+                                                        <Radio value="corazon: 2">2</Radio>
+                                                        <Radio value="corazon: 3">3</Radio>
+                                                        <Radio value="corazon: 4">4</Radio>
+                                                        <Radio value="corazon: 5">5</Radio>
+                                                    </Radio.Group>
+                                                </div>) : ""}
+                                        </Checkbox>
+                                        <br />
+                                        <Checkbox name="grupales" value="grupales" id="grupales" onChange={() => {
+                                            if (viewActividadesGrupales === true) {
+                                                setViewActividadesGrupales(false)
+                                            } else if (viewActividadesGrupales === false) {
+                                                setViewActividadesGrupales(true)
+                                            }
+                                        }}>
+                                            <label>Actividades grupales</label>
+                                            {viewActividadesGrupales ? (
+                                                <div>
+                                                    <Radio.Group onChange={(e) => setGrupales((grupales) => [...grupales, e.target.value])}>
+                                                        <label forhtml="viajar">Viajar:&nbsp;</label>
+                                                        <Radio value="viajar: 1">1</Radio>
+                                                        <Radio value="viajar: 2">2</Radio>
+                                                        <Radio value="viajar: 3">3</Radio>
+                                                        <Radio value="viajar: 4">4</Radio>
+                                                        <Radio value="viajar: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setGrupales((grupales) => [...grupales, e.target.value])}>
+                                                        <label forhtml="vino">Cata de vino:&nbsp;</label>
+                                                        <Radio value="vino: 1">1</Radio>
+                                                        <Radio value="vino: 2">2</Radio>
+                                                        <Radio value="vino: 3">3</Radio>
+                                                        <Radio value="vino: 4">4</Radio>
+                                                        <Radio value="vino: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setGrupales((grupales) => [...grupales, e.target.value])}>
+                                                        <label forhtml="cosplay">Cosplay:&nbsp;</label>
+                                                        <Radio value="cosplay: 1">1</Radio>
+                                                        <Radio value="cosplay: 2">2</Radio>
+                                                        <Radio value="cosplay: 3">3</Radio>
+                                                        <Radio value="cosplay: 4">4</Radio>
+                                                        <Radio value="cosplay: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setGrupales((grupales) => [...grupales, e.target.value])}>
+                                                        <label forhtml="disfraces">Disfraces:&nbsp;</label>
+                                                        <Radio value="disfraces: 1">1</Radio>
+                                                        <Radio value="disfraces: 2">2</Radio>
+                                                        <Radio value="disfraces: 3">3</Radio>
+                                                        <Radio value="disfraces: 4">4</Radio>
+                                                        <Radio value="disfraces: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setGrupales((grupales) => [...grupales, e.target.value])}>
+                                                        <label forhtml="turismo">Turismo local:&nbsp;</label>
+                                                        <Radio value="turismo: 1">1</Radio>
+                                                        <Radio value="turismo: 2">2</Radio>
+                                                        <Radio value="turismo: 3">3</Radio>
+                                                        <Radio value="turismo: 4">4</Radio>
+                                                        <Radio value="turismo: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setGrupales((grupales) => [...grupales, e.target.value])}>
+                                                        <label forhtml="rol">Juegos de rol local:&nbsp;</label>
+                                                        <Radio value="rol: 1">1</Radio>
+                                                        <Radio value="rol: 2">2</Radio>
+                                                        <Radio value="rol: 3">3</Radio>
+                                                        <Radio value="rol: 4">4</Radio>
+                                                        <Radio value="rol: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setGrupales((grupales) => [...grupales, e.target.value])}>
+                                                        <label forhtml="vivo">Rol en vivo:&nbsp;</label>
+                                                        <Radio value="vivo: 1">1</Radio>
+                                                        <Radio value="vivo: 2">2</Radio>
+                                                        <Radio value="vivo: 3">3</Radio>
+                                                        <Radio value="vivo: 4">4</Radio>
+                                                        <Radio value="vivo: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setGrupales((grupales) => [...grupales, e.target.value])}>
+                                                        <label forhtml="historica">Recreación histórica:&nbsp;</label>
+                                                        <Radio value="historica: 1">1</Radio>
+                                                        <Radio value="historica: 2">2</Radio>
+                                                        <Radio value="historica: 3">3</Radio>
+                                                        <Radio value="historica: 4">4</Radio>
+                                                        <Radio value="historica: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setGrupales((grupales) => [...grupales, e.target.value])}>
+                                                        <label forhtml="fumadores">Club de fumadores:&nbsp;</label>
+                                                        <Radio value="fumadores: 1">1</Radio>
+                                                        <Radio value="fumadores: 2">2</Radio>
+                                                        <Radio value="fumadores: 3">3</Radio>
+                                                        <Radio value="fumadores: 4">4</Radio>
+                                                        <Radio value="fumadores: 5">5</Radio>
+                                                    </Radio.Group>
+                                                </div>) : ""}
+                                        </Checkbox>
+                                        <br />
+                                        <Checkbox name="coleccionismo" value="coleccionismo" id="coleccionismo" onChange={() => {
+                                            if (viewActividadesColeccionismo === true) {
+                                                setViewActividadesColeccionismo(false)
+                                            } else if (viewActividadesColeccionismo === false) {
+                                                setViewActividadesColeccionismo(true)
+                                            }
+                                        }}>
+                                            <label>Coleccionismo</label>
+                                            {viewActividadesColeccionismo ? (
+                                                <div>
+                                                    <Radio.Group onChange={(e) => setColeccionismo((coleccionismo) => [...coleccionismo, e.target.value])}>
+                                                        <label forhtml="antiguedades">Antigüedades:&nbsp;</label>
+                                                        <Radio value="antiguedades: 1">1</Radio>
+                                                        <Radio value="antiguedades: 2">2</Radio>
+                                                        <Radio value="antiguedades: 3">3</Radio>
+                                                        <Radio value="antiguedades: 4">4</Radio>
+                                                        <Radio value="antiguedades: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setColeccionismo((coleccionismo) => [...coleccionismo, e.target.value])}>
+                                                        <label forhtml="filatelia">Filatelia:&nbsp;</label>
+                                                        <Radio value="filatelia: 1">1</Radio>
+                                                        <Radio value="filatelia: 2">2</Radio>
+                                                        <Radio value="filatelia: 3">3</Radio>
+                                                        <Radio value="filatelia: 4">4</Radio>
+                                                        <Radio value="filatelia: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setColeccionismo((coleccionismo) => [...coleccionismo, e.target.value])}>
+                                                        <label forhtml="numismatica">Numismática:&nbsp;</label>
+                                                        <Radio value="numismatica: 1">1</Radio>
+                                                        <Radio value="numismatica: 2">2</Radio>
+                                                        <Radio value="numismatica: 3">3</Radio>
+                                                        <Radio value="numismatica: 4">4</Radio>
+                                                        <Radio value="numismatica: 5">5</Radio>
+                                                    </Radio.Group>
+                                                </div>) : ""}
+                                        </Checkbox>
+                                        <br />
+                                        <Checkbox name="ciencias" value="ciencias" id="ciencias" onChange={() => {
+                                            if (viewActividadesCiencias === true) {
+                                                setViewActividadesCiencias(false)
+                                            } else if (viewActividadesCiencias === false) {
+                                                setViewActividadesCiencias(true)
+                                            }
+                                        }}>
+                                            <label>Ciencias</label>
+                                            {viewActividadesCiencias ? (
+                                                <div>
+                                                    <Radio.Group onChange={(e) => setCiencias((ciencias) => [...ciencias, e.target.value])}>
+                                                        <label forhtml="astronomia">Astronomia:&nbsp;</label>
+                                                        <Radio value="astronomia: 1">1</Radio>
+                                                        <Radio value="astronomia: 2">2</Radio>
+                                                        <Radio value="astronomia: 3">3</Radio>
+                                                        <Radio value="astronomia: 4">4</Radio>
+                                                        <Radio value="astronomia: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setCiencias((ciencias) => [...ciencias, e.target.value])}>
+                                                        <label forhtml="historia">Historia:&nbsp;</label>
+                                                        <Radio value="historia: 1">1</Radio>
+                                                        <Radio value="historia: 2">2</Radio>
+                                                        <Radio value="historia: 3">3</Radio>
+                                                        <Radio value="historia: 4">4</Radio>
+                                                        <Radio value="historia: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setCiencias((ciencias) => [...ciencias, e.target.value])}>
+                                                        <label forhtml="matematicas">Matemáticas:&nbsp;</label>
+                                                        <Radio value="matematicas: 1">1</Radio>
+                                                        <Radio value="matematicas: 2">2</Radio>
+                                                        <Radio value="matematicas: 3">3</Radio>
+                                                        <Radio value="matematicas: 4">4</Radio>
+                                                        <Radio value="matematicas: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setCiencias((ciencias) => [...ciencias, e.target.value])}>
+                                                        <label forhtml="fisica">Física:&nbsp;</label>
+                                                        <Radio value="fisica: 1">1</Radio>
+                                                        <Radio value="fisica: 2">2</Radio>
+                                                        <Radio value="fisica: 3">3</Radio>
+                                                        <Radio value="fisica: 4">4</Radio>
+                                                        <Radio value="fisica: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setCiencias((ciencias) => [...ciencias, e.target.value])}>
+                                                        <label forhtml="quimica">Química:&nbsp;</label>
+                                                        <Radio value="quimica: 1">1</Radio>
+                                                        <Radio value="quimica: 2">2</Radio>
+                                                        <Radio value="quimica: 3">3</Radio>
+                                                        <Radio value="quimica: 4">4</Radio>
+                                                        <Radio value="quimica: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setCiencias((ciencias) => [...ciencias, e.target.value])}>
+                                                        <label forhtml="filologia">Filología:&nbsp;</label>
+                                                        <Radio value="filologia: 1">1</Radio>
+                                                        <Radio value="filologia: 2">2</Radio>
+                                                        <Radio value="filologia: 3">3</Radio>
+                                                        <Radio value="filologia: 4">4</Radio>
+                                                        <Radio value="filologia: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setCiencias((ciencias) => [...ciencias, e.target.value])}>
+                                                        <label forhtml="biologia">Biología:&nbsp;</label>
+                                                        <Radio value="biologia: 1">1</Radio>
+                                                        <Radio value="biologia: 2">2</Radio>
+                                                        <Radio value="biologia: 3">3</Radio>
+                                                        <Radio value="biologia: 4">4</Radio>
+                                                        <Radio value="biologia: 5">5</Radio>
+                                                    </Radio.Group>
+                                                    <Radio.Group onChange={(e) => setCiencias((ciencias) => [...ciencias, e.target.value])}>
+                                                        <label forhtml="zoologia">Zoología:&nbsp;</label>
+                                                        <Radio value="zoologia: 1">1</Radio>
+                                                        <Radio value="zoologia: 2">2</Radio>
+                                                        <Radio value="zoologia: 3">3</Radio>
+                                                        <Radio value="zoologia: 4">4</Radio>
+                                                        <Radio value="zoologia: 5">5</Radio>
+                                                    </Radio.Group>
+                                                </div>) : ""}
+                                        </Checkbox>
+
                                     </Checkbox.Group>
                                 </div>) : ""}
                             </Checkbox>
@@ -1509,44 +2327,86 @@ function TestAfinidadUser() {
                     <br />
                     <div id="respuestasInstalaciones">
                         <Checkbox.Group onChange={(e) => cambiosCheckboxInstalaciones(e)}>
-                            <Checkbox name="idiomas" value="castellano" id="castellano">
-                                <label forhtml="castellano">&nbsp;Castellano</label>
+                            <Checkbox name="instalaciones" value="salacine" id="salacine">
+                                <label forhtml="salacine">&nbsp;Sala de cine</label>
                             </Checkbox>&nbsp;
-                            <Checkbox name="idiomas" value="catalan" id="catalan" >
-                                <label forhtml="catalan">&nbsp;Catalán</label>
+                            <Checkbox name="instalaciones" value="recreativos" id="recreativos" >
+                                <label forhtml="recreativos">&nbsp;Sala de recreativos</label>
                             </Checkbox>&nbsp;
-                            <Checkbox name="idiomas" value="euskera" id="euskera" >
-                                <label forhtml="euskera">&nbsp;Euskera</label>
+                            <Checkbox name="instalaciones" value="salamanualidades" id="salamanualidades" >
+                                <label forhtml="salamanualidades">&nbsp;Sala de manualidades</label>
                             </Checkbox>&nbsp;
-                            <Checkbox name="idiomas" value="portugues" id="portugues" >
-                                <label forhtml="portugues">&nbsp;Portugués</label>
+                            <Checkbox name="instalaciones" value="gimnasio" id="gimnasio" >
+                                <label forhtml="gimnasio">&nbsp;Gimnasio</label>
                             </Checkbox>&nbsp;
-                            <Checkbox name="idiomas" value="coreano" id="coreano">
-                                <label forhtml="coreano">&nbsp;Coreano</label>
+                            <Checkbox name="instalaciones" value="rehabilitacion" id="rehabilitacion">
+                                <label forhtml="rehabilitacion">&nbsp;Sala de rehabilitación</label>
                             </Checkbox>&nbsp;
-                            <Checkbox name="idiomas" value="chino" id="chino" >
-                                <label forhtml="chino">&nbsp;Chino</label>
+                            <Checkbox name="instalaciones" value="padel" id="padel" >
+                                <label forhtml="padel">&nbsp;Pista de pádel</label>
                             </Checkbox>&nbsp;
-                            <Checkbox name="idiomas" value="japones" id="japones" >
-                                <label forhtml="japones">&nbsp;Japonés</label>
+                            <Checkbox name="instalaciones" value="tenis" id="tenis" >
+                                <label forhtml="tenis">&nbsp;Pista de tenis</label>
                             </Checkbox>&nbsp;
-                            <Checkbox name="idiomas" value="ingles" id="ingles" >
-                                <label forhtml="ingles">&nbsp;Inglés</label>
+                            <Checkbox name="instalaciones" value="piscina" id="piscina" >
+                                <label forhtml="piscina">&nbsp;Piscina</label>
                             </Checkbox>&nbsp;
-                            <Checkbox name="idiomas" value="italiano" id="italiano" >
-                                <label forhtml="italiano">&nbsp;Italiano</label>
+                            <Checkbox name="instalaciones" value="cubierta" id="cubierta" >
+                                <label forhtml="cubierta">&nbsp;Piscina cubierta</label>
                             </Checkbox>&nbsp;
-                            <Checkbox name="idiomas" value="aleman" id="aleman" >
-                                <label forhtml="aleman">&nbsp;Alemán</label>
+                            <Checkbox name="instalaciones" value="futbol" id="futbol" >
+                                <label forhtml="futbol">&nbsp;Fútbol</label>
                             </Checkbox>&nbsp;
-                            <Checkbox name="idiomas" value="frances" id="frances" >
-                                <label forhtml="frances">&nbsp;Francés</label>
+                            <Checkbox name="instalaciones" value="golf" id="golf" >
+                                <label forhtml="golf">&nbsp;Campo de golf</label>
                             </Checkbox>
-                            <Checkbox name="idiomas" value="ruso" id="ruso" >
-                                <label forhtml="ruso">&nbsp;Ruso</label>
+                            <Checkbox name="instalaciones" value="spa" id="spa" >
+                                <label forhtml="spa">&nbsp;Spa</label>
                             </Checkbox>
-                            <Checkbox name="idiomas" value="neerlandes" id="neerlandes" >
-                                <label forhtml="neerlandes">&nbsp;Neerlandés</label>
+                            <Checkbox name="instalaciones" value="hipica" id="hipica" >
+                                <label forhtml="hipica">&nbsp;Hípica</label>
+                            </Checkbox>
+                            <Checkbox name="instalaciones" value="esqui" id="esqui" >
+                                <label forhtml="esqui">&nbsp;Esquí</label>
+                            </Checkbox>
+                            <Checkbox name="instalaciones" value="pingpong" id="pingpong" >
+                                <label forhtml="pingpong">&nbsp;Mesa de ping pong</label>
+                            </Checkbox>
+                            <Checkbox name="instalaciones" value="billar" id="billar" >
+                                <label forhtml="billar">&nbsp;Mesa de billar</label>
+                            </Checkbox>
+                            <Checkbox name="instalaciones" value="futbolin" id="futbolin" >
+                                <label forhtml="futbolin">&nbsp;Futbolín</label>
+                            </Checkbox>
+                            <Checkbox name="instalaciones" value="baloncesto" id="baloncesto" >
+                                <label forhtml="baloncesto">&nbsp;Cancha de baloncesto</label>
+                            </Checkbox>
+                            <Checkbox name="instalaciones" value="zonasverdes" id="zonasverdes" >
+                                <label forhtml="zonasverdes">&nbsp;Zonas verdes</label>
+                            </Checkbox>
+                            <Checkbox name="instalaciones" value="huerto" id="huerto" >
+                                <label forhtml="huerto">&nbsp;Huerto</label>
+                            </Checkbox>
+                            <Checkbox name="instalaciones" value="barbacoa" id="barbacoa" >
+                                <label forhtml="barbacoa">&nbsp;Zonas de barbacoa</label>
+                            </Checkbox>
+                            <Checkbox name="instalaciones" value="trastero" id="trastero" >
+                                <label forhtml="trastero">&nbsp;Trastero</label>
+                            </Checkbox>
+                            <Checkbox name="instalaciones" value="garage" id="garage" >
+                                <label forhtml="garage">&nbsp;Plaza de garage</label>
+                            </Checkbox>
+                            <Checkbox name="instalaciones" value="cocina" id="cocina" >
+                                <label forhtml="cocina">&nbsp;Cocina</label>
+                            </Checkbox>
+                            <Checkbox name="instalaciones" value="buffet" id="buffet" >
+                                <label forhtml="buffet">&nbsp;Buffet</label>
+                            </Checkbox>
+                            <Checkbox name="instalaciones" value="lavavajillas" id="lavavajillas" >
+                                <label forhtml="lavavajillas">&nbsp;Lavavajillas</label>
+                            </Checkbox>
+                            <Checkbox name="instalaciones" value="lavanderia" id="lavanderia" >
+                                <label forhtml="lavanderia">&nbsp;Lavandería</label>
                             </Checkbox>
                         </Checkbox.Group>
                     </div>
