@@ -11,7 +11,9 @@ router.post("/testafinidaduser", user.testAfinidadUser)
 
 router.post("/registrarcoliving", user.registrarColiving)
 
-router.post("/formbusqueda", user.testAfinidadUser)
+router.post("/busquedacoliving", user.busquedaColiving)
+
+router.post("/busquedausuario", user.busquedaUsuario)
 
 
 

@@ -2,7 +2,7 @@ const Usuario = require("../models/userModel");
 const Colivings = require("../models/colivingModel");
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-const primeraInformacion = require("../models/primeraInformacion");
+const infoTestAfinidad = require("../models/infoTestAfinidad");
 const jwt = require("jsonwebtoken")
 
 const userActions = {
@@ -17,21 +17,33 @@ const userActions = {
     },
     testAfinidadUser: (req, res) => {
         let preferencias = {
+            edad: req.body.edad,
+            genero: req.body.genero, 
+            oficio: req.body.oficio,
+            idiomas: req.body.idiomas, 
+            orientacionSexual: req.body.orientacionSexual, 
             religion: req.body.religion,
-            politica: req.body.politica,
-            procedencia: req.body.procedencia,
-            idiomas: req.body.idiomas,
+            politica: req.body.politica, 
             mascotas: req.body.mascotas,
             fumador: req.body.fumador,
-            orientacionSexual: req.body.orientacionSexual,
-            antecedentes: req.body.antecedentes,
-            drogas: req.body.drogas,
+            carnet: req.body.carnet,
+            ubicacion: req.body.ubicacion, 
+            tipoVivienda: req.body.tipoVivienda,
+            region: req.body.region,
+            instalaciones: req.body.instalaciones,
+            rangoEdad: req.body.rangoEdad, 
+            dinero: req.body.dinero,
+            metros: req.body.metros,
+            lavabo: req.body.lavabo,
+            exteriores: req.body.exteriores,
+            gente: req.body.gente,
+            aficiones: req.body.aficionesJuntas,
             id_usuario: req.body.id_usuario
         }
 
-        let primeraInfo = new primeraInformacion(preferencias)
+        let infoAfinidad = new infoTestAfinidad(preferencias)
 
-        primeraInfo.save(function (err) {
+        infoAfinidad.save(function (err) {
             if (err) throw err;
             console.log(`Inserción correcta de las preferencias de usuario`);
 
@@ -40,12 +52,12 @@ const userActions = {
         res.json("req.body")
 
     }, 
-    FormBusqueda: (req,res) =>{
+    busquedaColiving: (req,res) =>{
          
-        FormBusqueda(req,res);
-
-
-
+        console.log(req.body)
+    },
+    busquedaUsuario: (req, res) => {
+        console.log(req.body)
     }
 
 }
@@ -125,11 +137,12 @@ async function registroColiving(req, res) {
     let cp = req.body.cp;
     let telefono = req.body.telefono;
     let email = req.body.email;
-    let gente = req.body.gente;
+    let habitantes = req.body.habitantes;
     let capacidad = req.body.capacidad;
     let idiomas = req.body.idiomas;
     let orientacionSexual = req.body.orientacionSexual;
     let religion = req.body.religion;
+    let politica = req.body.politica;
     let mascota = req.body.mascota;
     let fumador = req.body.fumador;
     let ubicacion = req.body.ubicacion;
@@ -148,7 +161,7 @@ async function registroColiving(req, res) {
     if (usuarioExiste[0] == null) {
         // El usuario no existe, por tanto lo guardamos en la Base de Datos
         
-        let inserta = await insertarColiving(nombre, idUserAdmin, activo, direccion, ciudad, cp, telefono, email, gente, capacidad, idiomas, orientacionSexual, religion, mascota, fumador, ubicacion, tipoVivienda, rangoEdad, dinero, metros, lavabo, exteriores, facilAcceso, instalaciones, ids); //!!este es el orden de cómo se guarda en MongoDB
+        let inserta = await insertarColiving(nombre, idUserAdmin, activo, direccion, ciudad, cp, telefono, email, habitantes, capacidad, idiomas, orientacionSexual, religion, politica, mascota, fumador, ubicacion, tipoVivienda, rangoEdad, dinero, metros, lavabo, exteriores, facilAcceso, instalaciones, ids); //!!este es el orden de cómo se guarda en MongoDB
         console.log("Usuario registrado correctamente")
         res.json("insertOk")
     } else {
@@ -222,7 +235,7 @@ async function insertarUsuarioPersona(nombre, apellidos, email, direccion, ciuda
     });
 }
 //Función insertar Coliving
-async function insertarColiving(nombre, idUserAdmin, activo, direccion, ciudad, cp, telefono, email, gente, capacidad, idiomas, orientacionSexual, religion, mascota, fumador, ubicacion, tipoVivienda, rangoEdad, dinero, metros, lavabo, exteriores, facilAcceso, instalaciones, ids) {
+async function insertarColiving(nombre, idUserAdmin, activo, direccion, ciudad, cp, telefono, email, habitantes, capacidad, idiomas, orientacionSexual, religion, politica, mascota, fumador, ubicacion, tipoVivienda, rangoEdad, dinero, metros, lavabo, exteriores, facilAcceso, instalaciones, ids) {
     let coliving = {
         nombre,
         idUserAdmin,
@@ -232,11 +245,12 @@ async function insertarColiving(nombre, idUserAdmin, activo, direccion, ciudad, 
         cp,
         telefono,
         email,
-        gente,
+        habitantes,
         capacidad,
         idiomas,
         orientacionSexual,
         religion,
+        politica,
         mascota,
         fumador,
         ubicacion,

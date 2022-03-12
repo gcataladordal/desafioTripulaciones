@@ -20,7 +20,8 @@ function NavBar() {
             {showRegister ? (<Link to="/registeruser">Registro</Link>) : ""}          
             {showIniciarSesion ? (<Link to="/login">Iniciar Sesión</Link>) : ""} 
             {showPerfil ? (<Link to="/testusuario">Test</Link>) : ""} 
-            {showPerfil ? (<Link to="/formbusqueda">Busqueda Coliving</Link>) : ""} 
+            {showPerfil ? (<Link to="/buscacoliving">Busqueda Coliving</Link>) : ""} 
+            {showPerfil ? (<Link to="/buscausuario">Busqueda Usuario</Link>) : ""} 
             {showPerfil ? (<Link to="/perfil">Perfil</Link>) : ""} 
             {showCerrarSesion ? (<Link to="/" onClick={logout}>Cerrar Sesión</Link>) : ""} 
 

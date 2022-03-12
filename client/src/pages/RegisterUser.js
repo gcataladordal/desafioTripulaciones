@@ -72,7 +72,7 @@ function RegisterUser() {
                     <input type="text" name="cp" placeholder="Ej: 06432" onChange={(e) => setCP(e.target.value)}></input>
                     <br />
                     <br />
-                    <br /><label>Teléfono</label>
+                    <label>Teléfono</label>
                     <br />
                     <input type="text" name="telefono" placeholder="559 577 837" onChange={(e) => setTelefono(e.target.value)}></input>
                     <br />
@@ -84,12 +84,12 @@ function RegisterUser() {
                     <br />
                     <label>Password (debe contener almenos una letra, un símbolo y un numero)</label>
                     <br />
-                    <input type="password" name="password" placeholder="Ej: 123456Y+" onChange={(e) => setPassword(e.target.value)}></input>
+                    <input type="password" placeholder="Ej: 123456Y+" autoComplete="off" onChange={(e) => setPassword(e.target.value)}></input>
                     <br />
                     <br />
                     <label>Confirma Password</label>
                     <br />
-                    <input type="password" name="password2" placeholder="Ej: 123456Y+" onChange={(e) => setPassword2(e.target.value)}></input>
+                    <input type="password" placeholder="Ej: 123456Y+" autoComplete="off" onChange={(e) => setPassword2(e.target.value)}></input>
                     <br />
                     <br />
                     <br />

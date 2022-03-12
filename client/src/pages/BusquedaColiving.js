@@ -2,21 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import {Checkbox} from "antd";
 
-function RegisterColiving(){
+function BusquedaColiving(){
 
     const [nombre, setNombre] = useState("");
     const [activo, setActivo] = useState("");
-    const [direccion, setDireccion] = useState("");
-    const [ciudad, setCiudad] = useState("");
-    const [cp, setCp] = useState("");
-    const [telefono, setTelefono] = useState("");
-    const [email, setEmail] = useState("");
-    const [habitantes, setHabitantes] = useState("");
     const [capacidad, setCapacidad] = useState("");
     const [idiomas, setIdiomas] = useState("");
     const [orientacionSexual, setOrientacionSexual] = useState("");
     const [religion, setReligion] = useState("");
-    const [politica, setPolitica] = useState("");
     const [mascota, setMascota] = useState("");
     const [fumador, setFumador] = useState("");
     const [ubicacion, setUbicacion] = useState("");
@@ -28,7 +21,6 @@ function RegisterColiving(){
     const [exteriores, setExteriores] = useState("");
     const [facilAcceso, setFacilAcceso] = useState("");
     const [instalaciones, setInstalaciones] = useState("");
-    const [ids, setIds]  = useState("");
 
     const cambiosCheckboxIdiomas = (valoresMarcados) => {
         setIdiomas(valoresMarcados)
@@ -47,21 +39,13 @@ function RegisterColiving(){
     }
 
     const enviarDatos = () => {
-        let Usuario = {
+        let busqueda = {
             nombre,
-            idUserAdmin: "1",
             activo,
-            direccion,
-            ciudad,
-            cp,
-            telefono,
-            email,
-            habitantes,
             capacidad,
             idiomas,
             orientacionSexual,
             religion,
-            politica,
             mascota,
             fumador,
             ubicacion,
@@ -73,19 +57,10 @@ function RegisterColiving(){
             exteriores,
             facilAcceso,
             instalaciones,
-            ids
         }
 
-        axios.post("/registrarcoliving", Usuario).then((res) => {
-            if (res.data === "insertOk") {
-                alert("Usuario coliving registrado correctamente")
-            }
-            if (res.data === "campoIncorrecto") {
-                alert("Campo Incorrecto")
-            }
-            if (res.data === "userExiste") {
-                alert("Este usuario coliving ya existe")
-            }
+        axios.post("/busquedacoliving", busqueda).then((res) => {
+           console.log(res.data)
         })
     }
 
@@ -94,7 +69,7 @@ function RegisterColiving(){
             <br />
             <form>
                 <div>
-                    <label>Nombre del Coliving:</label>
+                    <label>Buscar por nombre:</label>
                     <br />
                     <input type="text" name="nombre" placeholder="Ej: Nordikrooms" onChange={(e) => setNombre(e.target.value)}></input>
                     <br />
@@ -104,37 +79,7 @@ function RegisterColiving(){
                     <input type="radio" name="immueble" value="si" id="si" onChange={(e) => setActivo(true)}></input><label htmlFor="si">&nbsp;Sí</label>
                     <br />
                     <input type="radio" name="immueble" value="no" id="no" onChange={(e) => setActivo(false)}></input><label htmlFor="no">&nbsp;No</label>
-                    <br />
-                    <br />
-                    <label>Direccion</label>
-                    <br />
-                    <input type="text" name="direccion" placeholder="Ej: Calle Gran Vía nº65" onChange={(e) => setDireccion(e.target.value)}></input>
-                    <br />
-                    <br />
-                    <label>Ciudad</label>
-                    <br />
-                    <input type="text" name="ciudad" placeholder="Ej: Madrid" onChange={(e) => setCiudad(e.target.value)}></input>
-                    <br />
-                    <br />
-                    <label>Código Postal</label>
-                    <br />
-                    <input type="text" name="CP" placeholder="Ej: 09231" onChange={(e) => setCp(e.target.value)}></input>
-                    <br />
-                    <br />
-                    <label>Teléfono</label>
-                    <br />
-                    <input type="text" name="telefono" placeholder="559 577 837" onChange={(e) => setTelefono(e.target.value)}></input>
-                    <br />
-                    <br />
-                    <label>Email</label>
-                    <br />
-                    <input type="email" name="email" placeholder="Ej: correo@ejemplo.com" onChange={(e) => setEmail(e.target.value)}></input>
-                    <br />
-                    <br />
-                    <label>Habitantes viviendo actualmente:</label>
-                    <br />
-                    <input type="number" name="habitantes" min="0" placeholder="Ej: 4" onChange={(e) => setHabitantes(e.target.value)}></input>
-                    <br />
+                    <br /> 
                     <br />
                     <label>Capacidad Máxima:</label>
                     <br />
@@ -188,45 +133,37 @@ function RegisterColiving(){
                     </div>
                     <br />
                     <br />
-                    <div>
-                    <label>¿Se permiten personas con una orientacion sexual diferente?</label>
+                    <label>Importancia de la Orientacion Sexual?</label>
                     <br />
-                    <input type="radio" name="orientacion" value="si" id="si" onChange={(e) => setOrientacionSexual(true)}></input><label htmlFor="si">&nbsp;Si</label>
+                    <input type="radio" name="orientacionSexual" value="contrario" id="Contrario" onChange={(e) => setOrientacionSexual(e.target.value)}></input><label htmlFor="Contrario">&nbsp;Contrario</label>
                     <br />
-                    <input type="radio" name="orientacion" value="no" id="no" onChange={(e) => setOrientacionSexual(false)}></input><label htmlFor="no">&nbsp;No</label>
-                </div>
-                <br />
-                <div>
-                    <label>¿Se permiten peronas con una religión diferente?</label>
+                    <input type="radio" name="orientacionSexual" value="indiferente" id="Indiferente" onChange={(e) => setOrientacionSexual(e.target.value)}></input><label htmlFor="Indiferente">&nbsp;Indiferente</label>
                     <br />
-                    <input type="radio" name="religion" value="si" id="si" onChange={(e) => setReligion(true)}></input><label htmlFor="si">&nbsp;Si</label>
+                    <input type="radio" name="orientacionSexual" value="acepto" id="Acepto" onChange={(e) => setOrientacionSexual(e.target.value)}></input><label htmlFor="Acepto">&nbsp;Acepto</label>
                     <br />
-                    <input type="radio" name="religion" value="no" id="no" onChange={(e) => setReligion(false)}></input><label htmlFor="no">&nbsp;No</label>
-                </div>
-                <br />
-                <div>
-                    <label>¿Se permiten personas con una ideología política diferente?</label>
                     <br />
-                    <input type="radio" name="politica" value="si" id="si" onChange={(e) => setPolitica(true)}></input><label htmlFor="si">&nbsp;Si</label>
+                    <label>Importancia de la Religión:</label>
                     <br />
-                    <input type="radio" name="politica" value="no" id="no" onChange={(e) => setPolitica(false)}></input><label htmlFor="no">&nbsp;No</label>
-                </div>
-                <br />
-                <div>
-                    <label>¿Se permiten personas con mascotas?</label>
+                    <input type="radio" name="religion" value="contrario" id="Contrario" onChange={(e) => setReligion(e.target.value)}></input><label htmlFor="Contrario">&nbsp;Contrario</label>
                     <br />
-                    <input type="radio" name="mascotas" value="si" id="si" onChange={(e) => setMascota(true)}></input><label htmlFor="si">&nbsp;Si</label>
-                     <br />
-                    <input type="radio" name="mascotas" value="no" id="no" onChange={(e) => setMascota(false)}></input><label htmlFor="no">&nbsp;No</label>
-                </div>
-                <br />
-                <div>
-                    <label>¿Se permiten personas fumadoras?</label>
+                    <input type="radio" name="religion" value="indiferente" id="Indiferente" onChange={(e) => setReligion(e.target.value)}></input><label htmlFor="Indiferente">&nbsp;Indiferente</label>
                     <br />
-                    <input type="radio" name="fumador" value="si" id="si" onChange={(e) => setFumador(true)}></input><label htmlFor="si">&nbsp;Si</label>
+                    <input type="radio" name="religion" value="acepto" id="Acepto" onChange={(e) => setReligion(e.target.value)}></input><label htmlFor="Acepto">&nbsp;Acepto</label>
                     <br />
-                    <input type="radio" name="fumador" value="no" id="no" onChange={(e) => setFumador(false)}></input><label htmlFor="no">&nbsp;No</label>
-                </div>
+                    <br />
+                    <label>¿Se aceptan mascotas?</label>
+                    <br />
+                    <input type="radio" name="mascotas" value="si" id="si" onChange={(e) => setMascota(e.target.value)}></input><label htmlFor="si">&nbsp;Sí</label>
+                    <br />
+                    <input type="radio" name="mascotas" value="no" id="no" onChange={(e) => setMascota(e.target.value)}></input><label htmlFor="no">&nbsp;No</label>
+                    <br />
+                    <br />
+                    <label>¿Se aceptan fumadores?:</label>
+                    <br />
+                    <input type="radio" name="fumador" value="si" id="si" onChange={(e) => setFumador(e.target.value)}></input><label htmlFor="si">&nbsp;Sí</label>
+                    <br />
+                    <input type="radio" name="fumador" value="no" id="no" onChange={(e) => setFumador(e.target.value)}></input><label htmlFor="no">&nbsp;No</label>
+                    <br />
                     <br />
                     <label>Ubicacion:</label>
                     <br />
@@ -429,18 +366,7 @@ function RegisterColiving(){
                     <input type="radio" name="facilAcceso" value="no" id="no" onChange={(e) => setFacilAcceso(false)}></input><label htmlFor="no">&nbsp;No</label>
                     <br />
                     <br />
-                    <label>¿Quien pertenece a este coliving? (introduce el email)</label> 
-                    <br />
-                    <input type="text" name="idsColiving" placeholder="Ej: paco@gmail.com" onSubmit={(e) => setIds((ids) => [...ids, e.target.value])}></input>
-                    <br />
-                    <br />
-                    <input type="text" name="idsColiving" placeholder="Ej: paco@gmail.com" onSubmit={(e) => setIds((ids) => [...ids, e.target.value])}></input>
-                    <br />
-                    <br />
-                    <input type="text" name="idsColiving" placeholder="Ej: paco@gmail.com" onSubmit={(e) => setIds((ids) => [...ids, e.target.value])}></input>
-                    <br />
-                    <br />
-                    <button type="button" className="ButtonHome btn btn-primary btn-lg" variant="primary" onClick={enviarDatos}>Enviar</button>
+                    <button type="button" className="ButtonHome btn btn-primary btn-lg" variant="primary" onClick={enviarDatos}>Buscar</button>
                 </div>
             </form>
 
@@ -450,4 +376,4 @@ function RegisterColiving(){
 
 }
 
-export default RegisterColiving
+export default BusquedaColiving

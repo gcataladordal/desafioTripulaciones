@@ -4,11 +4,12 @@ import Login from "../pages/Login";
 import RegisterUser from "../pages/RegisterUser";
 import Home from "../pages/Home";
 import TestAfinidadUser from "../pages/TestAfinidadUser";
-import FormBusqueda from "../pages/FormBusqueda";
+import BusquedaColiving from "../pages/BusquedaColiving";
 import "bootstrap/dist/css/bootstrap.min.css";
 import RegisterColiving from "../pages/RegisterColiving";
 import Perfil from "../pages/Perfil";
 import Colivings from "../pages/Colivings";
+import BusquedaUsuario from "../pages/BusquedaUsuario";
 
 class Main extends Component {
 
@@ -23,7 +24,9 @@ class Main extends Component {
           <Route path="/registercoliving" element={<RegisterColiving />} />
           <Route path="/perfil" element={<Perfil />} />
           <Route path="/colivings" element={<Colivings />} />
-          <Route path="/formbusqueda" element={<FormBusqueda/>} />
+          <Route path="/buscacoliving" element={<BusquedaColiving/>} />
+          <Route path="/buscausuario" element={<BusquedaUsuario/>} />
+
         </Routes>
       </div>
     );

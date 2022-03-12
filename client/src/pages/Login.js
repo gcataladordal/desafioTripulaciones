@@ -39,7 +39,7 @@ function Login() {
                     <br />
                     <label>Password</label>
                     <br />
-                    <input type="password" name="password" placeholder="Ej: 123456Y+" onChange={(e) => setPassword(e.target.value)}></input>
+                    <input type="password" placeholder="Ej: 123456Y+" autoComplete="off" onChange={(e) => setPassword(e.target.value)}></input>
                     <br />
                     <br />
                     <br />
