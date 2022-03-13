@@ -429,17 +429,6 @@ function RegisterColiving(){
                     <input type="radio" name="facilAcceso" value="no" id="no" onChange={(e) => setFacilAcceso(false)}></input><label htmlFor="no">&nbsp;No</label>
                     <br />
                     <br />
-                    <label>¿Quien pertenece a este coliving? (introduce el email)</label> 
-                    <br />
-                    <input type="text" name="idsColiving" placeholder="Ej: paco@gmail.com" onSubmit={(e) => setIds((ids) => [...ids, e.target.value])}></input>
-                    <br />
-                    <br />
-                    <input type="text" name="idsColiving" placeholder="Ej: paco@gmail.com" onSubmit={(e) => setIds((ids) => [...ids, e.target.value])}></input>
-                    <br />
-                    <br />
-                    <input type="text" name="idsColiving" placeholder="Ej: paco@gmail.com" onSubmit={(e) => setIds((ids) => [...ids, e.target.value])}></input>
-                    <br />
-                    <br />
                     <button type="button" className="ButtonHome btn btn-primary btn-lg" variant="primary" onClick={enviarDatos}>Enviar</button>
                 </div>
             </form>

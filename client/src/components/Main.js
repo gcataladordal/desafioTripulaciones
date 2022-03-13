@@ -10,6 +10,8 @@ import RegisterColiving from "../pages/RegisterColiving";
 import Perfil from "../pages/Perfil";
 import Colivings from "../pages/Colivings";
 import BusquedaUsuario from "../pages/BusquedaUsuario";
+import ResultadoBusqUsuario from "../pages/ResultadoBusqUsuario";
+import ResultadoBusqColiving from "../pages/ResultadoBusqColiving";
 
 class Main extends Component {
 
@@ -26,6 +28,9 @@ class Main extends Component {
           <Route path="/colivings" element={<Colivings />} />
           <Route path="/buscacoliving" element={<BusquedaColiving/>} />
           <Route path="/buscausuario" element={<BusquedaUsuario/>} />
+          <Route path="/resultadobusquedauser" element={<ResultadoBusqUsuario/>} />
+          <Route path="/resultadobusquedacoliving" element={<ResultadoBusqColiving/>} />
+
 
         </Routes>
       </div>

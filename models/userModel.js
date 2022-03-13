@@ -10,8 +10,7 @@ const objetoUserSchema = {
     ciudad:String,
     cp: String,
     telefono:String,
-    password: String,
-    tipo_usuario: String
+    password: String
 };
 
 const userSchema = mongoose.Schema(objetoUserSchema, {versionKey: false})

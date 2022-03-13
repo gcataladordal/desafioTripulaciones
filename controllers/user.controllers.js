@@ -3,7 +3,8 @@ const Colivings = require("../models/colivingModel");
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const infoTestAfinidad = require("../models/infoTestAfinidad");
-const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken");
+const SECRET = "D3s4F10gRuP0uN0";
 
 const userActions = {
     registrarUsuario: (req, res) => {
@@ -53,13 +54,20 @@ const userActions = {
 
     }, 
     busquedaColiving: (req,res) =>{
-         
-        console.log(req.body)
+
+        res.json(req.body)
     },
     busquedaUsuario: (req, res) => {
-        console.log(req.body)
+        
+        res.json(req.body)
+    },
+    obtenerInfoUser: async (req, res) => {
+        let infoUser = await Usuario.find({ id_usuario: req.idUsuario})
+        res.json({
+            data: infoUser,
+            auth: true
+        })
     }
-
 }
 
 
@@ -94,14 +102,7 @@ async function registroUsuario(req, res) {
     let telefonoOk = regExpTelefono.test(telefono);
     let emailOk = regExpEmail.test(email);
     let passwordOk = regExpPass.test(password) && (password === password2);
-    console.log("nombre:" + nombreOk)
-    console.log("apellidos:" + apellidosOk)
-    console.log("direccion:" + direccionOK)
-    console.log("ciudad:" + ciudadOK)
-    console.log("cp:" + cpOk)
-    console.log("tel:" + telefonoOk)
-    console.log("email:" + emailOk)
-    console.log("pass:" + passwordOk)
+
 
     let todoOk = nombreOk && apellidosOk && direccionOK && ciudadOK && cpOk && telefonoOk && emailOk && passwordOk
 
@@ -178,24 +179,31 @@ async function login(req, res) {
     let email = req.body.email;
     let password = req.body.password;
     let usuarioExiste = await busquedaUsuarioEmail(email)
-    console.log(usuarioExiste)
     if ((usuarioExiste[0]) == undefined) {
-        console.log("El usuario no existe en la BD");
-        res.json("userNoExiste")
+        res.json({
+            message: "Usuario o contraseña incorrectos",
+            status: false
+        })
     } else {
         var mismoPass = await bcrypt.compare(password, usuarioExiste[0].password)     // <-- COMPARA LAS 2 PASSWORDS
         if (mismoPass) {
             // CONTRASEÑA CORRECTA
-            if (usuarioExiste[0].admin) {
-                console.log("Logueado y es admin")
-                res.json("logueadoAdmin")
-            } else {
-                console.log("Logueado y no es admin")
-                res.json("logueadoNoAdmin")
+            payload = {
+                id: usuarioExiste.id_usuario
             }
+            const token = jwt.sign(payload, SECRET)
+
+            res.json({
+                message: "Te has logueado correctamente",
+                token,
+                status: true
+            })
+    
         } else {
-            console.log("contraseña incorrecta")
-            res.json("passwordMal")
+            res.json({
+                message: "Usuario o contraseña incorrectos",
+                status:false
+            })
         }
     }
 }
@@ -222,8 +230,7 @@ async function insertarUsuarioPersona(nombre, apellidos, email, direccion, ciuda
         ciudad: ciudad,
         cp: cp,
         telefono: telefono,
-        password: password,
-        tipo_usuario: "persona"
+        password: password
     };
 
     let nuevoUsuario = new Usuario(usuario);

@@ -127,12 +127,13 @@ function BusquedaUsuario() {
         
         setActividades([aireLibre, manuales, cocina, arte, entretenimiento, ciencias, grupales, coleccionismo, sociedad])
 
-       
+        
+        setAficiones([caracter, musica, peliculas, deportes, actividades])
 
         console.log(actividades)
-        setAficiones([caracter, musica, peliculas, deportes, actividades])
-        let aficionesJuntas = aficiones.flat(3)
-        console.log(aficionesJuntas)
+        console.log(aficiones)
+        let aficionesJuntas = aficiones.flat(2)
+        
 
         let caracteristicasTest = {
             edad,
@@ -154,6 +155,7 @@ function BusquedaUsuario() {
 
         axios.post("/busquedausuario", caracteristicasTest).then((res) => {
             console.log(res.data)
+            window.location.href = "http://localhost:3000/resultadobusquedauser"
         })
 
     }

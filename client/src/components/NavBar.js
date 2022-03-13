@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import {  Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Cookies from "universal-cookie"
+
 
 function NavBar() {
 
@@ -9,8 +11,11 @@ function NavBar() {
     const [showIniciarSesion, setShowIniciarSesion] = useState(true);
     const [showPerfil, setShowPerfil] = useState(true);
 
+    const cookie = new Cookies()
+
     const logout = () => {
-        console.log("sesión cerrada")
+        cookie.remove("token")
+        window.location.href = "http://localhost:3000/"
     }
 
     return (
@@ -22,7 +27,8 @@ function NavBar() {
             {showPerfil ? (<Link to="/testusuario">Test</Link>) : ""} 
             {showPerfil ? (<Link to="/buscacoliving">Busqueda Coliving</Link>) : ""} 
             {showPerfil ? (<Link to="/buscausuario">Busqueda Usuario</Link>) : ""} 
-            {showPerfil ? (<Link to="/perfil">Perfil</Link>) : ""} 
+            {showPerfil ? (<Link to="/perfil">Perfil</Link>) : ""}
+
             {showCerrarSesion ? (<Link to="/" onClick={logout}>Cerrar Sesión</Link>) : ""} 
 
         </div>

@@ -1,10 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios"
+import Cookies from "universal-cookie";
+import InfoAuth from "../hooks/InfoAuth";
+import { useNavigate } from "react-router-dom";
+
+const cookies = new Cookies();
 
 function Login() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const navigate = useNavigate()
+
+    const [usuario] = InfoAuth("obtieneinfo")
+    
+    
+    useEffect(() => {
+        if (usuario != "") {
+            if (usuario.data.auth) {
+                navigate("/home")
+            }
+        }
+    }, [usuario])
+
 
     const enviarDatosLogin = () => {
 
@@ -14,14 +33,11 @@ function Login() {
         }
 
         axios.post("/loguear", Usuario).then((res) => {
-            if (res.data === "logueadoAdmin") {
-                alert("Usuario logueado y es admin")
-            }
-            if (res.data === "logueadoNoAdmin") {
-                alert("Usuario logueado y NO es admin")
-            }
-            if (res.data === "passwordMal") {
-                alert("password mal")
+            const {message, token, status} = res.data;
+            alert(message)
+
+            if (status) {
+                cookies.set("token", token);
             }
 
             
