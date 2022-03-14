@@ -6,21 +6,24 @@ const verificarToken = (req, res, next) => {
     const token = req.headers["authorization"];
 
     if (!token) {
-        res.json({status:false})
+        res.json({ auth: false })
     } else {
 
         const separarToken = token.split(" ")[1];
 
-        const descodificado = jwt.verify(separarToken, SECRET)
+        jwt.verify(separarToken, SECRET, function (err, descodificado) {
+            if (err) {
+                return res.json({ auth: false });
+            } else {
+                req.idUsuario = descodificado.id;
+                req.token = separarToken;
 
-        req.idUsuario = descodificado.id;
-        req.token = separarToken;
-
-        next();
-
+                next();
+            }
+        })
+    
     }
 
 
 }
-
 module.exports = verificarToken

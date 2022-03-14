@@ -13,31 +13,33 @@ function Login() {
 
     const navigate = useNavigate()
 
-    const [usuario] = InfoAuth("obtieneinfo")
-    
+    const [usuario, auth] = InfoAuth("obtieneinfo")
     
     useEffect(() => {
-        if (usuario != "") {
-            if (usuario.data.auth) {
-                navigate("/home")
-            }
+        if (auth === true) {
+            navigate("/home")
+            
         }
-    }, [usuario])
+    }, [auth])
 
 
     const enviarDatosLogin = () => {
 
-        let Usuario = {
+        let User = {
             email,
             password
         }
 
-        axios.post("/loguear", Usuario).then((res) => {
+        axios.post("/loguear", User).then((res) => {
             const {message, token, status} = res.data;
             alert(message)
 
             if (status) {
                 cookies.set("token", token);
+                window.location.reload()
+            } else {
+                setEmail("");
+                setPassword("");
             }
 
             

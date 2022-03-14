@@ -8,6 +8,7 @@ const cookies = new Cookies();
 const InfoAuth = (props) => {
 
     const [infoUser, setInfoUser] = useState("");
+    const [auth, setAuth] = useState("");
 
     useEffect(() => {
         consultarBack(props)
@@ -17,15 +18,32 @@ const InfoAuth = (props) => {
 
         let token = cookies.get("token");
 
-        const obtenerInfo = await axios.get(`${props}`, {
-            headers: { Authorization: `Bearer ${token}` },
-        });
+        if (token) {
 
-        setInfoUser(obtenerInfo);
+            const obtenerInfo = await axios.get(`${props}`, {
+            headers: { Authorization: `Bearer ${token}` },
+            });
+
+            if (obtenerInfo.data.auth == true) {
+                setInfoUser(obtenerInfo);
+                setAuth(true)
+            } else {
+                setAuth(false)
+            }
+        
+        }else {
+            let data = {auth: false}
+            setInfoUser(data);
+            setAuth(false)
+
+        }
+        
+        
+        
     }
 
 
-    return [infoUser]
+    return [infoUser, auth]
 }
 
 export default InfoAuth;

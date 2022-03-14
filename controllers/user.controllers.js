@@ -17,6 +17,11 @@ const userActions = {
         login(req, res);
     },
     testAfinidadUser: (req, res) => {
+        let numeroDinero = parseInt(req.body.dinero)
+        let numeroMetros = parseInt(req.body.metros)
+        let numeroGente = parseInt(req.body.gente)
+
+
         let preferencias = {
             edad: req.body.edad,
             genero: req.body.genero, 
@@ -33,11 +38,12 @@ const userActions = {
             region: req.body.region,
             instalaciones: req.body.instalaciones,
             rangoEdad: req.body.rangoEdad, 
-            dinero: req.body.dinero,
-            metros: req.body.metros,
+            dinero: numeroDinero,
+            metros: numeroMetros,
             lavabo: req.body.lavabo,
             exteriores: req.body.exteriores,
-            gente: req.body.gente,
+            gente: numeroGente,
+            caracter: req.body.caracter,
             aficiones: req.body.aficionesJuntas,
             id_usuario: req.body.id_usuario
         }
@@ -175,7 +181,6 @@ async function registroColiving(req, res) {
 
 
 async function login(req, res) {
-    console.log(req.body)
     let email = req.body.email;
     let password = req.body.password;
     let usuarioExiste = await busquedaUsuarioEmail(email)
