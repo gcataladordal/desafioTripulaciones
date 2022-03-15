@@ -1,8 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import {Checkbox} from "antd";
+import InfoAuth from "../hooks/InfoAuth";
 
-function BusquedaColiving(){
+function BusquedaColiving() {
+
+    const [usuario, auth] = InfoAuth("obtieneinfo")
+
+    useEffect(() => {
+        if (auth === true) {
+        } else if (auth === false ) {
+            window.location.href = "/"
+        }
+    }, [auth])
+
 
     const [nombre, setNombre] = useState("");
     const [activo, setActivo] = useState("");

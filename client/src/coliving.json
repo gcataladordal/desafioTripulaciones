@@ -1,0 +1,122 @@
+[
+    {
+        "latitud": "36.853023558164004",
+        "longitud": "-2.456257292922531",
+        "ID": "2804798",
+        "nombre": "Convivencia Colón",
+        "ciudad": "Almería",
+        "provincia": "Almería"
+    },
+    {
+        "latitud": "38.250415858401276",
+        "longitud": "-0.5196315513375593",
+        "ID": "4978820",
+        "nombre": "Playa Dorada",
+        "ciudad": "Elche",
+        "provincia": "Alicante"
+    },
+    {
+        "latitud": "37.18057400056592",
+        "longitud": "-3.6108673673278124",
+        "ID": "837778",
+        "nombre": "Coalhambra",
+        "ciudad": "Granada",
+        "provincia": "Granada"
+    },
+    {
+        "latitud": "39.872109299777186",
+        "longitud": "-4.025698269703747",
+        "ID": "6478088",
+        "nombre": "Alfonso X",
+        "ciudad": "Toledo",
+        "provincia": "Toledo"
+    },
+    {
+        "latitud": "40.95277643714791",
+        "longitud": "-5.664165503921286",
+        "ID": "5470781",
+        "nombre": "Cardenal Cisneros",
+        "ciudad": "Salamanca",
+        "provincia": "Salamanca"
+    },
+    {
+        "latitud": "40.86639230173783",
+        "longitud": "-3.4931447948720877",
+        "ID": "2515190",
+        "nombre": "La Choza del Brujo",
+        "ciudad": "Patones de Arriba",
+        "provincia": "Madrid"
+    },
+    {
+        "latitud": "40.029115486473664",
+        "longitud": "-3.5958855015722366",
+        "ID": "4288624",
+        "nombre": "Jardines y Cisnes",
+        "ciudad": "Aranjuez",
+        "provincia": "Madrid"
+    },
+    {
+        "latitud": "43.373346548134506",
+        "longitud": "-8.433935688171676",
+        "ID": "4692521",
+        "nombre": "Retiro de las rías",
+        "ciudad": "A Coruña",
+        "provincia": "A Coruña"
+    },
+    {
+        "latitud": "43.46245257286382",
+        "longitud": "-3.47088822510129",
+        "ID": "8450363",
+        "nombre": "El Retiro de Napoleón",
+        "ciudad": "Santoña",
+        "provincia": "Santander"
+    },
+    {
+        "latitud": "42.82571272346676",
+        "longitud": "-1.6656879366458601",
+        "ID": "7288691",
+        "nombre": "Pamplópolis",
+        "ciudad": "Pamplona",
+        "provincia": "Pamplona"
+    },
+    {
+        "latitud": "38.97570639609133",
+        "longitud": "1.526408916436051",
+        "ID": "7590571",
+        "nombre": "La Hamaca",
+        "ciudad": "Santa Eulalia",
+        "provincia": "Islas Baleares"
+    },
+    {
+        "latitud": "41.91513340171183",
+        "longitud": "3.158649922304997",
+        "ID": "1744474",
+        "nombre": "La cullera de Guillem",
+        "ciudad": "Palafrugell",
+        "provincia": "Girona"
+    },
+    {
+        "latitud": "42.365850434219645",
+        "longitud": "-3.6165006653857583",
+        "ID": "3839438",
+        "nombre": "El reposo de Rey Recadero",
+        "ciudad": "Burgos",
+        "provincia": "Burgos"
+    },
+    {
+        "latitud": "40.61418964232988",
+        "longitud": "-4.117625243173104",
+        "ID": "6759688",
+        "nombre": "La Silla Herreriana",
+        "ciudad": "San Lorenzo de El Escorial",
+        "provincia": "Madrid"
+    },
+    {
+        "latitud": "42.438158993196744",
+        "longitud": "-2.952576071956812",
+        "ID": "5309112",
+        "nombre": "Viñas y sillas",
+        "ciudad": "Santo Domingo de la Calzada",
+        "provincia": "La Rioja"
+    }
+]

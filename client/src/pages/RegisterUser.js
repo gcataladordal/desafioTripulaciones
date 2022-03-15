@@ -19,7 +19,7 @@ function RegisterUser() {
             apellidos,
             direccion,
             ciudad,
-            cp, 
+            cp,
             telefono,
             email,
             password,
@@ -37,67 +37,116 @@ function RegisterUser() {
                 alert("Este usuario ya existe")
             }
 
-            
+
         })
     }
 
 
     return (
-        <div>
-            <br />
+        <div className="Registro">
+            <span className="Crea-tu-cuenta">
+                Crea tu cuenta
+            </span>
+            <br /><br />
             <form>
-                <div>
-                    <label>Nombre</label>
-                    <br />
-                    <input type="text" name="nombre" placeholder="Ej: Felipe" onChange={(e) => setNombre(e.target.value)}></input>
-                    <br />
-                    <br />
-                    <label>Apellidos</label>
-                    <br />
-                    <input type="text" name="apellidos" placeholder="Ej: Sanchez Fernandez" onChange={(e) => setApellidos(e.target.value)}></input>
-                    <br />
-                    <br />
-                    <label>Ciudad</label>
-                    <br />
-                    <input type="text" name="ciudad" placeholder="Ej: Madrid" onChange={(e) => setCiudad(e.target.value)}></input>
-                    <br />
-                    <br />
-                    <label>Direccion</label>
-                    <br />
-                    <input type="text" name="direccion" placeholder="Ej: Calle Paco de Lucia nº5" onChange={(e) => setDireccion(e.target.value)}></input>
-                    <br />
-                    <br />
-                    <label>Código Postal</label>
-                    <br />
-                    <input type="text" name="cp" placeholder="Ej: 06432" onChange={(e) => setCP(e.target.value)}></input>
-                    <br />
-                    <br />
-                    <label>Teléfono</label>
-                    <br />
-                    <input type="text" name="telefono" placeholder="559 577 837" onChange={(e) => setTelefono(e.target.value)}></input>
-                    <br />
-                    <br />
-                    <label>Email</label>
-                    <br />
-                    <input type="email" name="email" placeholder="Ej: correo@ejemplo.com" onChange={(e) => setEmail(e.target.value)}></input>
-                    <br />
-                    <br />
-                    <label>Password <br />
-                        (debe contener almenos una letra, un símbolo y un numero)</label>
-                    <br />
-                    <input type="password" placeholder="Ej: 123456Y+" autoComplete="off" onChange={(e) => setPassword(e.target.value)}></input>
-                    <br />
-                    <br />
-                    <label>Confirma Password <br />
-                        (debe contener almenos una letra, un símbolo y un numero)</label>
-                    <br />
-                    <input type="password" placeholder="Ej: 123456Y+" autoComplete="off" onChange={(e) => setPassword2(e.target.value)}></input>
-                    <br />
-                    <br />
-                    <br />
-                    <button type="button" className="ButtonHome btn btn-primary btn-lg" variant="primary" onClick={enviarDatos}>Enviar</button>
-                </div>
+
+                <span className="spanRegister">
+                    Nombre
+                </span>
+                <br />
+
+                <input type="text" name="nombre" className="inputRegistro" placeholder="Ej: Felipe" onChange={(e) => setNombre(e.target.value)}>
+                </input>
+                <br />
+
+                <span className="spanRegister">
+                    Apellidos
+                </span>
+                <br />
+                <input type="text" name="apellidos" className="inputRegistro" placeholder="Ej: Sanchez Fernandez" onChange={(e) => setApellidos(e.target.value)}></input>
+                <br />
+                <span className="spanRegister">
+                    Ciudad
+                </span>
+                <br />
+                <input type="text" name="ciudad" className="inputRegistro" placeholder="Ej: Madrid" onChange={(e) => setCiudad(e.target.value)}></input>
+                <br />
+                <span className="spanRegister">
+                    Dirección
+                </span>
+                <br />
+                <input type="text" name="direccion" className="inputRegistro" placeholder="Ej: Calle Paco de Lucia nº5" onChange={(e) => setDireccion(e.target.value)}></input>
+                <br />
+                <span className="spanRegister">
+                    Código Postal
+                </span>
+                <br />
+                <input type="text" name="cp" className="inputRegistro" placeholder="Ej: 06432" onChange={(e) => setCP(e.target.value)}></input>
+                <br />
+                <span className="spanRegister">
+                    Teléfono
+                </span>
+                <br />
+                <input type="text" name="telefono" className="inputRegistro" placeholder="559 577 837" onChange={(e) => setTelefono(e.target.value)}></input>
+                <br />
+                <span className="spanRegister">
+                    Email
+                </span>
+                <br />
+                <input type="email" name="email" className="inputRegistro" placeholder="Ej: correo@ejemplo.com" onChange={(e) => setEmail(e.target.value)}></input>
+                <br />
+                <span className="spanRegister">
+                    Contraseña (mínimo una letra, un símbolo y un número)
+                </span>
+
+                <br />
+                <input type="password" placeholder="Ej: 123456Y+" className="inputRegistro" autoComplete="off" onChange={(e) => setPassword(e.target.value)}></input>
+                <br />
+                <span className="spanRegister">
+                    Repetir contraseña
+                </span>
+
+                <br />
+                <input type="password" placeholder="Ej: 123456Y+" className="inputRegistro" autoComplete="off" onChange={(e) => setPassword2(e.target.value)}></input>
+                <br />
+
+                <button type="button" className="Btn-Default" variant="primary" onClick={enviarDatos}><span className="Texto-Blanco">
+                    Registrarme
+                </span></button>
+                <br />
             </form>
+
+            <div className="contenedor-Lineas">
+                <div className="Line-5"></div>
+
+                <span className="o">
+                    o
+                </span>
+                <div className="Line-6">
+                </div>
+            </div>
+            <div className="botn">
+
+                <div className="Btn-Default-Other">
+                    <span className="Texto-Negro-Google">
+                        Google
+                    </span>
+                </div>
+            </div>
+            <div className="Btn-Default-Other">
+                <span className="Texto-Negro-Facebook">
+                    Facebook
+                </span>
+            </div>
+            <br />
+            <div class="Ya-tienes-una-cuentaInicia-sesin">
+                <span class="Ya-tienes-una-cuentaInicia-sesin">
+                    ¿Ya tienes una cuenta? <a href="/login">Inicia sesión</a>
+                </span>
+            </div>
+            <br />
+
+
 
         </div>
     )

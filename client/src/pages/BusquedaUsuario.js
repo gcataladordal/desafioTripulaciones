@@ -1,9 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Checkbox, Radio } from "antd";
-
+import { Checkbox } from "antd";
+import InfoAuth from "../hooks/InfoAuth";
 
 function BusquedaUsuario() {
+
+    const [usuario, auth] = InfoAuth("obtieneinfo")
+
+    useEffect(() => {
+        if (auth === true) {
+        } else if (auth === false ) {
+            window.location.href = "/"
+        }
+    }, [auth])
 
 
     const [edad, setEdad] = useState("");
@@ -126,12 +135,10 @@ function BusquedaUsuario() {
         e.preventDefault()
         
         setActividades([aireLibre, manuales, cocina, arte, entretenimiento, ciencias, grupales, coleccionismo, sociedad])
-
         
         setAficiones([caracter, musica, peliculas, deportes, actividades])
 
-        console.log(actividades)
-        console.log(aficiones)
+        
         let aficionesJuntas = aficiones.flat(2)
         
 

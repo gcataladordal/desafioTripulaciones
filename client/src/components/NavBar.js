@@ -7,7 +7,7 @@ import InfoAuth from "../hooks/InfoAuth";
 function NavBar() {
 
     const [showLogueado, setShowLogueado] = useState(false);
-    const [showNoLogueado, setShowNoLogueado] = useState(true);
+    const [showNoLogueado, setShowNoLogueado] = useState(false);
 
     const cookie = new Cookies()
 
@@ -23,8 +23,6 @@ function NavBar() {
             setShowNoLogueado(true)
         }
     }, [auth])
-
-
 
     const logout = () => {
         cookie.remove("token")

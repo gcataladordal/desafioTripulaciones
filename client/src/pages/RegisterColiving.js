@@ -1,8 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import {Checkbox} from "antd";
+import InfoAuth from "../hooks/InfoAuth";
 
 function RegisterColiving(){
+
+    const [usuario, auth] = InfoAuth("obtieneinfo")
+
+    useEffect(() => {
+        if (auth === true) {
+        } else if (auth === false ) {
+            window.location.href = "/"
+        }
+    }, [auth])
 
     const [nombre, setNombre] = useState("");
     const [activo, setActivo] = useState("");
@@ -49,7 +59,7 @@ function RegisterColiving(){
     const enviarDatos = () => {
         let Usuario = {
             nombre,
-            idUserAdmin: "1",
+            idUserAdmin: usuario.id_usuario,
             activo,
             direccion,
             ciudad,
@@ -94,7 +104,7 @@ function RegisterColiving(){
             <br />
             <form>
                 <div>
-                    <label>Nombre del Coliving:</label>
+                    <label>¿Cómo se llama tu co-living?</label>
                     <br />
                     <input type="text" name="nombre" placeholder="Ej: Nordikrooms" onChange={(e) => setNombre(e.target.value)}></input>
                     <br />
@@ -106,6 +116,8 @@ function RegisterColiving(){
                     <input type="radio" name="immueble" value="no" id="no" onChange={(e) => setActivo(false)}></input><label htmlFor="no">&nbsp;No</label>
                     <br />
                     <br />
+                    <label>¿Dónde se encuentra?</label><br />
+
                     <label>Direccion</label>
                     <br />
                     <input type="text" name="direccion" placeholder="Ej: Calle Gran Vía nº65" onChange={(e) => setDireccion(e.target.value)}></input>
@@ -131,7 +143,7 @@ function RegisterColiving(){
                     <input type="email" name="email" placeholder="Ej: correo@ejemplo.com" onChange={(e) => setEmail(e.target.value)}></input>
                     <br />
                     <br />
-                    <label>Habitantes viviendo actualmente:</label>
+                    <label>¿Cuántas personas hay?</label>
                     <br />
                     <input type="number" name="habitantes" min="0" placeholder="Ej: 4" onChange={(e) => setHabitantes(e.target.value)}></input>
                     <br />
@@ -260,13 +272,13 @@ function RegisterColiving(){
                             <Checkbox name="rangoEdad" value="50_60" id="50_60">
                                 <label forhtml="50-60">&nbsp;Entre 50 y 60 años</label>
                             </Checkbox>&nbsp;
-                            <Checkbox name="rangoEdad" value="60-70" id="60-70">
+                            <Checkbox name="rangoEdad" value="60_70" id="60_70">
                                 <label forhtml="60-70">&nbsp;Entre 60 y 70 años</label>
                             </Checkbox>&nbsp;
-                            <Checkbox name="rangoEdad" value="70-80" id="70-80">
+                            <Checkbox name="rangoEdad" value="70_80" id="70_80">
                                 <label forhtml="70-80">&nbsp;Entre 70 y 80 años</label>
                             </Checkbox>&nbsp;
-                            <Checkbox name="rangoEdad" value="+80" id="+80">
+                            <Checkbox name="rangoEdad" value="_80" id="_80">
                                 <label forhtml="+80">&nbsp;Más de 80</label>
                             </Checkbox>&nbsp;
                         </Checkbox.Group>
