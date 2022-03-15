@@ -1,10 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Modal from 'react-bootstrap/Modal'
 import Button from "react-bootstrap/Button"
+import InfoAuth from "../hooks/InfoAuth";
 import Accordion from 'react-bootstrap/Accordion'
 
 function TestAfinidadUser() {
+
+    const [usuario, auth] = InfoAuth("obtieneinfo")
+    
+    useEffect(() => {
+        if (auth === true) {
+            // window.location.href = "/home"
+            console.log("logueado")
+        } else if (auth === false ) {
+            window.location.href = "/"
+        }
+    }, [auth])
+
+
 
     const [edad, setEdad] = useState("");
     const [genero, setGenero] = useState("");

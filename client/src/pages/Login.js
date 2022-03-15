@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios"
 import Cookies from "universal-cookie";
 import InfoAuth from "../hooks/InfoAuth";
-import { useNavigate } from "react-router-dom";
 
 const cookies = new Cookies();
 
@@ -11,14 +10,13 @@ function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const navigate = useNavigate()
 
     const [usuario, auth] = InfoAuth("obtieneinfo")
     
     useEffect(() => {
         if (auth === true) {
-            navigate("/home")
-            
+            window.location.href = "/"
+            console.log("logueado")
         }
     }, [auth])
 
@@ -38,8 +36,7 @@ function Login() {
                 cookies.set("token", token);
                 window.location.reload()
             } else {
-                setEmail("");
-                setPassword("");
+                
             }
 
             

@@ -7,7 +7,7 @@ router.post("/registrarusuario", user.registrarUsuario);
 
 router.post("/loguear", user.loguear);
 
-router.post("/obtieneinfo", verificarToken, user.obtenerInfoUser )
+router.get("/obtieneinfo", verificarToken, user.obtenerInfoUser )
 
 
 router.post("/testafinidaduser", user.testAfinidadUser)

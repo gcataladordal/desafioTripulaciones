@@ -82,12 +82,14 @@ function RegisterUser() {
                     <input type="email" name="email" placeholder="Ej: correo@ejemplo.com" onChange={(e) => setEmail(e.target.value)}></input>
                     <br />
                     <br />
-                    <label>Password (debe contener almenos una letra, un símbolo y un numero)</label>
+                    <label>Password <br />
+                        (debe contener almenos una letra, un símbolo y un numero)</label>
                     <br />
                     <input type="password" placeholder="Ej: 123456Y+" autoComplete="off" onChange={(e) => setPassword(e.target.value)}></input>
                     <br />
                     <br />
-                    <label>Confirma Password</label>
+                    <label>Confirma Password <br />
+                        (debe contener almenos una letra, un símbolo y un numero)</label>
                     <br />
                     <input type="password" placeholder="Ej: 123456Y+" autoComplete="off" onChange={(e) => setPassword2(e.target.value)}></input>
                     <br />

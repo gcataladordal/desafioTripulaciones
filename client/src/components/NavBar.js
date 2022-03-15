@@ -1,17 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Cookies from "universal-cookie"
+import InfoAuth from "../hooks/InfoAuth";
 
 
 function NavBar() {
 
-
-    const [showCerrarSesion, setShowCerrarSesion] = useState(true);
-    const [showRegister, setShowRegister] = useState(true);
-    const [showIniciarSesion, setShowIniciarSesion] = useState(true);
-    const [showPerfil, setShowPerfil] = useState(true);
+    const [showLogueado, setShowLogueado] = useState(false);
+    const [showNoLogueado, setShowNoLogueado] = useState(true);
 
     const cookie = new Cookies()
+
+    const [usuario, auth] = InfoAuth("obtieneinfo")
+    
+    useEffect(() => {
+        if (auth === true) {
+            // window.location.href = "/home"
+            setShowLogueado(true)
+            setShowNoLogueado(false)
+        } else if (auth === false) {
+            setShowLogueado(false)
+            setShowNoLogueado(true)
+        }
+    }, [auth])
+
+
 
     const logout = () => {
         cookie.remove("token")
@@ -22,14 +35,14 @@ function NavBar() {
         <div className="topnav">     
             <Link to="/">Home</Link>
             <Link to="/colivings">Colivings</Link>
-            {showRegister ? (<Link to="/registeruser">Registro</Link>) : ""}          
-            {showIniciarSesion ? (<Link to="/login">Iniciar Sesión</Link>) : ""} 
-            {showPerfil ? (<Link to="/testusuario">Test</Link>) : ""} 
-            {showPerfil ? (<Link to="/buscacoliving">Busqueda Coliving</Link>) : ""} 
-            {showPerfil ? (<Link to="/buscausuario">Busqueda Usuario</Link>) : ""} 
-            {showPerfil ? (<Link to="/perfil">Perfil</Link>) : ""}
+            {showNoLogueado ? (<Link to="/registeruser">Registro</Link>) : ""}          
+            {showNoLogueado ? (<Link to="/login">Iniciar Sesión</Link>) : ""} 
+            {showLogueado ? (<Link to="/testusuario">Test</Link>) : ""} 
+            {showLogueado ? (<Link to="/buscacoliving">Busqueda Coliving</Link>) : ""} 
+            {showLogueado ? (<Link to="/buscausuario">Busqueda Usuario</Link>) : ""} 
+            {showLogueado ? (<Link to="/perfil">Perfil</Link>) : ""}
 
-            {showCerrarSesion ? (<Link to="/" onClick={logout}>Cerrar Sesión</Link>) : ""} 
+            {showLogueado ? (<Link to="/" onClick={logout}>Cerrar Sesión</Link>) : ""} 
 
         </div>
     )

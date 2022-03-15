@@ -6,7 +6,7 @@ const cookies = new Cookies();
 
 
 const InfoAuth = (props) => {
-
+    
     const [infoUser, setInfoUser] = useState("");
     const [auth, setAuth] = useState("");
 
@@ -15,18 +15,17 @@ const InfoAuth = (props) => {
     }, []);
 
     const consultarBack = async (props) => {
-
+        
         let token = cookies.get("token");
 
         if (token) {
-
             const obtenerInfo = await axios.get(`${props}`, {
-            headers: { Authorization: `Bearer ${token}` },
+                headers: { Authorization: `Bearer ${token}` },
             });
 
             if (obtenerInfo.data.auth == true) {
-                setInfoUser(obtenerInfo);
-                setAuth(true)
+                setInfoUser(obtenerInfo.data.data[0]);
+                setAuth(true);
             } else {
                 setAuth(false)
             }
@@ -41,8 +40,8 @@ const InfoAuth = (props) => {
         
         
     }
-
-
+    
+    
     return [infoUser, auth]
 }
 

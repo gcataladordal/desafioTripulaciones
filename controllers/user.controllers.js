@@ -60,15 +60,14 @@ const userActions = {
 
     }, 
     busquedaColiving: (req,res) =>{
-
         res.json(req.body)
     },
     busquedaUsuario: (req, res) => {
-        
         res.json(req.body)
     },
     obtenerInfoUser: async (req, res) => {
         let infoUser = await Usuario.find({ id_usuario: req.idUsuario})
+
         res.json({
             data: infoUser,
             auth: true
@@ -192,12 +191,13 @@ async function login(req, res) {
     } else {
         var mismoPass = await bcrypt.compare(password, usuarioExiste[0].password)     // <-- COMPARA LAS 2 PASSWORDS
         if (mismoPass) {
+
             // CONTRASEÑA CORRECTA
             payload = {
-                id: usuarioExiste.id_usuario
+                id: usuarioExiste[0].id_usuario
             }
             const token = jwt.sign(payload, SECRET)
-
+            
             res.json({
                 message: "Te has logueado correctamente",
                 token,

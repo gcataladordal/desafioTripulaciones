@@ -257,7 +257,7 @@ function RegisterColiving(){
                     <label>Rango Edad:</label>
                     <br />
                     <Checkbox.Group onChange={(e) => cambiosCheckboxRangoEdad(e)}>
-                            <Checkbox name="rangoEdad" value="50-60" id="50-60">
+                            <Checkbox name="rangoEdad" value="50_60" id="50_60">
                                 <label forhtml="50-60">&nbsp;Entre 50 y 60 años</label>
                             </Checkbox>&nbsp;
                             <Checkbox name="rangoEdad" value="60-70" id="60-70">
