@@ -780,3 +780,20 @@ img.Icon-left-arrow {
   height: 726px;
   padding: 67px 13px 8px 16px;
 }
+
+/** PERFIL*/
+
+.Texto-Blanco-perfil {
+  width: 137px;
+  height: 66px;
+  flex-grow: 0;
+  font-family: Lato;
+  font-size: 24px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fff;
+}
