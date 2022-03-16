@@ -118,5 +118,46 @@
         "nombre": "Viñas y sillas",
         "ciudad": "Santo Domingo de la Calzada",
         "provincia": "La Rioja"
-    }
+    },
+    {
+        "latitud":"39.44706994106188",
+        "longitud":"-6.507038171933718",
+        "ID":"421910",
+        "nombre":"Caja Narbón",
+        "ciudad":"Malpartida de Cáceres",
+        "provincia":"Cáceres"
+     },
+     {
+        "latitud":"40.07387074644166",
+        "longitud":"-2.135129406617898",
+        "ID":"998312",
+        "nombre":"Casa Colgante de Alfonso VIII",
+        "ciudad":"Cuenca",
+        "provincia":"Cuenca"
+     },
+     {
+        "latitud":"37.611779474423",
+        "longitud":"-0.987884636956327",
+        "ID":"7422563",
+        "nombre":"Cruce de Alpes",
+        "ciudad":"Cartagena",
+        "provincia":"Murcia"
+     },
+     
+     {
+        "latitud":"43.305767032383045",
+        "longitud":"-1.9931607427138907",
+        "ID":"8589653",
+        "nombre":"Aiete arbola",
+        "ciudad":"San Sebastián",
+        "provincia":"Gipuzkoa"
+     },
+     {
+        "latitud":"41.645752588073336",
+        "longitud":"-4.733840125435999",
+        "ID":"7926422",
+        "nombre":"Casa de San Francisco",
+        "ciudad":"Valladolid",
+        "provincia":"Valladolid"
+     }
 ]

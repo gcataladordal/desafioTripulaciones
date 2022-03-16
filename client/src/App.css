@@ -17,10 +17,37 @@
 
 /* Add a black background color to the top navigation */
 .topnav {
-  background-color: #333;
+
+  width: 374px;
+  height: 86px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  margin: 10px 0 0;
+  padding: 16px 16px;
+  background-color: #fff;
+  border: 2px solid #e3e5e8;
   overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
+.spanNavBar {
+  width: 58px;
+  height: 16px;
+  flex-grow: 0;
+  font-family: Lato;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.14;
+  letter-spacing: normal;
+  text-align: center;
+  color: #222121;
+}
 
 
 /* Style the links inside the navigation bar */
@@ -43,6 +70,31 @@
 .topnav a.active {
   background-color: #04AA6D;
   color: white;
+}
+
+
+/* HOME */
+
+
+.Splash-screen {
+  width: 375px;
+  height: 812px;
+  flex-grow: 0;
+  padding: 360px 134px 359px;
+  background-color: #fff;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoNaranjo {
+  width: 190px;
+  height: 180px;
+}
+
+.logoNaranjoTexto {
+  width: 190px;
+  height: 228px;
 }
 
 /* MAPA */
@@ -72,9 +124,9 @@
 
 .Registro {
   width: 375px;
-  height: 812px;
+  height: 1400px;
   flex-grow: 0;
-  padding: 58px 16px 32px;
+  padding: 30px 16px 40px;
   background-color: #fff;
 }
 
@@ -98,7 +150,7 @@
   margin: 48px 16px 16px 0;
   font-family: Lato;
   font-size: 14px;
-  font-weight: normal;
+  font-weight: bold;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.14;
@@ -130,9 +182,10 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  padding: 20px 110px;
+  padding: 20px 110px 20px;
   border-radius: 10px;
   background-color: #053061;
+ 
 }
 
 .Texto-Blanco {
@@ -245,12 +298,12 @@
 }
 
 .Ya-tienes-una-cuentaInicia-sesin {
-  width: 224px;
+  width: 260px;
   height: 13px;
   margin: auto;
   font-family: Lato;
-  font-size: 14px;
-  font-weight: normal;
+  font-size: 16px;
+  font-weight: bold;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.14;
@@ -265,7 +318,7 @@
   width: 375px;
   height: 812px;
   flex-grow: 0;
-  padding: 58px 16px 32px;
+  padding: 50px 16px 32px;
   background-color: #fff;
 }
 
@@ -315,9 +368,9 @@
 
 .test-Usuario {
   width: 375px;
-  height: 812px;
+  height: auto;
   flex-grow: 0;
-  padding: 24px 16px 0;
+  padding: 24px 16px 20px;
   background-color: #fff;
 }
 
@@ -336,6 +389,22 @@ img.Icon-left-arrow {
   margin: 0 0 24px;
   font-family: Lato;
   font-size: 24px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000;
+}
+
+.spanTestDeportes {
+  width: 343px;
+  height: 31px;
+  flex-grow: 0;
+  margin: 0 0 24px;
+  font-family: Lato;
+  font-size: 23px;
   font-weight: 600;
   font-stretch: normal;
   font-style: normal;
@@ -439,4 +508,275 @@ img.Icon-left-arrow {
     font: inherit;
     cursor: pointer;
     outline: inherit;
+}
+
+/* RESULTADO TEST */
+
+.resultado-Test {
+  width: 375px;
+  height: 2000px;
+  flex-grow: 0;
+  padding: 25px 1px 0 0;
+  background-color: #fff;
+}
+
+.Usuarios-ms-compatibles {
+  width: 296px;
+  height: 24px;
+  margin: 34px 65px 20px 13px;
+  font-family: Lato;
+  font-size: 24px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000;
+}
+
+.Carduser {
+  width: 343px;
+  height: 128px;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 16px 47px 16px 16px;
+  border-radius: 10px;
+  margin: 4px 0px;
+  box-shadow: 0 6px 6px 0 rgba(163, 162, 162, 0.17);
+  background-color: #fff;
+}
+
+.Frame-3607 {
+  width: 270px;
+  height: 96px;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 0;
+}
+
+.nombre-Usuario-Res {
+  width: 109px;
+  height: 20px;
+  flex-grow: 0;
+  font-family: Lato;
+  font-size: 18px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.11;
+  letter-spacing: normal;
+  text-align: left;
+  color: #17191c;
+}
+
+.descr-Usuario-Res {
+  width: 187px;
+  height: 16px;
+  flex-grow: 0;
+  font-family: Lato;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.14;
+  letter-spacing: normal;
+  text-align: left;
+  color: #17191c;
+}
+
+.boton-Azul {
+  width: 118px;
+  height: 36px;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+  border: solid 1px #fafafc;
+  background-color: #053061;
+}
+
+
+.boton-Blanco {
+  width: 118px;
+  height: 36px;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+  border: solid 1px #053061;
+  background-color: #fafafc;
+}
+
+.Ver-perfil {
+  width: 110px;
+  height: 21px;
+  flex-grow: 0;
+  font-family: Lato;
+  font-size: 16px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: center;
+  color: #053061;
+}
+
+.Contacta {
+  width: 110px;
+  height: 21px;
+  flex-grow: 0;
+  font-family: Lato;
+  font-size: 16px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fafafc;
+}
+
+.contenedor-Botones-Card {
+  width: 316px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+ 
+.contenedor-Cards {
+  display:flex;
+  flex-direction: column;
+  width: 343px;
+  height: auto;
+  justify-content: center;
+  padding: 0px 0px 100px;
+  margin: 5px 22px 50px 22px ;
+}
+
+.foto-Info {
+  width: 270px;
+  display: flex;
+}
+
+.fotoPerfil {
+  width: 50px;
+  margin: 0px 10px 0px 0px;
+}
+
+/* HOME LOGUEADO */
+
+.home-Logueado {
+  width: 375px;
+  height: 812px;
+  flex-grow: 0;
+  padding: 70px 1px 0 0;
+  background-color: #fff;
+}
+
+.Hola-Logueado {
+  width: 296px;
+  height: 18px;
+  margin: 0 44px 13px 16px;
+  font-family: Lato;
+  font-size: 30px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000;
+}
+
+.Qu-quieres-encontrar {
+  width: 296px;
+  height: 15px;
+  margin: 13px 62px 44px 16px;
+  font-family: Lato;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000;
+}
+
+.contenedor-Buscadores {
+  height: auto;
+  width: auto;
+  margin: 20px 12px;
+  display:flex;
+  flex-direction: column;
+}
+
+.Btn-Default-Home {
+  width: 343px;
+  height: 56px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 35px 110px;
+  border-radius: 10px;
+  margin: 10px 0px;
+  background-color: #053061;
+}
+
+.empezarTest {
+  width: 390px;
+  height: 812px;
+  flex-grow: 0;
+  padding: 50px 16px 32px;
+  background-color: #fff;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.responde-Preguntas {
+  padding: 125px 0px 20px;
+  justify-content: center;
+  text-align: center;
+}
+
+.responde-Preguntas-Test {
+  width: 296px;
+  height: 15px;
+  font-family: Lato;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  color: #000;
+}
+
+.alert-Register{
+  color: #f08a4c
+}
+
+.Frame-3628 {
+  width: 375px;
+  height: 726px;
+  padding: 67px 13px 8px 16px;
 }

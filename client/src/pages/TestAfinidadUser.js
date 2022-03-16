@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Modal from 'react-bootstrap/Modal'
-import Button from "react-bootstrap/Button"
 import InfoAuth from "../hooks/InfoAuth";
 import Accordion from 'react-bootstrap/Accordion'
 import imgAnterior from "../img/left_arrow_(1).png"
@@ -1043,15 +1042,6 @@ function TestAfinidadUser() {
     }
     const handleShowBeatboxing = () => setShowBeatboxing(true);
 
-    const [showComponer, setShowComponer] = useState(false);
-    const handleCloseComponer = (e) => {
-        setShowComponer(false);
-        if (e !== undefined) {
-            setActividades((actividades) => [...actividades, e.target.value])
-        }
-    }
-    const handleShowComponer = () => setShowComponer(true);
-
     const [showBaile, setShowBaile] = useState(false);
     const handleCloseBaile = (e) => {
         setShowBaile(false);
@@ -1603,7 +1593,8 @@ function TestAfinidadUser() {
         }
 
         axios.post("/testafinidaduser", caracteristicasTest).then((res) => {
-            console.log(res.data)
+            sessionStorage.setItem("infoRecom", JSON.stringify(res.data))
+            window.location.href = "/resultadotest"
         })
 
     }
@@ -1635,7 +1626,7 @@ function TestAfinidadUser() {
         setViewAlertCarnet(false);
         setViewAlertZona(false);
         setViewAlertVivienda(false);
-        setViewAlertRegion(false);        
+        setViewAlertRegion(false);
     }
 
     const clickImagenCinco = () => {
@@ -1658,14 +1649,12 @@ function TestAfinidadUser() {
 
             <form onSubmit={(e) => enviarDatos(e)}>
                 {viewParteUno ? (<div>
-
-                    <p>Para saber un poco más de ti, contesta estas preguntas...</p>
                     <span className="spanTest">
                         ¿Qué edad tienes?
                     </span>
                     <br />
                     <input type="number" min="18" max="120" className="inputRegistro" onChange={(e) => setEdad(e.target.value)}></input>
-                    {viewAlertEdad ? (<p>Este campo es obligatorio</p>) : ""}
+                    {viewAlertEdad ? (<span className="alert-Register">Este campo es obligatorio</span>) : ""}
                     <br />
                     <span className="spanTest">
                         ¿Con qué género te identificas?
@@ -1677,11 +1666,11 @@ function TestAfinidadUser() {
                         <option value="mujer">Mujer</option>
                         <option value="otro">Otro</option>
                     </select>
-                    {viewAlertGenero ? (<p>Este campo es obligatorio</p>) : ""}
+                    {viewAlertGenero ? (<span className="alert-Register">Este campo es obligatorio</span>) : ""}
                     <br />
                     <span className="spanTest">¿En qué sector/es has trabajado?</span>
                     <div className="contenedor-Test">
-                        <button value="sanidad" className="Label-button" name="oficio" onClick={(e) => setOficio((oficio) => [...oficio, e.target.value])} >Sanidad</button>
+                        <button type="button" value="sanidad" className="Label-button" name="oficio" onClick={(e) => setOficio((oficio) => [...oficio, e.target.value])} >Sanidad</button>
                         <button type="button" value="ingenieria" className="Label-button" name="oficio" onClick={(e) => setOficio((oficio) => [...oficio, e.target.value])} >Ingeniería</button>
                         <button type="button" value="forestal" className="Label-button" name="oficio" onClick={(e) => setOficio((oficio) => [...oficio, e.target.value])} >Agrario-forestal</button>
                         <button type="button" value="administrativo" className="Label-button" name="oficio" onClick={(e) => setOficio((oficio) => [...oficio, e.target.value])} >Administrativo</button>
@@ -1703,7 +1692,7 @@ function TestAfinidadUser() {
                         <button type="button" value="otro" className="Label-button" name="oficio" onClick={(e) => setOficio((oficio) => [...oficio, e.target.value])} >Otra profesión</button>
                     </div>
 
-                    {viewAlertOficio ? (<p>Este campo es obligatorio</p>) : ""}
+                    {viewAlertOficio ? (<span className="alert-Register">Este campo es obligatorio</span>) : ""}
                     <br />
                     <br />
                     <div>
@@ -1755,7 +1744,7 @@ function TestAfinidadUser() {
                         <button type="button" value="ruso" className="Label-button" name="idiomas" onClick={(e) => setIdiomas((idiomas) => [...idiomas, e.target.value])} >Pусский</button>
                         <button type="button" value="neerlandes" className="Label-button" name="idiomas" onClick={(e) => setIdiomas((idiomas) => [...idiomas, e.target.value])} >Nederlands</button>
                     </div>
-                    {viewAlertIdiomas ? (<p>Selecciona almenos un idioma</p>) : ""}
+                    {viewAlertIdiomas ? (<span className="alert-Register">Selecciona almenos un idioma</span>) : ""}
                     <br />
                     <span className="spanTest">¿Hay normas de convivencia?</span>
                     <div className="container-Test">
@@ -1794,7 +1783,7 @@ function TestAfinidadUser() {
                         <button type="button" value="relajado" className="Label-button" name="caracter" onClick={(e) => setCaracter((caracter) => [...caracter, e.target.value])} >Relajado</button>
                         <button type="button" value="generoso" className="Label-button" name="caracter" onClick={(e) => setCaracter((caracter) => [...caracter, e.target.value])} >Generoso</button>
                     </div>
-                    {viewAlertCaracter ? (<p>Elige al menos 5</p>) : ""}
+                    {viewAlertCaracter ? (<span className="alert-Register">Elige al menos 5</span>) : ""}
                     <br />
                     <div>
                         <button type="button" className="Btn-Default" onClick={() => {
@@ -1818,7 +1807,7 @@ function TestAfinidadUser() {
                     <img src={imgAnterior} onClick={clickImagenDos}
                         className="Icon-left-arrow" alt="botonAtras"></img>
                     <br />
-                    <span className="spanTest">¿Qué música escuchas?</span>
+                    <span className="spanTest">¿Qué música escuchas? (mín. 5)</span>
                     <br />
                     <div className="contenedor-Test">
                         <button type="button" className="Label-button" onClick={handleShowAlternativa}>
@@ -2113,7 +2102,7 @@ function TestAfinidadUser() {
                         </button>
                         <Modal show={showRock} onHide={handleCloseRock} backdrop='static' keyboard="False" centered>
                             <Modal.Header closeButton>
-                                <Modal.Title>Rock</Modal.Title>
+                                <Modal.Title >Rock</Modal.Title>
                             </Modal.Header>
                             <Modal.Body>
                                 <div className="contenedor-Overlay">
@@ -2253,9 +2242,9 @@ function TestAfinidadUser() {
                             </Modal.Body>
                         </Modal>
                     </div>
-                    {viewAlertMusica ? (<p>Elige al menos 5</p>) : ""}
+                    {viewAlertMusica ? (<span className="alert-Register">Elige al menos 5</span>) : ""}
                     <br />
-                    <span className="spanTest">¿Qué deportes practicas?</span>
+                    <span className="spanTestDeportes">¿Qué deportes practicas? (mín. 5)</span>
                     <br />
                     <div>
                         <button type="button" className="Label-button" onClick={handleShowBadminton}>
@@ -2770,11 +2759,11 @@ function TestAfinidadUser() {
                         </Modal>
                     </div>
 
-                    {viewAlertDeportes ? (<p>Elige al menos 5</p>) : ""}
+                    {viewAlertDeportes ? (<span className="alert-Register">Elige al menos 5</span>) : ""}
 
                     <br />
 
-                    <span className="spanTest">¿Qué tipo de películas te gustan?</span>
+                    <span className="spanTest">¿Qué tipo de películas te gustan? (mín. 4)</span>
                     <br />
                     <div>
                         <button type="button" className="Label-button" onClick={handleShowAccion}>
@@ -3103,8 +3092,9 @@ function TestAfinidadUser() {
                                 </div>
                             </Modal.Body>
                         </Modal>
-                        {viewAlertPeliculas ? (<p>Elige al menos 4</p>) : ""}
                         <br />
+                        {viewAlertPeliculas ? (<span className="alert-Register">Elige al menos 4</span>) : ""}
+                        
                         <div>
                             <br />
                             <button type="button" className="Btn-Default" onClick={() => {
@@ -3135,7 +3125,7 @@ function TestAfinidadUser() {
                     <img src={imgAnterior} onClick={clickImagenTres}
                         className="Icon-left-arrow" alt="botonAtras"></img>
                     <br />
-                    <span className="spanTest">¿Cuáles son tus aficiones?</span>
+                    <span className="spanTest">¿Cuáles son tus aficiones? (mín. 10 en total)</span>
                     <Accordion>
                         <Accordion.Item eventKey="0">
                             <Accordion.Header>
@@ -3708,23 +3698,6 @@ function TestAfinidadUser() {
                                                     <span className="Texto-Overlay">Me gusta</span>
                                                 </button>
                                                 <button type="button" className="Button-Overlay" value="beatboxing: 4" onClick={(e) => handleCloseBeatboxing(e)}>
-                                                    <span className="Texto-Overlay">¡Me encanta!</span>
-                                                </button>
-                                            </div>
-                                        </Modal.Body>
-                                    </Modal> <button type="button" className="Label-button" onClick={handleShowComponer}>
-                                        Componer música
-                                    </button>
-                                    <Modal show={showComponer} onHide={handleCloseComponer} backdrop='static' keyboard="False" centered>
-                                        <Modal.Header closeButton>
-                                            <Modal.Title>Componer música</Modal.Title>
-                                        </Modal.Header>
-                                        <Modal.Body>
-                                            <div className="contenedor-Overlay">
-                                                <button type="button" className="Button-Overlay" value="componermusica: 2" onClick={(e) => handleCloseComponer(e)}>
-                                                    <span className="Texto-Overlay">Me gusta</span>
-                                                </button>
-                                                <button type="button" className="Button-Overlay" value="componermusica: 4" onClick={(e) => handleCloseComponer(e)}>
                                                     <span className="Texto-Overlay">¡Me encanta!</span>
                                                 </button>
                                             </div>
@@ -4732,7 +4705,7 @@ function TestAfinidadUser() {
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>
-                    {viewAlertActividades ? (<p>Elige mínimo 10 aficiones en total</p>) : ""}
+                    {viewAlertActividades ? (<span className="alert-Register">Elige mínimo 10 aficiones en total</span>) : ""}
                     <br />
                     <div>
                         <button type="button" className="Btn-Default" onClick={() => {
@@ -4763,7 +4736,7 @@ function TestAfinidadUser() {
                         <button type="button" name="carnet" className="Label-button-Boolean" value="no" id="no" onClick={(e) => setCarnet(false)}>No</button>
                     </div>
 
-                    {viewAlertCarnet ? (<p>Este campo es obligatorio</p>) : ""}
+                    {viewAlertCarnet ? (<span className="alert-Register">Este campo es obligatorio</span>) : ""}
                     <br />
                     <span className="spanTest">Estarías interesado en un coliving situado...</span>
                     <br />
@@ -4773,10 +4746,10 @@ function TestAfinidadUser() {
                     <button type="button" value="interior" className="Label-button" name="ubicacion" onClick={(e) => setUbicacion((ubicacion) => [...ubicacion, e.target.value])} >En el interior</button>
                     <button type="button" value="montana" className="Label-button" name="ubicacion" onClick={(e) => setUbicacion((ubicacion) => [...ubicacion, e.target.value])} >Cerca de montañas</button>
 
-
-                    {viewAlertZona ? (<p>Este campo es obligatorio</p>) : ""}
-
                     <br />
+                    {viewAlertZona ? (<span className="alert-Register">Este campo es obligatorio</span>) : ""}
+
+                    
                     <br />
                     <span className="spanTest">Estarías interesado en una vivienda del tipo...</span>
                     <br />
@@ -4786,9 +4759,9 @@ function TestAfinidadUser() {
                     <button type="button" value="duplex" className="Label-button" name="tipoVivienda" onClick={(e) => setTipoVivienda((tipoVivienda) => [...tipoVivienda, e.target.value])} >Dúplex</button>
                     <button type="button" value="chalet" className="Label-button" name="tipoVivienda" onClick={(e) => setTipoVivienda((tipoVivienda) => [...tipoVivienda, e.target.value])} >Chalet</button>
                     <button type="button" value="otros" className="Label-button" name="tipoVivienda" onClick={(e) => setTipoVivienda((tipoVivienda) => [...tipoVivienda, e.target.value])} >Otros tipos</button>
-
-                    {viewAlertVivienda ? (<p>Este campo es obligatorio</p>) : ""}
                     <br />
+                    {viewAlertVivienda ? (<span className="alert-Register">Este campo es obligatorio</span>) : ""}
+                   
                     <br />
 
                     <span className="spanTest">¿Dónde te gustaría vivir?</span>
@@ -4812,7 +4785,7 @@ function TestAfinidadUser() {
                     <button type="button" value="rioja" className="Label-button" name="region" onClick={(e) => setRegion((region) => [...region, e.target.value])} >Rioja</button>
                     <button type="button" value="ceuta" className="Label-button" name="region" onClick={(e) => setRegion((region) => [...region, e.target.value])} >Ceuta</button>
                     <button type="button" value="melilla" className="Label-button" name="region" onClick={(e) => setRegion((region) => [...region, e.target.value])} >Melilla</button>
-                    {viewAlertRegion ? (<p>Este campo es obligatorio</p>) : ""}
+                    {viewAlertRegion ? (<span className="alert-Register">Este campo es obligatorio</span>) : ""}
                     <br />
                     <br />
                     <div>
@@ -4868,7 +4841,7 @@ function TestAfinidadUser() {
                             <button type="button" value="lavavajillas" className="Label-button" name="instalaciones" onClick={(e) => setInstalaciones((instalaciones) => [...instalaciones, e.target.value])} >Lavavajillas</button>
                             <button type="button" value="lavanderia" className="Label-button" name="instalaciones" onClick={(e) => setInstalaciones((instalaciones) => [...instalaciones, e.target.value])} >Lavandería</button>
                         </div>
-                        {viewAlertInstalaciones ? (<p>Este campo es obligatorio</p>) : ""}
+                        {viewAlertInstalaciones ? (<span className="alert-Register">Este campo es obligatorio</span>) : ""}
                         <br />
                         <span className="spanTest">¿Qué tipo de baño prefieres?</span>
                         <br />
@@ -4876,7 +4849,7 @@ function TestAfinidadUser() {
                             <button type="button" name="lavabo" value="privado" className="Label-button" onClick={() => setLavabo("privado")}>Privado</button>
                             <button type="button" name="lavabo" value="compartido" className="Label-button" onClick={() => setLavabo("compartido")}>Compartido</button>
                         </div>
-                        {viewAlertLavabo ? (<p>Este campo es obligatorio</p>) : ""}
+                        {viewAlertLavabo ? (<span className="alert-Register">Este campo es obligatorio</span>) : ""}
 
                         <br />
                         <span className="spanTest">¿Con qué equipamientos exteriores te gustaría contar?</span>
@@ -4889,7 +4862,6 @@ function TestAfinidadUser() {
                             <button type="button" value="huerto" className="Label-button" name="exteriores" onClick={(e) => setExteriores((exteriores) => [...exteriores, e.target.value])} >Huerto</button>
                             <button type="button" value="barbacoa" className="Label-button" name="exteriores" onClick={(e) => setExteriores((exteriores) => [...exteriores, e.target.value])} >Zona de barbacoa</button>
                             <button type="button" value="canchapadel" className="Label-button" name="exteriores" onClick={(e) => setExteriores((exteriores) => [...exteriores, e.target.value])} >Pista de pádel</button>
-                            <button type="button" value="tenis" className="Label-button" name="exteriores" onClick={(e) => setExteriores((exteriores) => [...exteriores, e.target.value])} >Pista de tenis</button>
                             <button type="button" value="piscina" className="Label-button" name="exteriores" onClick={(e) => setExteriores((exteriores) => [...exteriores, e.target.value])} >Piscina</button>
                             <button type="button" value="cubierta" className="Label-button" name="exteriores" onClick={(e) => setExteriores((exteriores) => [...exteriores, e.target.value])} >Piscina cubierta</button>
                             <button type="button" value="campofutbol" className="Label-button" name="exteriores" onClick={(e) => setExteriores((exteriores) => [...exteriores, e.target.value])} >Campo de fútbol</button>
@@ -4897,7 +4869,7 @@ function TestAfinidadUser() {
                             <button type="button" value="campohipica" className="Label-button" name="exteriores" onClick={(e) => setExteriores((exteriores) => [...exteriores, e.target.value])} >Hípica</button>
                             <button type="button" value="esqui" className="Label-button" name="exteriores" onClick={(e) => setExteriores((exteriores) => [...exteriores, e.target.value])} >Pistas de esquí</button>
                         </div>
-                        {viewAlertExteriores ? (<p>Este campo es obligatorio</p>) : ""}
+                        {viewAlertExteriores ? (<span className="alert-Register">Este campo es obligatorio</span>) : ""}
                         <br />
                         <span className="spanTest">¿Con qué rangos de edad convivirías?</span>
                         <br />
@@ -4905,9 +4877,9 @@ function TestAfinidadUser() {
                         <button type="button" value="60_70" className="Label-button" name="rangoEdad" onClick={(e) => setRangoEdad((rangoEdad) => [...rangoEdad, e.target.value])} >Entre 60 y 70 años</button>
                         <button type="button" value="70_80" className="Label-button" name="rangoEdad" onClick={(e) => setRangoEdad((rangoEdad) => [...rangoEdad, e.target.value])} >Entre 70 y 80 años</button>
                         <button type="button" value="_80" className="Label-button" name="rangoEdad" onClick={(e) => setRangoEdad((rangoEdad) => [...rangoEdad, e.target.value])} >Más de 80</button>
-
-                        {viewAlertRangoEdad ? (<p>Este campo es obligatorio</p>) : ""}
                         <br />
+                        {viewAlertRangoEdad ? (<span className="alert-Register">Este campo es obligatorio</span>) : ""}
+                        
                         <br />
                         <span className="spanTest">¿Cuánto dinero máximo destinarías al Co-living al mes?</span>
                         <br />
@@ -4928,7 +4900,7 @@ function TestAfinidadUser() {
                             <option value="1400">Hasta 1400 €</option>
                             <option value="1500">1500 € o más</option>
                         </select>
-                        {viewAlertDinero ? (<p>Este campo es obligatorio</p>) : ""}
+                        {viewAlertDinero ? (<span className="alert-Register">Este campo es obligatorio</span>) : ""}
                         <br />
                         <br />
                         <span className="spanTest">¿Qué dimensión mínima en m&sup2; debería tener el immueble?</span>
@@ -4948,7 +4920,7 @@ function TestAfinidadUser() {
                             <option value="1500">1500 m&sup2;</option>
                             <option value="+1500">Más de 1500 m&sup2;</option>
                         </select>
-                        {viewAlertMetros ? (<p>Este campo es obligatorio</p>) : ""}
+                        {viewAlertMetros ? (<span className="alert-Register">Este campo es obligatorio</span>) : ""}
                         <br />
                         <br />
                         <span className="spanTest">¿Con cuánta gente como máximo compartirías el Co-living?</span>
@@ -4960,9 +4932,14 @@ function TestAfinidadUser() {
                             <option value="3">3</option>
                             <option value="4">4</option>
                             <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
                         </select>
 
-                        {viewAlertGente ? (<p>Este campo es obligatorio</p>) : ""}
+                        {viewAlertGente ? (<span className="alert-Register">Este campo es obligatorio</span>) : ""}
                         <br />
                         <br />
                         <div>

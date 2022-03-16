@@ -18,6 +18,10 @@ router.post("/busquedacoliving", user.busquedaColiving)
 
 router.post("/busquedausuario", user.busquedaUsuario)
 
+router.get("/busquserscomp", user.busquedaUsuariosCompatibles)
 
+router.get("/infocompatibledb", verificarToken, user.busquedaCompatiblesDb)
+
+router.post("/prueba", user.prueba)
 
 module.exports = router;

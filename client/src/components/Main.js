@@ -13,6 +13,10 @@ import BusquedaUsuario from "../pages/BusquedaUsuario";
 import ResultadoBusqUsuario from "../pages/ResultadoBusqUsuario";
 import ResultadoBusqColiving from "../pages/ResultadoBusqColiving";
 import RealizaElTest from "../pages/RealizaElTest";
+import ResultadoTest from "../pages/ResultadoTest";
+import HomeLogueado from "../pages/HomeLogueado";
+import Prueba from "../pages/Prueba";
+import Pasarela from "../pages/PasarelaTest";
 
 class Main extends Component {
 
@@ -22,7 +26,7 @@ class Main extends Component {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/registeruser" element={<RegisterUser />} />
+          <Route path="/registro" element={<RegisterUser />} />
           <Route path="/testusuario" element={<TestAfinidadUser />} />
           <Route path="/registercoliving" element={<RegisterColiving />} />
           <Route path="/perfil" element={<Perfil />} />
@@ -32,8 +36,10 @@ class Main extends Component {
           <Route path="/resultadobusquedauser" element={<ResultadoBusqUsuario/>} />
           <Route path="/resultadobusquedacoliving" element={<ResultadoBusqColiving/>} />
           <Route path="/realizaeltest" element={<RealizaElTest />} />
-
-
+          <Route path="/resultadotest" element={<ResultadoTest />} />
+          <Route path="/homelogueado" element={<HomeLogueado /> } />
+          <Route path="/prueba" element={<Prueba />} />
+          <Route path="/cargandoresultado" element={<Pasarela />} />
         </Routes>
       </div>
     );
