@@ -9,7 +9,7 @@ const InfoUsuario = (props) => {
 
     const [dataPerfil, setDataPerfil] = useState("");
 
-    let infoRecomendados = JSON.parse(sessionStorage.getItem("infoRecom"))
+    // let infoRecomendados = JSON.parse(sessionStorage.getItem("infoRecom"))
 
     let token = cookies.get("token");
 
@@ -20,15 +20,7 @@ const InfoUsuario = (props) => {
     async function obtenerInformacion(props) {
 
 
-        if (infoRecomendados) {
-            let infoCompatibles = await axios.get(`${props}`, {
-                headers: { infoUsers: infoRecomendados.ids_compatibles }
-            })
-            console.log((infoCompatibles))
-
-            let informacionUsuarios = infoCompatibles.data.flat(2)
-            setDataPerfil(informacionUsuarios)
-        } else {
+        
             let infoCompatiblesDb = await axios.get("/infocompatibledb", {
                 headers: { Authorization: `Bearer ${token}` }
             })
@@ -48,7 +40,7 @@ const InfoUsuario = (props) => {
             }
 
 
-        }
+        
     }
 
 

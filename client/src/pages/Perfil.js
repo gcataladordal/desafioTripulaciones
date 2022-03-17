@@ -13,9 +13,10 @@ function Perfil() {
     const [loading, setLoading] = useState(true)
     const [loaded, setLoaded] = useState(false)
 
-    console.log(dataUser.data)
+        
     useEffect(() => {
-        if (typeof(dataUser) === "object") {
+        if (auth === true && typeof(dataUser) !== "string" && typeof(usuario) !== "string") {
+            console.log(dataUser)
              setLoading(false)
              setLoaded(true)
             if (auth === true) {
@@ -24,8 +25,9 @@ function Perfil() {
                 window.location.href = "/"
             }
         }
-    }, [dataUser])
+    }, [dataUser, usuario])
 
+ 
 
     const clickSettings = () => {
         window.location.href = "/ajustesusuario"
@@ -59,10 +61,10 @@ function Perfil() {
                         <img src={fotoPerfil} alt="foto perfil" id="foto-Perfil-Perfil"></img>
                     </div>
                     <div className="info-Perfil">
-                        <span className="Hola-Perfil">Angeles</span>
+                        <span className="Hola-Perfil">{usuario.nombre}</span>
                     </div>
                     <div className="info-texto-Perfil">
-                        <span className="Sub-Perfil">60 años, mujer</span>
+                        <span className="Sub-Perfil"> {dataUser.data[0].edad} años,  {dataUser.data[0].genero}</span>
 
                     </div>
                 </div>

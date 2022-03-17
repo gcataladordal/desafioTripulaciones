@@ -47,9 +47,35 @@ const userActions = {
             exteriores: req.body.exteriores,
             gente: numeroGente,
             caracter: req.body.caracter,
-            aficiones: req.body.aficionesJuntas,
+            aficiones: ["blues: 2", "alternativa: 4", "rock: 2", "clasica: 2", "electronica: 4", "beisbol: 2", "futbol: 4", "baloncesto: 2", "golf: 2", "badminton: 4", "drama: 2", "accion: 4", "comedia: 2", "crimen: 2", "croche: 4", "cerveza: 2", "numismatica: 4", "cocina: 2", "reposteria: 2", "dibujo: 2", "instrumentos: 4", "componermusica: 2", "blogging: 2", "cine: 4"],
             id_usuario: req.body.id_usuario
         }
+
+        // let preferencias = {
+        //     edad: 52,
+        //     genero: "hombre",
+        //     oficio: ["sanidad"],
+        //     idiomas: ["castellano"],
+        //     orientacionSexual: true,
+        //     religion: true,
+        //     politica: true,
+        //     mascotas: true,
+        //     fumador: false,
+        //     carnet: true,
+        //     ubicacion: ["costa"],
+        //     tipoVivienda: ["chalet"],
+        //     region: ["andalucia"],
+        //     instalaciones: ["salagimnasio"],
+        //     rangoEdad: ["50_60"],
+        //     dinero: 200,
+        //     metros: 500,
+        //     lavabo: "privado",
+        //     exteriores: ["campofutbol"],
+        //     gente: 3,
+        //     caracter: ["creativo", "colaborador", "alegre", "decidido", "atento"],
+        //     aficiones: ["blues: 2", "alternativa: 4", "rock: 2", "clasica: 2", "electronica: 4", "beisbol: 2", "futbol: 4", "baloncesto: 2", "golf: 2", "badminton: 4", "drama: 2", "accion: 4", "comedia: 2", "crimen: 2", "croche: 4", "cerveza: 2", "numismatica: 4", "cocina: 2", "reposteria: 2", "dibujo: 2", "instrumentos: 4", "componermusica: 2", "blogging: 2", "cine: 4"],
+        //     id_usuario: req.body.id_usuario
+        // }
 
         let infoAfinidad = new infoTestAfinidad(preferencias)
 
@@ -58,17 +84,29 @@ const userActions = {
             console.log(`Inserción correcta de las preferencias de usuario`);
 
         });
+        
+        function random(min, max) {
+            return Math.round(Math.random() * (max - min) + min);
+        }
+
+        let idsUsuarios = []
+        for (let i = 0; i < 15; i++) {
+            let randomNumber = (random(1001, 3000))
+            idsUsuarios.push(randomNumber)
+        }
+
+        console.log(idsUsuarios)
 
 
 
 
         // Llamada al recomendador de DATA para devolver la info
 
-        let ejemploArrayRecom = [1001, 1002, 1007, 1010, 1058, 2054, 2065, 2054, 2548, 2941, 1654, 1524, 1658, 1789, 2354]
+        
 
         let infoRecomendador = {
             id_usuario: req.body.id_usuario,
-            ids_compatibles: ejemploArrayRecom
+            ids_compatibles: idsUsuarios
         }
 
         let infoInsertRecomendador = new InfoRecomendador(infoRecomendador)
@@ -126,12 +164,12 @@ const userActions = {
 
     },
     obtenerDataPerfil: async (req, res) => {
-        let infoDataPerfil = await infoTestAfinidad.find({id_usuario: req.idUsuario})
+        let infoDataPerfil = await infoTestAfinidad.find({ id_usuario: req.idUsuario })
         res.json(infoDataPerfil)
     },
     prueba: async (req, res) => {
 
-        
+
         // fetch("http://ec2-18-216-211-70.us-east-2.compute.amazonaws.com/api/recommend/users/update/1004")
         // .then((res) => {
         //     console.log(res)})
@@ -206,7 +244,7 @@ async function registroUsuario(req, res) {
                 res.json("algoMal")
             }
         }
-        
+
     }
 
 }

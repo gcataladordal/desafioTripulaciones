@@ -11,8 +11,8 @@ function Prueba() {
             id_usuario: 1023
         }
 
-        axios.post("/prueba", info).then((res) => {
-            console.log("23" + res.data)
+        axios.get("http://ec2-18-216-211-70.us-east-2.compute.amazonaws.com/api/recommend/users/update/1004").then((res) => {
+            console.log(res.data)
         })
     }
 

@@ -13,18 +13,20 @@ function HomeLogueado() {
     const [usuario, auth] = InfoAuth("obtieneinfo")
     const [informacionUsuarios] = InfoUsuario("busquserscomp");
 
-   
+   console.log(typeof(informacionUsuarios))
+
     useEffect(() => {
-        if (auth === true && typeof(usuario) !== "string") {
+        if (auth === true && typeof(informacionUsuarios) === "string" && typeof(usuario) !== "string") {
             if (informacionUsuarios === "noTest") {
                 window.location.href = "/realizaeltest"
             } else {
-                setLoaded(true)
-                setLoading(false)
-                
+   
             }
         } else if (auth === false) {
             window.location.href = "/registro"
+        } else if (auth === true && typeof(informacionUsuarios) === "object" && typeof(usuario) !== "string") {
+            setLoaded(true)
+                setLoading(false)
         }
     }, [informacionUsuarios, usuario])
 

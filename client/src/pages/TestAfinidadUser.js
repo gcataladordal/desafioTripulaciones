@@ -747,10 +747,12 @@ function TestAfinidadUser() {
 
     const [showWestern, setShowWestern] = useState(false);
     const handleCloseWestern = (e) => {
-        setShowWestern(false);
+        console.log(e.target.value)
         if (e !== undefined) {
             setPeliculas((peliculas) => [...peliculas, e.target.value])
+            console.log(peliculas)
         }
+        setShowWestern(false);
     }
     const handleShowWestern = () => setShowWestern(true);
 
@@ -1551,9 +1553,13 @@ function TestAfinidadUser() {
 
     function enviarDatos(e) {
         e.preventDefault();
+        console.log(musica)
+        console.log(deportes)
+        console.log(peliculas)
+        console.log(aficiones)
 
         let aficionesJuntas = aficiones.flat(1);
-
+        console.log(aficionesJuntas)
         let caracteristicasTest = {
             edad,
             genero,
@@ -3071,7 +3077,7 @@ function TestAfinidadUser() {
                             </Modal.Header>
                             <Modal.Body>
                                 <div className="contenedor-Overlay">
-                                    <button type="button" className="Button-Overlay" value="western: 2" onClick={(e) => handleCloseWestern(e)}>
+                                    <button type="button"  value="western: 2" onClick={(e) => handleCloseWestern(e)}>
                                         <span className="Texto-Overlay">Me gusta</span>
                                     </button>
                                     <button type="button" className="Button-Overlay" value="western: 4" onClick={(e) => handleCloseWestern(e)}>
@@ -3086,6 +3092,9 @@ function TestAfinidadUser() {
                         <div>
                             <br />
                             <button type="button" className="Btn-Default" onClick={() => {
+                                console.log(musica)
+                                console.log(peliculas)
+                                console.log(deportes)
                                 if (musica.length < 5 || deportes.length < 5 || peliculas.length < 4) {
                                     if (musica.length < 5) {
                                         setViewAlertMusica(true)

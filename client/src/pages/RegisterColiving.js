@@ -104,56 +104,56 @@ function RegisterColiving(){
             <br />
             <form>
                 <div>
-                    <label>¿Cómo se llama tu co-living?</label>
+                <span className="spanTest">¿Cómo se llama tu co-living?</span>
                     <br />
                     <input type="text" name="nombre" placeholder="Ej: Nordikrooms" onChange={(e) => setNombre(e.target.value)}></input>
                     <br />
                     <br />
-                    <label>¿Este coliving está ya desplegado y funcionando?</label>
+                    <span className="spanTest">¿Este coliving está ya desplegado y funcionando?</span>
                     <br />
                     <input type="radio" name="immueble" value="si" id="si" onChange={(e) => setActivo(true)}></input><label htmlFor="si">&nbsp;Sí</label>
                     <br />
                     <input type="radio" name="immueble" value="no" id="no" onChange={(e) => setActivo(false)}></input><label htmlFor="no">&nbsp;No</label>
                     <br />
                     <br />
-                    <label>¿Dónde se encuentra?</label><br />
-
-                    <label>Direccion</label>
+                    <span className="spanTest">¿Dónde se encuentra?</span>
+                    <br />
+                    <span className="spanTest">Direccion</span>
                     <br />
                     <input type="text" name="direccion" placeholder="Ej: Calle Gran Vía nº65" onChange={(e) => setDireccion(e.target.value)}></input>
                     <br />
                     <br />
-                    <label>Ciudad</label>
+                    <span className="spanTest">Ciudad</span>
                     <br />
                     <input type="text" name="ciudad" placeholder="Ej: Madrid" onChange={(e) => setCiudad(e.target.value)}></input>
                     <br />
                     <br />
-                    <label>Código Postal</label>
+                    <span className="spanTest">Código Postal</span>
                     <br />
                     <input type="text" name="CP" placeholder="Ej: 09231" onChange={(e) => setCp(e.target.value)}></input>
                     <br />
                     <br />
-                    <label>Teléfono</label>
+                    <span className="spanTest">Teléfono</span>
                     <br />
                     <input type="text" name="telefono" placeholder="559 577 837" onChange={(e) => setTelefono(e.target.value)}></input>
                     <br />
                     <br />
-                    <label>Email</label>
+                    <span className="spanTest">Email</span>
                     <br />
                     <input type="email" name="email" placeholder="Ej: correo@ejemplo.com" onChange={(e) => setEmail(e.target.value)}></input>
                     <br />
                     <br />
-                    <label>¿Cuántas personas hay?</label>
+                    <span className="spanTest">¿Cuántas personas hay?</span>
                     <br />
                     <input type="number" name="habitantes" min="0" placeholder="Ej: 4" onChange={(e) => setHabitantes(e.target.value)}></input>
                     <br />
                     <br />
-                    <label>Capacidad Máxima:</label>
+                    <span className="spanTest">Capacidad Máxima:</span>
                     <br />
                     <input type="number" name="capacidad" min="0" placeholder="Ej: 4" onChange={(e) => setCapacidad(e.target.value)}></input>
                     <br />
                     <br />
-                    <label>Idiomas:</label>
+                    <span className="spanTest">Idiomas:</span>
                     <br />
                     <div id="respuestasIdiomas">
                         <Checkbox.Group onChange={(e) => cambiosCheckboxIdiomas(e)}>
