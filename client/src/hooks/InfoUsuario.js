@@ -7,7 +7,7 @@ const cookies = new Cookies();
 const InfoUsuario = (props) => {
 
 
-    const [infoUsuarios, setInfoUsuarios] = useState("");
+    const [dataPerfil, setDataPerfil] = useState("");
 
     let infoRecomendados = JSON.parse(sessionStorage.getItem("infoRecom"))
 
@@ -27,7 +27,7 @@ const InfoUsuario = (props) => {
             console.log((infoCompatibles))
 
             let informacionUsuarios = infoCompatibles.data.flat(2)
-            setInfoUsuarios(informacionUsuarios)
+            setDataPerfil(informacionUsuarios)
         } else {
             let infoCompatiblesDb = await axios.get("/infocompatibledb", {
                 headers: { Authorization: `Bearer ${token}` }
@@ -35,7 +35,7 @@ const InfoUsuario = (props) => {
 
             if (infoCompatiblesDb.data[0] === undefined) {
 
-                setInfoUsuarios("noTest")
+                setDataPerfil("noTest")
             } else {
 
                 let infoCompatibles = await axios.get(`${props}`, {
@@ -44,7 +44,7 @@ const InfoUsuario = (props) => {
 
 
                 let informacionUsuarios = infoCompatibles.data.flat(2)
-                setInfoUsuarios(informacionUsuarios)
+                setDataPerfil(informacionUsuarios)
             }
 
 
@@ -52,10 +52,9 @@ const InfoUsuario = (props) => {
     }
 
 
-    return [infoUsuarios]
+    return [dataPerfil]
 }
 
 export default InfoUsuario;
-
 
 

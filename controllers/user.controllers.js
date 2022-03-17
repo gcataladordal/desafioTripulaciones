@@ -97,7 +97,6 @@ const userActions = {
     },
     busquedaUsuariosCompatibles: async (req, res) => {
 
-
         let stringUsers = req.headers.infousers
         let arrayUsers = stringUsers.split(",")
 
@@ -125,6 +124,10 @@ const userActions = {
         res.json(infoAfines)
 
 
+    },
+    obtenerDataPerfil: async (req, res) => {
+        let infoDataPerfil = await infoTestAfinidad.find({id_usuario: req.idUsuario})
+        res.json(infoDataPerfil)
     },
     prueba: async (req, res) => {
 

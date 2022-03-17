@@ -17,6 +17,7 @@ import ResultadoTest from "../pages/ResultadoTest";
 import HomeLogueado from "../pages/HomeLogueado";
 import Prueba from "../pages/Prueba";
 import Pasarela from "../pages/PasarelaTest";
+import Settings from "../pages/Settings";
 
 class Main extends Component {
 
@@ -40,6 +41,7 @@ class Main extends Component {
           <Route path="/homelogueado" element={<HomeLogueado /> } />
           <Route path="/prueba" element={<Prueba />} />
           <Route path="/cargandoresultado" element={<Pasarela />} />
+          <Route path="/ajustesusuario" element={<Settings />}  />
         </Routes>
       </div>
     );

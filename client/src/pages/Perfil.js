@@ -1,56 +1,74 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import InfoAuth from "../hooks/InfoAuth";
 import NavBar from "../components/NavBar";
-import Cookies from "universal-cookie";
+import setting from "../img/Setting.png";
+import fotoPerfil from "../img/perfil.png"
+import logonaranjo from "../img/logonaranjo.png"
+import InfoPerfil from "../hooks/InfoPerfil";
 
 function Perfil() {
 
-    const cookie = new Cookies()
-
     const [usuario, auth] = InfoAuth("obtieneinfo")
-    
+    const [dataUser] = InfoPerfil("infodataperfil")
+    const [loading, setLoading] = useState(true)
+    const [loaded, setLoaded] = useState(false)
+
+    console.log(dataUser.data)
     useEffect(() => {
-        if (auth === true) {
-        } else if (auth === false ) {
-            window.location.href = "/"
+        if (typeof(dataUser) === "object") {
+             setLoading(false)
+             setLoaded(true)
+            if (auth === true) {
+               
+            } else if (auth === false) {
+                window.location.href = "/"
+            }
         }
-    }, [auth])
+    }, [dataUser])
 
 
-    const logout = () => {
-        cookie.remove("token")
-        window.location.href = "/"
+    const clickSettings = () => {
+        window.location.href = "/ajustesusuario"
     }
 
     const crearColiving = () => {
         window.location.href = "/registercoliving"
     }
 
-    const irATest = () => {
-        window.location.href = "/testusuario"
+
+    if (loading) {
+        return (
+            <div className="Splash-screen">
+                <img src={logonaranjo} className="logoNaranjo" alt="logo naranjo"></img>
+            </div>
+        )
     }
 
-    return (
-        <div>
-        <div className="Frame-3628"> 
-            <div id="crearColiving">
-            <button type="button" className="Btn-Default-Home"  onClick={crearColiving}><span className="Texto-Blanco">Registrar Coliving</span></button>
-            </div>
-            <br />
-            <div id="modificarPerfil">
-                <button type="button" className="Btn-Default-Home" onClick={irATest}>Modificar Perfil</button>
-            </div>
-            <br />
-            <div id="eliminarPerfil">
-            <button type="button" className="Btn-Default-Home">Eliminar Perfil</button>
-            </div>
-            <div id="cerrarSesión">
-            <button type="button"className="Btn-Default-Home" onClick={logout}>Cerrar Sesión</button>
-            </div>
-        </div>
-        <NavBar />
-        </div>
-    )
-}
+    if (loaded) {
+        return (
+            <div>
+                <div className="Frame-3628">
+                    <div className="Header-Perfil">
+                        <span className="Texto-Perfil">Perfil</span>
+                        <img src={setting} alt="settings" className="Setting-Pic" onClick={clickSettings}></img>
+                    </div>
+                    <div className="Buttons-Perfil">
+                        <button type="button" className="Btn-Default-Perfil" onClick={crearColiving}><span className="Texto-Blanco-Perfil">Registrar Coliving</span></button>
+                    </div>
+                    <div className="foto-de-Perfil">
+                        <img src={fotoPerfil} alt="foto perfil" id="foto-Perfil-Perfil"></img>
+                    </div>
+                    <div className="info-Perfil">
+                        <span className="Hola-Perfil">Angeles</span>
+                    </div>
+                    <div className="info-texto-Perfil">
+                        <span className="Sub-Perfil">60 años, mujer</span>
 
+                    </div>
+                </div>
+                <NavBar />
+            </div>
+        )
+    }
+}
 export default Perfil

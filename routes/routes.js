@@ -22,6 +22,8 @@ router.get("/busquserscomp", user.busquedaUsuariosCompatibles)
 
 router.get("/infocompatibledb", verificarToken, user.busquedaCompatiblesDb)
 
+router.get("/infodataperfil", verificarToken, user.obtenerDataPerfil)
+
 router.post("/prueba", user.prueba)
 
 module.exports = router;
