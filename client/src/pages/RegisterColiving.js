@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {Checkbox} from "antd";
+import { Checkbox } from "antd";
 import InfoAuth from "../hooks/InfoAuth";
 
-function RegisterColiving(){
+function RegisterColiving() {
 
     const [usuario, auth] = InfoAuth("obtieneinfo")
 
     useEffect(() => {
         if (auth === true) {
-        } else if (auth === false ) {
+        } else if (auth === false) {
             window.location.href = "/"
         }
     }, [auth])
@@ -38,7 +38,7 @@ function RegisterColiving(){
     const [exteriores, setExteriores] = useState("");
     const [facilAcceso, setFacilAcceso] = useState("");
     const [instalaciones, setInstalaciones] = useState("");
-    const [ids, setIds]  = useState("");
+    const [ids, setIds] = useState("");
 
     const cambiosCheckboxIdiomas = (valoresMarcados) => {
         setIdiomas(valoresMarcados)
@@ -47,7 +47,7 @@ function RegisterColiving(){
     const cambiosCheckboxRangoEdad = (valoresMarcados) => {
         setRangoEdad(valoresMarcados)
     }
-    
+
     const cambiosCheckboxInstalaciones = (valoresMarcados) => {
         setInstalaciones(valoresMarcados)
     }
@@ -99,14 +99,14 @@ function RegisterColiving(){
         })
     }
 
-    return(
+    return (
         <div>
             <br />
             <form>
                 <div>
-                <span className="spanTest">¿Cómo se llama tu co-living?</span>
+                    <span className="spanTest">¿Cómo se llama tu co-living?</span>
                     <br />
-                    <input type="text" name="nombre" placeholder="Ej: Nordikrooms" onChange={(e) => setNombre(e.target.value)}></input>
+                    <input type="text" name="nombre" className="inputRegistro" placeholder="Ej: Nordikrooms" onChange={(e) => setNombre(e.target.value)}></input>
                     <br />
                     <br />
                     <span className="spanTest">¿Este coliving está ya desplegado y funcionando?</span>
@@ -120,37 +120,37 @@ function RegisterColiving(){
                     <br />
                     <span className="spanTest">Direccion</span>
                     <br />
-                    <input type="text" name="direccion" placeholder="Ej: Calle Gran Vía nº65" onChange={(e) => setDireccion(e.target.value)}></input>
+                    <input type="text" name="direccion" className="inputRegistro" placeholder="Ej: Calle Gran Vía nº65" onChange={(e) => setDireccion(e.target.value)}></input>
                     <br />
                     <br />
                     <span className="spanTest">Ciudad</span>
                     <br />
-                    <input type="text" name="ciudad" placeholder="Ej: Madrid" onChange={(e) => setCiudad(e.target.value)}></input>
+                    <input type="text" name="ciudad" className="inputRegistro" placeholder="Ej: Madrid" onChange={(e) => setCiudad(e.target.value)}></input>
                     <br />
                     <br />
                     <span className="spanTest">Código Postal</span>
                     <br />
-                    <input type="text" name="CP" placeholder="Ej: 09231" onChange={(e) => setCp(e.target.value)}></input>
+                    <input type="text" name="CP" className="inputRegistro" placeholder="Ej: 09231" onChange={(e) => setCp(e.target.value)}></input>
                     <br />
                     <br />
                     <span className="spanTest">Teléfono</span>
                     <br />
-                    <input type="text" name="telefono" placeholder="559 577 837" onChange={(e) => setTelefono(e.target.value)}></input>
+                    <input type="text" name="telefono" className="inputRegistro" placeholder="559 577 837" onChange={(e) => setTelefono(e.target.value)}></input>
                     <br />
                     <br />
                     <span className="spanTest">Email</span>
                     <br />
-                    <input type="email" name="email" placeholder="Ej: correo@ejemplo.com" onChange={(e) => setEmail(e.target.value)}></input>
+                    <input type="email" name="email" className="inputRegistro" placeholder="Ej: correo@ejemplo.com" onChange={(e) => setEmail(e.target.value)}></input>
                     <br />
                     <br />
                     <span className="spanTest">¿Cuántas personas hay?</span>
                     <br />
-                    <input type="number" name="habitantes" min="0" placeholder="Ej: 4" onChange={(e) => setHabitantes(e.target.value)}></input>
+                    <input type="number" name="habitantes" min="0" className="inputRegistro" placeholder="Ej: 4" onChange={(e) => setHabitantes(e.target.value)}></input>
                     <br />
                     <br />
                     <span className="spanTest">Capacidad Máxima:</span>
                     <br />
-                    <input type="number" name="capacidad" min="0" placeholder="Ej: 4" onChange={(e) => setCapacidad(e.target.value)}></input>
+                    <input type="number" name="capacidad" min="0" className="inputRegistro" placeholder="Ej: 4" onChange={(e) => setCapacidad(e.target.value)}></input>
                     <br />
                     <br />
                     <span className="spanTest">Idiomas:</span>
@@ -201,44 +201,44 @@ function RegisterColiving(){
                     <br />
                     <br />
                     <div>
-                    <label>¿Se permiten personas con una orientacion sexual diferente?</label>
+                        <span className="spanTest">¿Se permiten personas con una orientacion sexual diferente?</span>
+                        <br />
+                        <input type="radio" name="orientacion" value="si" id="si" onChange={(e) => setOrientacionSexual(true)}></input><label htmlFor="si">&nbsp;Si</label>
+                        <br />
+                        <input type="radio" name="orientacion" value="no" id="no" onChange={(e) => setOrientacionSexual(false)}></input><label htmlFor="no">&nbsp;No</label>
+                    </div>
                     <br />
-                    <input type="radio" name="orientacion" value="si" id="si" onChange={(e) => setOrientacionSexual(true)}></input><label htmlFor="si">&nbsp;Si</label>
+                    <div>
+                        <span className="spanTest">¿Se permiten peronas con una religión diferente?</span>
+                        <br />
+                        <input type="radio" name="religion" value="si" id="si" onChange={(e) => setReligion(true)}></input><label htmlFor="si">&nbsp;Si</label>
+                        <br />
+                        <input type="radio" name="religion" value="no" id="no" onChange={(e) => setReligion(false)}></input><label htmlFor="no">&nbsp;No</label>
+                    </div>
                     <br />
-                    <input type="radio" name="orientacion" value="no" id="no" onChange={(e) => setOrientacionSexual(false)}></input><label htmlFor="no">&nbsp;No</label>
-                </div>
-                <br />
-                <div>
-                    <label>¿Se permiten peronas con una religión diferente?</label>
+                    <div>
+                    <span className="spanTest">¿Se permiten personas con una ideología política diferente?</span>
+                        <br />
+                        <input type="radio" name="politica" value="si" id="si" onChange={(e) => setPolitica(true)}></input><label htmlFor="si">&nbsp;Si</label>
+                        <br />
+                        <input type="radio" name="politica" value="no" id="no" onChange={(e) => setPolitica(false)}></input><label htmlFor="no">&nbsp;No</label>
+                    </div>
                     <br />
-                    <input type="radio" name="religion" value="si" id="si" onChange={(e) => setReligion(true)}></input><label htmlFor="si">&nbsp;Si</label>
+                    <div>
+                        <label>¿Se permiten personas con mascotas?</label>
+                        <br />
+                        <input type="radio" name="mascotas" value="si" id="si" onChange={(e) => setMascota(true)}></input><label htmlFor="si">&nbsp;Si</label>
+                        <br />
+                        <input type="radio" name="mascotas" value="no" id="no" onChange={(e) => setMascota(false)}></input><label htmlFor="no">&nbsp;No</label>
+                    </div>
                     <br />
-                    <input type="radio" name="religion" value="no" id="no" onChange={(e) => setReligion(false)}></input><label htmlFor="no">&nbsp;No</label>
-                </div>
-                <br />
-                <div>
-                    <label>¿Se permiten personas con una ideología política diferente?</label>
-                    <br />
-                    <input type="radio" name="politica" value="si" id="si" onChange={(e) => setPolitica(true)}></input><label htmlFor="si">&nbsp;Si</label>
-                    <br />
-                    <input type="radio" name="politica" value="no" id="no" onChange={(e) => setPolitica(false)}></input><label htmlFor="no">&nbsp;No</label>
-                </div>
-                <br />
-                <div>
-                    <label>¿Se permiten personas con mascotas?</label>
-                    <br />
-                    <input type="radio" name="mascotas" value="si" id="si" onChange={(e) => setMascota(true)}></input><label htmlFor="si">&nbsp;Si</label>
-                     <br />
-                    <input type="radio" name="mascotas" value="no" id="no" onChange={(e) => setMascota(false)}></input><label htmlFor="no">&nbsp;No</label>
-                </div>
-                <br />
-                <div>
-                    <label>¿Se permiten personas fumadoras?</label>
-                    <br />
-                    <input type="radio" name="fumador" value="si" id="si" onChange={(e) => setFumador(true)}></input><label htmlFor="si">&nbsp;Si</label>
-                    <br />
-                    <input type="radio" name="fumador" value="no" id="no" onChange={(e) => setFumador(false)}></input><label htmlFor="no">&nbsp;No</label>
-                </div>
+                    <div>
+                        <label>¿Se permiten personas fumadoras?</label>
+                        <br />
+                        <input type="radio" name="fumador" value="si" id="si" onChange={(e) => setFumador(true)}></input><label htmlFor="si">&nbsp;Si</label>
+                        <br />
+                        <input type="radio" name="fumador" value="no" id="no" onChange={(e) => setFumador(false)}></input><label htmlFor="no">&nbsp;No</label>
+                    </div>
                     <br />
                     <label>Ubicacion:</label>
                     <br />
@@ -269,19 +269,19 @@ function RegisterColiving(){
                     <label>Rango Edad:</label>
                     <br />
                     <Checkbox.Group onChange={(e) => cambiosCheckboxRangoEdad(e)}>
-                            <Checkbox name="rangoEdad" value="50_60" id="50_60">
-                                <label forhtml="50-60">&nbsp;Entre 50 y 60 años</label>
-                            </Checkbox>&nbsp;
-                            <Checkbox name="rangoEdad" value="60_70" id="60_70">
-                                <label forhtml="60-70">&nbsp;Entre 60 y 70 años</label>
-                            </Checkbox>&nbsp;
-                            <Checkbox name="rangoEdad" value="70_80" id="70_80">
-                                <label forhtml="70-80">&nbsp;Entre 70 y 80 años</label>
-                            </Checkbox>&nbsp;
-                            <Checkbox name="rangoEdad" value="_80" id="_80">
-                                <label forhtml="+80">&nbsp;Más de 80</label>
-                            </Checkbox>&nbsp;
-                        </Checkbox.Group>
+                        <Checkbox name="rangoEdad" value="50_60" id="50_60">
+                            <label forhtml="50-60">&nbsp;Entre 50 y 60 años</label>
+                        </Checkbox>&nbsp;
+                        <Checkbox name="rangoEdad" value="60_70" id="60_70">
+                            <label forhtml="60-70">&nbsp;Entre 60 y 70 años</label>
+                        </Checkbox>&nbsp;
+                        <Checkbox name="rangoEdad" value="70_80" id="70_80">
+                            <label forhtml="70-80">&nbsp;Entre 70 y 80 años</label>
+                        </Checkbox>&nbsp;
+                        <Checkbox name="rangoEdad" value="_80" id="_80">
+                            <label forhtml="+80">&nbsp;Más de 80</label>
+                        </Checkbox>&nbsp;
+                    </Checkbox.Group>
                     <br />
                     <br />
                     <label>Dinero máximo que gastaría (mensual):</label>
