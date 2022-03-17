@@ -13,20 +13,20 @@ function HomeLogueado() {
     const [usuario, auth] = InfoAuth("obtieneinfo")
     const [informacionUsuarios] = InfoUsuario("busquserscomp");
 
-    console.log(informacionUsuarios)
+   
     useEffect(() => {
-        setLoaded(true)
-        if (auth === true && loaded && informacionUsuarios !== "string") {
+        if (auth === true && typeof(usuario) !== "string") {
             if (informacionUsuarios === "noTest") {
                 window.location.href = "/realizaeltest"
             } else {
+                setLoaded(true)
                 setLoading(false)
                 
             }
         } else if (auth === false) {
             window.location.href = "/registro"
         }
-    }, [informacionUsuarios])
+    }, [informacionUsuarios, usuario])
 
 
     // useEffect(() => {
@@ -59,7 +59,7 @@ function HomeLogueado() {
                 <div className="home-Logueado">
 
                     <span className="Hola-Logueado">
-                        Hola, Ángeles
+                        Hola, {usuario.nombre}
                     </span>
                     <br />
                     <span className="Qu-quieres-encontrar">

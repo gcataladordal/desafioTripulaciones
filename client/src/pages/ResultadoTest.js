@@ -3,10 +3,12 @@ import InfoUsuario from "../hooks/InfoUsuario";
 import NavBar from "../components/NavBar";
 import logonaranjo from "../img/logonaranjo.png";
 import fotoperfil from "../img/perfil.png";
-
+import InfoAuth from "../hooks/InfoAuth";
 
 function ResultadoTest() {
 
+
+    const [usuario, auth] = InfoAuth("obtieneinfo")
     const [informacionUsuarios] = InfoUsuario("busquserscomp");
     const [loading, setLoading] = useState(true);
 

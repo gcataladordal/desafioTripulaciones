@@ -1547,18 +1547,6 @@ function TestAfinidadUser() {
     }
     const handleShowZoologia = () => setShowZoologia(true);
 
-    //--------
-
-    // const handleSubmit = async (e) => {
-
-
-
-    //     let timeoutID = setTimeout(function () {
-
-    //     }, 5000);
-    //     enviarDatos();
-    // }
-
 
 
     function enviarDatos(e) {
@@ -4712,7 +4700,6 @@ function TestAfinidadUser() {
                             if (actividades.length < 10) {
                                 setViewAlertActividades(true)
                             } else {
-                                setAficiones([]);
                                 setAficiones([actividades, musica, deportes, peliculas])
                                 setViewParteCuatro(false)
                                 setViewParteCinco(true)
