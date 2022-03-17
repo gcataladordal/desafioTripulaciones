@@ -12,22 +12,44 @@ function Perfil() {
     const [dataUser] = InfoPerfil("infodataperfil")
     const [loading, setLoading] = useState(true)
     const [loaded, setLoaded] = useState(false)
+    const [oficiosList, setOficiosList] = useState(false)
+    const [oficiosList2, setOficiosList2] = useState(false)
+    const [oficiosList3, setOficiosList3] = useState(false)
+    const [idiomasList, setIdiomasList] = useState(false)
+    const [idiomasList2, setIdiomasList2] = useState(false)
+    const [idiomasList3, setIdiomasList3] = useState(false)
 
-        
     useEffect(() => {
-        if (auth === true && typeof(dataUser) !== "string" && typeof(usuario) !== "string") {
-            console.log(dataUser)
-             setLoading(false)
-             setLoaded(true)
-            if (auth === true) {
-               
-            } else if (auth === false) {
-                window.location.href = "/"
+        if (auth === true && typeof (dataUser) !== "string" && typeof (usuario) !== "string") {
+            setLoading(false)
+            setLoaded(true)
+            if (dataUser.data[0].oficio.length === 1) {
+                setOficiosList(true)
             }
-        }
-    }, [dataUser, usuario])
+            if (dataUser.data[0].oficio.length === 2) {
+                setOficiosList2(true)
+            }
+            if (dataUser.data[0].oficio.length >= 3) {
+                setOficiosList3(true)
+            }
+            if (dataUser.data[0].idiomas.length === 1) {
+                setIdiomasList(true)
+            }
+            if (dataUser.data[0].idiomas.length === 2) {
+                setIdiomasList2(true)
+            }
+            if (dataUser.data[0].idiomas.length >= 3) {
+                setIdiomasList3(true)
+            }
+            if (auth === true) {
 
- 
+            }
+        } else if (auth === false) {
+            window.location.href = "/"
+        }
+    }, [dataUser, usuario, auth])
+
+
 
     const clickSettings = () => {
         window.location.href = "/ajustesusuario"
@@ -45,6 +67,8 @@ function Perfil() {
             </div>
         )
     }
+
+
 
     if (loaded) {
         return (
@@ -67,10 +91,37 @@ function Perfil() {
                         <span className="Sub-Perfil"> {dataUser.data[0].edad} años,  {dataUser.data[0].genero}</span>
 
                     </div>
+                    <br />
+                    <div className="Info-Perfil">
+                        <span className="Texto-Perfil">Idiomas</span>
+                        <div className="Info-Perfil">
+                            {idiomasList ? (<span className="Sub-Perfil">{dataUser.data[0].idiomas[0]}</span>) : ""}
+                            {idiomasList2 ? (<span className="Sub-Perfil">{dataUser.data[0].idiomas[0]}, {dataUser.data[0].idiomas[1]} </span>) : ""}
+                            {idiomasList3 ? (<span className="Sub-Perfil">{dataUser.data[0].idiomas[0]}, {dataUser.data[0].idiomas[1]}, {dataUser.data[0].idiomas[2]} </span>) : ""}
+                        </div>
+                        <div className="Info-Perfil">
+                            <br />
+                            <span className="Texto-Perfil">¿Cómo soy?</span>
+                            <div className="Info-Perfil">
+                                <span className="Sub-Perfil">{dataUser.data[0].caracter[0]}, {dataUser.data[0].caracter[1]}, {dataUser.data[0].caracter[2]}, {dataUser.data[0].caracter[3]}, {dataUser.data[0].caracter[4]}</span>
+                            </div>
+                        </div>
+                        <div className="Info-Perfil">
+                            <br />
+                            <span className="Texto-Perfil">¿De qué he trabajado?</span>
+                            <div className="Info-Perfil">
+                                {oficiosList ? (<span className="Sub-Perfil">{dataUser.data[0].oficio[0]}</span>) : ""}
+                                {oficiosList2 ? (<span className="Sub-Perfil">{dataUser.data[0].oficio[0]}, {dataUser.data[0].oficio[1]} </span>) : ""}
+                                {oficiosList3 ? (<span className="Sub-Perfil">{dataUser.data[0].oficio[0]}, {dataUser.data[0].oficio[1]}, {dataUser.data[0].oficio[2]} </span>) : ""}
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
                 <NavBar />
             </div>
         )
     }
 }
+
 export default Perfil
