@@ -225,7 +225,7 @@ function RegisterColiving() {
                     </div>
                     <br />
                     <div>
-                        <label>¿Se permiten personas con mascotas?</label>
+                    <span className="spanTest">¿Se permiten personas con mascotas?</span>
                         <br />
                         <input type="radio" name="mascotas" value="si" id="si" onChange={(e) => setMascota(true)}></input><label htmlFor="si">&nbsp;Si</label>
                         <br />
