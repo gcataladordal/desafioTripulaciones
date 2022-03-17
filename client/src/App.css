@@ -892,3 +892,28 @@ img.Icon-left-arrow {
   text-align: center;
   color: #000;
 }
+
+.spanBusqUser {
+  width: 52px;
+  height: 11px;
+  margin: 48px 16px 16px 0;
+  font-family: Lato;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.14;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000;
+}
+
+.Frame-3629 {
+  width: 390px;
+  height: 726px;
+  padding: 16px 13px 16px 16px;
+}
+
+.contenedor-Boton-Buscar {
+padding: 12px 0px 100px
+}

@@ -39,7 +39,6 @@ function RegisterUser() {
             setAlertOtro(false)
             setAlertUserExiste(false)
             if (res.data === "insertOk") {
-                alert("Usuario registrado correctamente")
                 window.location.href = "/login"
             }
             if (res.data === "algoMal") {

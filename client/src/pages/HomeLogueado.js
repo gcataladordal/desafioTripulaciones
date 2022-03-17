@@ -49,10 +49,10 @@ function HomeLogueado() {
 
 
     const clickboton = () => {
-        console.log("hola")
+        window.location.href = "/buscacoliving"
     }
     const clickboton2 = () => {
-        console.log("hola")
+        window.location.href = "/buscausuario"
     }
 
     if (loaded) {
@@ -68,8 +68,8 @@ function HomeLogueado() {
                         ¿Qué quieres encontrar?
                     </span>
                     <div className="contenedor-Buscadores">
-                        <button type="button" className="Btn-Default-Home"><span className="Texto-Blanco">Co-living</span></button>
-                        <button type="button" className="Btn-Default-Home"><span className="Texto-Blanco">Personas</span></button>
+                        <button type="button" className="Btn-Default-Home" onClick={clickboton}><span className="Texto-Blanco">Co-living</span></button>
+                        <button type="button" className="Btn-Default-Home" onClick={clickboton2}><span className="Texto-Blanco">Personas</span></button>
 
                     </div>
                     <div>
