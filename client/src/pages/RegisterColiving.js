@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Checkbox } from "antd";
 import InfoAuth from "../hooks/InfoAuth";
+import imgAnterior from "../img/left_arrow_(1).png"
+import NavBar from "../components/NavBar";
 
 function RegisterColiving() {
 
@@ -24,11 +26,11 @@ function RegisterColiving() {
     const [habitantes, setHabitantes] = useState("");
     const [capacidad, setCapacidad] = useState("");
     const [idiomas, setIdiomas] = useState("");
-    const [orientacionSexual, setOrientacionSexual] = useState("");
-    const [religion, setReligion] = useState("");
-    const [politica, setPolitica] = useState("");
-    const [mascota, setMascota] = useState("");
-    const [fumador, setFumador] = useState("");
+    const [orientacionSexual, setOrientacionSexual] = useState(false);
+    const [religion, setReligion] = useState(false);
+    const [politica, setPolitica] = useState(false);
+    const [mascotas, setMascotas] = useState(false);
+    const [fumador, setFumador] = useState(false);
     const [ubicacion, setUbicacion] = useState("");
     const [tipoVivienda, setTipoVivienda] = useState("");
     const [rangoEdad, setRangoEdad] = useState("");
@@ -56,6 +58,11 @@ function RegisterColiving() {
         setExteriores(valoresMarcados)
     }
 
+
+    const clickImagenAtras = () => {
+        window.location.href = "/perfil"
+    }
+
     const enviarDatos = () => {
         let Usuario = {
             nombre,
@@ -72,7 +79,7 @@ function RegisterColiving() {
             orientacionSexual,
             religion,
             politica,
-            mascota,
+            mascotas,
             fumador,
             ubicacion,
             tipoVivienda,
@@ -101,350 +108,219 @@ function RegisterColiving() {
 
     return (
         <div>
-            <br />
-            <form>
-                <div>
-                    <span className="spanTest">¿Cómo se llama tu co-living?</span>
-                    <br />
-                    <input type="text" name="nombre" className="inputRegistro" placeholder="Ej: Nordikrooms" onChange={(e) => setNombre(e.target.value)}></input>
-                    <br />
-                    <br />
-                    <span className="spanTest">¿Este coliving está ya desplegado y funcionando?</span>
-                    <br />
-                    <input type="radio" name="immueble" value="si" id="si" onChange={(e) => setActivo(true)}></input><label htmlFor="si">&nbsp;Sí</label>
-                    <br />
-                    <input type="radio" name="immueble" value="no" id="no" onChange={(e) => setActivo(false)}></input><label htmlFor="no">&nbsp;No</label>
-                    <br />
-                    <br />
-                    <span className="spanTest">¿Dónde se encuentra?</span>
-                    <br />
-                    <span className="spanTest">Direccion</span>
-                    <br />
-                    <input type="text" name="direccion" className="inputRegistro" placeholder="Ej: Calle Gran Vía nº65" onChange={(e) => setDireccion(e.target.value)}></input>
-                    <br />
-                    <br />
-                    <span className="spanTest">Ciudad</span>
-                    <br />
-                    <input type="text" name="ciudad" className="inputRegistro" placeholder="Ej: Madrid" onChange={(e) => setCiudad(e.target.value)}></input>
-                    <br />
-                    <br />
-                    <span className="spanTest">Código Postal</span>
-                    <br />
-                    <input type="text" name="CP" className="inputRegistro" placeholder="Ej: 09231" onChange={(e) => setCp(e.target.value)}></input>
-                    <br />
-                    <br />
-                    <span className="spanTest">Teléfono</span>
-                    <br />
-                    <input type="text" name="telefono" className="inputRegistro" placeholder="559 577 837" onChange={(e) => setTelefono(e.target.value)}></input>
-                    <br />
-                    <br />
-                    <span className="spanTest">Email</span>
-                    <br />
-                    <input type="email" name="email" className="inputRegistro" placeholder="Ej: correo@ejemplo.com" onChange={(e) => setEmail(e.target.value)}></input>
-                    <br />
-                    <br />
-                    <span className="spanTest">¿Cuántas personas hay?</span>
-                    <br />
-                    <input type="number" name="habitantes" min="0" className="inputRegistro" placeholder="Ej: 4" onChange={(e) => setHabitantes(e.target.value)}></input>
-                    <br />
-                    <br />
-                    <span className="spanTest">Capacidad Máxima:</span>
-                    <br />
-                    <input type="number" name="capacidad" min="0" className="inputRegistro" placeholder="Ej: 4" onChange={(e) => setCapacidad(e.target.value)}></input>
-                    <br />
-                    <br />
-                    <span className="spanTest">Idiomas:</span>
-                    <br />
-                    <div id="respuestasIdiomas">
-                        <Checkbox.Group onChange={(e) => cambiosCheckboxIdiomas(e)}>
-                            <Checkbox name="idiomas" value="castellano" id="castellano">
-                                <label forhtml="castellano">&nbsp;Castellano</label>
-                            </Checkbox>&nbsp;
-                            <Checkbox name="idiomas" value="catalan" id="catalan" >
-                                <label forhtml="catalan">&nbsp;Catalán</label>
-                            </Checkbox>&nbsp;
-                            <Checkbox name="idiomas" value="euskera" id="euskera" >
-                                <label forhtml="euskera">&nbsp;Euskera</label>
-                            </Checkbox>&nbsp;
-                            <Checkbox name="idiomas" value="portugues" id="portugues" >
-                                <label forhtml="portugues">&nbsp;Portugués</label>
-                            </Checkbox>&nbsp;
-                            <Checkbox name="idiomas" value="coreano" id="coreano">
-                                <label forhtml="coreano">&nbsp;Coreano</label>
-                            </Checkbox>&nbsp;
-                            <Checkbox name="idiomas" value="chino" id="chino" >
-                                <label forhtml="chino">&nbsp;Chino</label>
-                            </Checkbox>&nbsp;
-                            <Checkbox name="idiomas" value="japones" id="japones" >
-                                <label forhtml="japones">&nbsp;Japonés</label>
-                            </Checkbox>&nbsp;
-                            <Checkbox name="idiomas" value="ingles" id="ingles" >
-                                <label forhtml="ingles">&nbsp;Inglés</label>
-                            </Checkbox>&nbsp;
-                            <Checkbox name="idiomas" value="italiano" id="italiano" >
-                                <label forhtml="italiano">&nbsp;Italiano</label>
-                            </Checkbox>&nbsp;
-                            <Checkbox name="idiomas" value="aleman" id="aleman" >
-                                <label forhtml="aleman">&nbsp;Alemán</label>
-                            </Checkbox>&nbsp;
-                            <Checkbox name="idiomas" value="frances" id="frances" >
-                                <label forhtml="frances">&nbsp;Francés</label>
-                            </Checkbox>
-                            <Checkbox name="idiomas" value="ruso" id="ruso" >
-                                <label forhtml="ruso">&nbsp;Ruso</label>
-                            </Checkbox>
-                            <Checkbox name="idiomas" value="neerlandes" id="neerlandes" >
-                                <label forhtml="neerlandes">&nbsp;Neerlandés</label>
-                            </Checkbox>
-                        </Checkbox.Group>
-                    </div>
-                    <br />
-                    <br />
-                    <div>
-                        <span className="spanTest">¿Se permiten personas con una orientacion sexual diferente?</span>
-                        <br />
-                        <input type="radio" name="orientacion" value="si" id="si" onChange={(e) => setOrientacionSexual(true)}></input><label htmlFor="si">&nbsp;Si</label>
-                        <br />
-                        <input type="radio" name="orientacion" value="no" id="no" onChange={(e) => setOrientacionSexual(false)}></input><label htmlFor="no">&nbsp;No</label>
-                    </div>
-                    <br />
-                    <div>
-                        <span className="spanTest">¿Se permiten peronas con una religión diferente?</span>
-                        <br />
-                        <input type="radio" name="religion" value="si" id="si" onChange={(e) => setReligion(true)}></input><label htmlFor="si">&nbsp;Si</label>
-                        <br />
-                        <input type="radio" name="religion" value="no" id="no" onChange={(e) => setReligion(false)}></input><label htmlFor="no">&nbsp;No</label>
-                    </div>
-                    <br />
-                    <div>
-                    <span className="spanTest">¿Se permiten personas con una ideología política diferente?</span>
-                        <br />
-                        <input type="radio" name="politica" value="si" id="si" onChange={(e) => setPolitica(true)}></input><label htmlFor="si">&nbsp;Si</label>
-                        <br />
-                        <input type="radio" name="politica" value="no" id="no" onChange={(e) => setPolitica(false)}></input><label htmlFor="no">&nbsp;No</label>
-                    </div>
-                    <br />
-                    <div>
-                    <span className="spanTest">¿Se permiten personas con mascotas?</span>
-                        <br />
-                        <input type="radio" name="mascotas" value="si" id="si" onChange={(e) => setMascota(true)}></input><label htmlFor="si">&nbsp;Si</label>
-                        <br />
-                        <input type="radio" name="mascotas" value="no" id="no" onChange={(e) => setMascota(false)}></input><label htmlFor="no">&nbsp;No</label>
-                    </div>
-                    <br />
-                    <div>
-                        <label>¿Se permiten personas fumadoras?</label>
-                        <br />
-                        <input type="radio" name="fumador" value="si" id="si" onChange={(e) => setFumador(true)}></input><label htmlFor="si">&nbsp;Si</label>
-                        <br />
-                        <input type="radio" name="fumador" value="no" id="no" onChange={(e) => setFumador(false)}></input><label htmlFor="no">&nbsp;No</label>
-                    </div>
-                    <br />
-                    <label>Ubicacion:</label>
-                    <br />
-                    <input type="radio" name="zona" value="costa" id="costa" onChange={(e) => setUbicacion(e.target.value)}></input><label htmlFor="costa">&nbsp;Cerca de la costa</label>
-                    <br />
-                    <input type="radio" name="zona" value="interior" id="interior" onChange={(e) => setUbicacion(e.target.value)}></input><label htmlFor="interior">&nbsp;En el interior</label>
-                    <br />
-                    <input type="radio" name="zona" value="montaña" id="montaña" onChange={(e) => setUbicacion(e.target.value)}></input><label htmlFor="montaña">&nbsp;Cerca de montañas</label>
-                    <br />
-                    <input type="radio" name="zona" value="ciudad" id="ciudad" onChange={(e) => setUbicacion(e.target.value)}></input><label htmlFor="ciudad">&nbsp;En una ciudad</label>
-                    <br />
-                    <br />
-                    <label>Tipo de Vivienda:</label>
-                    <br />
-                    <input type="radio" name="tipoVivienda" value="piso" id="piso" onChange={(e) => setTipoVivienda(e.target.value)}></input><label htmlFor="piso">&nbsp;Pisos</label>
-                    <br />
-                    <input type="radio" name="tipoVivienda" value="unifamiliar" id="unifamiliar" onChange={(e) => setTipoVivienda(e.target.value)}></input><label htmlFor="unifamiliar">&nbsp;Casa unifamiliar</label>
-                    <br />
-                    <input type="radio" name="tipoVivienda" value="atico" id="atico" onChange={(e) => setTipoVivienda(e.target.value)}></input><label htmlFor="atico">&nbsp;Ático</label>
-                    <br />
-                    <input type="radio" name="tipoVivienda" value="duplex" id="duplex" onChange={(e) => setTipoVivienda(e.target.value)}></input><label htmlFor="duplex">&nbsp;Dúplex</label>
-                    <br />
-                    <input type="radio" name="tipoVivienda" value="chalet" id="chalet" onChange={(e) => setTipoVivienda(e.target.value)}></input><label htmlFor="chalet">&nbsp;Chalet</label>
-                    <br />
-                    <input type="radio" name="tipoVivienda" value="otros" id="otros" onChange={(e) => setTipoVivienda(e.target.value)}></input><label htmlFor="otros">&nbsp;Otros tipos</label>
-                    <br />
-                    <br />
-                    <label>Rango Edad:</label>
-                    <br />
-                    <Checkbox.Group onChange={(e) => cambiosCheckboxRangoEdad(e)}>
-                        <Checkbox name="rangoEdad" value="50_60" id="50_60">
-                            <label forhtml="50-60">&nbsp;Entre 50 y 60 años</label>
-                        </Checkbox>&nbsp;
-                        <Checkbox name="rangoEdad" value="60_70" id="60_70">
-                            <label forhtml="60-70">&nbsp;Entre 60 y 70 años</label>
-                        </Checkbox>&nbsp;
-                        <Checkbox name="rangoEdad" value="70_80" id="70_80">
-                            <label forhtml="70-80">&nbsp;Entre 70 y 80 años</label>
-                        </Checkbox>&nbsp;
-                        <Checkbox name="rangoEdad" value="_80" id="_80">
-                            <label forhtml="+80">&nbsp;Más de 80</label>
-                        </Checkbox>&nbsp;
-                    </Checkbox.Group>
-                    <br />
-                    <br />
-                    <label>Dinero máximo que gastaría (mensual):</label>
-                    <br />
-                    <select name="metros" id="metros" onChange={(e) => setDinero(e.target.value)}>
-                        <option></option>
-                        <option value="200">Hasta 200 €</option>
-                        <option value="300">Hasta 300 €</option>
-                        <option value="400">Hasta 400 €</option>
-                        <option value="500">Hasta 500 €</option>
-                        <option value="600">Hasta 600 €</option>
-                        <option value="700">Hasta 700 €</option>
-                        <option value="800">Hasta 800 €</option>
-                        <option value="900">Hasta 900 €</option>
-                        <option value="1000">Hasta 1000 €</option>
-                        <option value="1100">Hasta 1100 €</option>
-                        <option value="1200">Hasta 1200 €</option>
-                        <option value="1300">Hasta 1300 €</option>
-                        <option value="1400">Hasta 1400 €</option>
-                        <option value="1500">Hasta 1500 €</option>
-                    </select>
-                    <br />
-                    <br />
-                    <label>M&sup2; totales del immueble:</label>
-                    <br />
-                    <select name="metros" id="metros" onChange={(e) => setMetros(e.target.value)}>
-                        <option></option>
-                        <option value="100">100 m&sup2;</option>
-                        <option value="200">200 m&sup2;</option>
-                        <option value="300">300 m&sup2;</option>
-                        <option value="400">400 m&sup2;</option>
-                        <option value="500">500 m&sup2;</option>
-                        <option value="600">600 m&sup2;</option>
-                        <option value="700">700 m&sup2;</option>
-                        <option value="800">800 m&sup2;</option>
-                        <option value="900">900 m&sup2;</option>
-                        <option value="1000">1000 m&sup2;</option>
-                        <option value="1500">1500 m&sup2;</option>
-                        <option value="+1500">Más de 1500 m&sup2;</option>
-                    </select>
-                    <br />
-                    <br />
-                    <label>Instalaciones:</label>
-                    <br />
-                    <div id="respuestasInstalaciones">
-                        <Checkbox.Group onChange={(e) => cambiosCheckboxInstalaciones(e)}>
-                            <Checkbox name="instalaciones" value="salacine" id="salacine">
-                                <label forhtml="salacine">&nbsp;Sala de cine</label>
-                            </Checkbox>&nbsp;
-                            <Checkbox name="instalaciones" value="recreativos" id="recreativos" >
-                                <label forhtml="recreativos">&nbsp;Sala de recreativos</label>
-                            </Checkbox>&nbsp;
-                            <Checkbox name="instalaciones" value="salamanualidades" id="salamanualidades" >
-                                <label forhtml="salamanualidades">&nbsp;Sala de manualidades</label>
-                            </Checkbox>&nbsp;
-                            <Checkbox name="instalaciones" value="gimnasio" id="gimnasio" >
-                                <label forhtml="gimnasio">&nbsp;Gimnasio</label>
-                            </Checkbox>&nbsp;
-                            <Checkbox name="instalaciones" value="rehabilitacion" id="rehabilitacion">
-                                <label forhtml="rehabilitacion">&nbsp;Sala de rehabilitación</label>
-                            </Checkbox>&nbsp;
-                            <Checkbox name="instalaciones" value="spa" id="spa" >
-                                <label forhtml="spa">&nbsp;Spa</label>
-                            </Checkbox>
-                            <Checkbox name="instalaciones" value="pingpong" id="pingpong" >
-                                <label forhtml="pingpong">&nbsp;Mesa de ping pong</label>
-                            </Checkbox>
-                            <Checkbox name="instalaciones" value="billar" id="billar" >
-                                <label forhtml="billar">&nbsp;Mesa de billar</label>
-                            </Checkbox>
-                            <Checkbox name="instalaciones" value="futbolin" id="futbolin" >
-                                <label forhtml="futbolin">&nbsp;Futbolín</label>
-                            </Checkbox>
-                            <Checkbox name="instalaciones" value="trastero" id="trastero" >
-                                <label forhtml="trastero">&nbsp;Trastero</label>
-                            </Checkbox>
-                            <Checkbox name="instalaciones" value="garage" id="garage" >
-                                <label forhtml="garage">&nbsp;Plaza de garage</label>
-                            </Checkbox>
-                            <Checkbox name="instalaciones" value="cocina" id="cocina" >
-                                <label forhtml="cocina">&nbsp;Cocina</label>
-                            </Checkbox>
-                            <Checkbox name="instalaciones" value="buffet" id="buffet" >
-                                <label forhtml="buffet">&nbsp;Buffet</label>
-                            </Checkbox>
-                            <Checkbox name="instalaciones" value="lavavajillas" id="lavavajillas" >
-                                <label forhtml="lavavajillas">&nbsp;Lavavajillas</label>
-                            </Checkbox>
-                            <Checkbox name="instalaciones" value="lavanderia" id="lavanderia" >
-                                <label forhtml="lavanderia">&nbsp;Lavandería</label>
-                            </Checkbox>
-                        </Checkbox.Group>
-                    </div>
-                    <br />
-                    <br />
-                    <label>Baños:</label>
-                    <br />
-                    <input type="radio" name="lavabo" value="privado" id="privado" onChange={(e) => setLavabo(e.target.value)}></input><label htmlFor="privado">&nbsp;Privado</label>
-                    <br />
-                    <input type="radio" name="lavabo" value="compartido" id="compartido" onChange={(e) => setLavabo(e.target.value)}></input><label htmlFor="compartido">&nbsp;Compartido</label>
-                    <br />
-                    <br />
-                    <label>Exteriores:</label>
-                    <br />
-                    <div id="respuestasExteriores">
-                        <Checkbox.Group onChange={(e) => cambiosCheckboxExteriores(e)}>
-                            <Checkbox name="exteriores" value="no" id="no">
-                                <label forhtml="no">&nbsp;No</label>
-                            </Checkbox>&nbsp;
-                            <Checkbox name="exteriores" value="jardin" id="jardin" >
-                                <label forhtml="jardin">&nbsp;Jardín</label>
-                            </Checkbox>&nbsp;
-                            <Checkbox name="exteriores" value="terraza" id="terraza" >
-                                <label forhtml="terraza">&nbsp;Terraza</label>
-                            </Checkbox>&nbsp;
-                            <Checkbox name="instalaciones" value="baloncesto" id="baloncesto" >
-                                <label forhtml="baloncesto">&nbsp;Cancha de baloncesto</label>
-                            </Checkbox>
-                            <Checkbox name="instalaciones" value="huerto" id="huerto" >
-                                <label forhtml="huerto">&nbsp;Huerto</label>
-                            </Checkbox>
-                            <Checkbox name="instalaciones" value="barbacoa" id="barbacoa" >
-                                <label forhtml="barbacoa">&nbsp;Zonas de barbacoa</label>
-                            </Checkbox>
-                            <Checkbox name="instalaciones" value="padel" id="padel" >
-                                <label forhtml="padel">&nbsp;Pista de pádel</label>
-                            </Checkbox>&nbsp;
-                            <Checkbox name="instalaciones" value="tenis" id="tenis" >
-                                <label forhtml="tenis">&nbsp;Pista de tenis</label>
-                            </Checkbox>&nbsp;
-                            <Checkbox name="instalaciones" value="piscina" id="piscina" >
-                                <label forhtml="piscina">&nbsp;Piscina</label>
-                            </Checkbox>&nbsp;
-                            <Checkbox name="instalaciones" value="cubierta" id="cubierta" >
-                                <label forhtml="cubierta">&nbsp;Piscina cubierta</label>
-                            </Checkbox>&nbsp;
-                            <Checkbox name="instalaciones" value="futbol" id="futbol" >
-                                <label forhtml="futbol">&nbsp;Fútbol</label>
-                            </Checkbox>&nbsp;
-                            <Checkbox name="instalaciones" value="golf" id="golf" >
-                                <label forhtml="golf">&nbsp;Campo de golf</label>
-                            </Checkbox>
-                            <Checkbox name="instalaciones" value="hipica" id="hipica" >
-                                <label forhtml="hipica">&nbsp;Hípica</label>
-                            </Checkbox>
-                            <Checkbox name="instalaciones" value="esqui" id="esqui" >
-                                <label forhtml="esqui">&nbsp;Esquí</label>
-                            </Checkbox>
-                        </Checkbox.Group>
-                    </div>
-                    <br />
-                    <br />
-                    <label>Se puede llegar en transporte público?</label>
-                    <br />
-                    <input type="radio" name="facilAcceso" value="si" id="si" onChange={(e) => setFacilAcceso(true)}></input><label htmlFor="si">&nbsp;Sí</label>
-                    <br />
-                    <input type="radio" name="facilAcceso" value="no" id="no" onChange={(e) => setFacilAcceso(false)}></input><label htmlFor="no">&nbsp;No</label>
-                    <br />
-                    <br />
-                    <button type="button" className="ButtonHome btn btn-primary btn-lg" variant="primary" onClick={enviarDatos}>Enviar</button>
-                </div>
-            </form>
+            <div className="Frame-3629">
+                <img src={imgAnterior} onClick={clickImagenAtras} className="Icon-left-arrow" alt="botonAtras"></img>
 
+                <br />
+                <form>
+                    <div>
+                        <span className="spanTest">¿Cómo se llama tu co-living?</span>
+                        <br />
+                        <input type="text" name="nombre" className="inputRegistro" placeholder="Ej: Nordikrooms" onChange={(e) => setNombre(e.target.value)}></input>
+                        <br />
+                        <br />
+                        <span className="spanTest">¿Este coliving está ya desplegado y funcionando?</span>
+                        <br />
+                        <div className="contenedor-Boolean">
+                            <button type="button" name="activo" value="si" className="Label-button-Boolean" onClick={() => setActivo(true)}>Sí</button>
+                            <button type="button" name="activo" value="no" className="Label-button-Boolean" onClick={() => setActivo(true)}>No</button>
+                        </div><br />
+                        <br />
+                        <span className="spanTest">¿Dónde se encuentra?</span>
+                        <br />
+                        <span className="spanTest">Direccion</span>
+                        <br />
+                        <input type="text" name="direccion" className="inputRegistro" placeholder="Ej: Calle Gran Vía nº65" onChange={(e) => setDireccion(e.target.value)}></input>
+                        <br />
+                        <br />
+                        <span className="spanTest">Ciudad</span>
+                        <br />
+                        <input type="text" name="ciudad" className="inputRegistro" placeholder="Ej: Madrid" onChange={(e) => setCiudad(e.target.value)}></input>
+                        <br />
+                        <br />
+                        <span className="spanTest">Código Postal</span>
+                        <br />
+                        <input type="text" name="CP" className="inputRegistro" placeholder="Ej: 09231" onChange={(e) => setCp(e.target.value)}></input>
+                        <br />
+                        <br />
+                        <span className="spanTest">Teléfono</span>
+                        <br />
+                        <input type="text" name="telefono" className="inputRegistro" placeholder="559 577 837" onChange={(e) => setTelefono(e.target.value)}></input>
+                        <br />
+                        <br />
+                        <span className="spanTest">Email</span>
+                        <br />
+                        <input type="email" name="email" className="inputRegistro" placeholder="Ej: correo@ejemplo.com" onChange={(e) => setEmail(e.target.value)}></input>
+                        <br />
+                        <br />
+                        <span className="spanTest">¿Cuántas personas hay?</span>
+                        <br />
+                        <input type="number" name="habitantes" min="0" className="inputRegistro" placeholder="Ej: 4" onChange={(e) => setHabitantes(e.target.value)}></input>
+                        <br />
+                        <br />
+                        <span className="spanTest">Capacidad Máxima:</span>
+                        <br />
+                        <input type="number" name="capacidad" min="0" className="inputRegistro" placeholder="Ej: 4" onChange={(e) => setCapacidad(e.target.value)}></input>
+                        <br />
+                        <br />
+                        <span className="spanTest">Idiomas:</span>
+                        <br />
+                        <div className="contenedor-Test">
+                            <button type="button" value="castellano" className="Label-button" name="idiomas" onClick={(e) => setIdiomas((idiomas) => [...idiomas, e.target.value])} >Castellano</button>
+                            <button type="button" value="catalan" className="Label-button" name="idiomas" onClick={(e) => setIdiomas((idiomas) => [...idiomas, e.target.value])} >Català</button>
+                            <button type="button" value="euskera" className="Label-button" name="idiomas" onClick={(e) => setIdiomas((idiomas) => [...idiomas, e.target.value])} >Euskera</button>
+                            <button type="button" value="gallego" className="Label-button" name="idiomas" onClick={(e) => setIdiomas((idiomas) => [...idiomas, e.target.value])} >Galego</button>
+                            <button type="button" value="valenciano" className="Label-button" name="idiomas" onClick={(e) => setIdiomas((idiomas) => [...idiomas, e.target.value])} >Valencià</button>
+                            <button type="button" value="coreano" className="Label-button" name="idiomas" onClick={(e) => setIdiomas((idiomas) => [...idiomas, e.target.value])} >한국어</button>
+                            <button type="button" value="chino" className="Label-button" name="idiomas" onClick={(e) => setIdiomas((idiomas) => [...idiomas, e.target.value])} >中文</button>
+                            <button type="button" value="japones" className="Label-button" name="idiomas" onClick={(e) => setIdiomas((idiomas) => [...idiomas, e.target.value])} >日本語</button>
+                            <button type="button" value="ingles" className="Label-button" name="idiomas" onClick={(e) => setIdiomas((idiomas) => [...idiomas, e.target.value])} >English</button>
+                            <button type="button" value="italiano" className="Label-button" name="idiomas" onClick={(e) => setIdiomas((idiomas) => [...idiomas, e.target.value])} >Italiano</button>
+                            <button type="button" value="aleman" className="Label-button" name="idiomas" onClick={(e) => setIdiomas((idiomas) => [...idiomas, e.target.value])} >Deutsch</button>
+                            <button type="button" value="frances" className="Label-button" name="idiomas" onClick={(e) => setIdiomas((idiomas) => [...idiomas, e.target.value])} >Français</button>
+                            <button type="button" value="ruso" className="Label-button" name="idiomas" onClick={(e) => setIdiomas((idiomas) => [...idiomas, e.target.value])} >Pусский</button>
+                            <button type="button" value="neerlandes" className="Label-button" name="idiomas" onClick={(e) => setIdiomas((idiomas) => [...idiomas, e.target.value])} >Nederlands</button>
+                        </div>
+                        <br />
+                        <br />
+                        <span className="spanRegCol">¿Hay normas de convivencia?</span>
+                        <div className="container-Test">
+                            <button type="button" value="si" className="Label-button" name="orientacionsexual" onClick={() => setOrientacionSexual(true)} >LGBT+ friendly</button>
+                            <button type="button" value="si" className="Label-button" name="religion" onClick={() => setReligion(true)} >Religión friendly</button>
+                            <button type="button" value="si" className="Label-button" name="fumador" onClick={() => setFumador(true)} >Abierto a fumadores</button>
+                            <button type="button" value="si" className="Label-button" name="mascotas" onClick={() => setMascotas(true)} >Que quiera mascotas</button>
+                            <button type="button" value="si" className="Label-button" name="politica" onClick={() => setPolitica(true)} >Abierto a ideologías políticas</button>
+                        </div>
+                        <br />
+                        <span className="spanRegCol">Tipo de ubicación:</span>
+                        <br />
+
+                        <button type="button" value="costa" className="Label-button" name="ubicacion" onClick={(e) => setUbicacion((ubicacion) => [...ubicacion, e.target.value])} >Cerca de la costa</button>
+                        <button type="button" value="ciudad" className="Label-button" name="ubicacion" onClick={(e) => setUbicacion((ubicacion) => [...ubicacion, e.target.value])} >En una ciudad</button>
+                        <button type="button" value="interior" className="Label-button" name="ubicacion" onClick={(e) => setUbicacion((ubicacion) => [...ubicacion, e.target.value])} >En el interior</button>
+                        <button type="button" value="montana" className="Label-button" name="ubicacion" onClick={(e) => setUbicacion((ubicacion) => [...ubicacion, e.target.value])} >Cerca de montañas</button>
+                        <br />
+                        <br />
+                        <span className="spanRegCol">Tipo de vivienda:</span>
+                        <br />
+                        <button type="button" value="piso" className="Label-button" name="tipoVivienda" onClick={(e) => setTipoVivienda((tipoVivienda) => [...tipoVivienda, e.target.value])} >Piso</button>
+                        <button type="button" value="unifamiliar" className="Label-button" name="tipoVivienda" onClick={(e) => setTipoVivienda((tipoVivienda) => [...tipoVivienda, e.target.value])} >Vivienda unifamiliar</button>
+                        <button type="button" value="atico" className="Label-button" name="tipoVivienda" onClick={(e) => setTipoVivienda((tipoVivienda) => [...tipoVivienda, e.target.value])} >Ático</button>
+                        <button type="button" value="duplex" className="Label-button" name="tipoVivienda" onClick={(e) => setTipoVivienda((tipoVivienda) => [...tipoVivienda, e.target.value])} >Dúplex</button>
+                        <button type="button" value="chalet" className="Label-button" name="tipoVivienda" onClick={(e) => setTipoVivienda((tipoVivienda) => [...tipoVivienda, e.target.value])} >Chalet</button>
+                        <button type="button" value="otros" className="Label-button" name="tipoVivienda" onClick={(e) => setTipoVivienda((tipoVivienda) => [...tipoVivienda, e.target.value])} >Otros tipos</button>
+                        <br />
+                        <br />
+                        <span className="spanRegCol">Rango de edad de personas</span>
+                        <br />
+                        <button type="button" value="50_60" className="Label-button" name="rangoEdad" onClick={(e) => setRangoEdad((rangoEdad) => [...rangoEdad, e.target.value])} >Entre 50 y 60 años</button>
+                        <button type="button" value="60_70" className="Label-button" name="rangoEdad" onClick={(e) => setRangoEdad((rangoEdad) => [...rangoEdad, e.target.value])} >Entre 60 y 70 años</button>
+                        <button type="button" value="70_80" className="Label-button" name="rangoEdad" onClick={(e) => setRangoEdad((rangoEdad) => [...rangoEdad, e.target.value])} >Entre 70 y 80 años</button>
+                        <button type="button" value="_80" className="Label-button" name="rangoEdad" onClick={(e) => setRangoEdad((rangoEdad) => [...rangoEdad, e.target.value])} >Más de 80</button>
+                        <br />
+                        <br />
+                        <br />
+                        <span className="spanRegCol">¿Cuál es la cantidad que se cobraría al mes?</span>
+                        <br />
+                        <select name="dinero" id="dinero" className="inputRegistro" onChange={(e) => setDinero(e.target.value)}>
+                            <option></option>
+                            <option value="200">200 €</option>
+                            <option value="300">300 €</option>
+                            <option value="400">400 €</option>
+                            <option value="500">500 €</option>
+                            <option value="600">600 €</option>
+                            <option value="700">700 €</option>
+                            <option value="800">800 €</option>
+                            <option value="900">900 €</option>
+                            <option value="1000">1000 €</option>
+                            <option value="1100">1100 €</option>
+                            <option value="1200">1200 €</option>
+                            <option value="1300">1300 €</option>
+                            <option value="1400">1400 €</option>
+                            <option value="1500">1500 € o más</option>
+                        </select>
+                        <br />
+                        <br />
+                        <span className="spanRegCol">M&sup2; totales del immueble:</span>
+                        <br />
+                        <select name="metros" className="inputRegistro" id="metros" onChange={(e) => setMetros(e.target.value)}>
+                            <option></option>
+                            <option value="100">100 m&sup2;</option>
+                            <option value="200">200 m&sup2;</option>
+                            <option value="300">300 m&sup2;</option>
+                            <option value="400">400 m&sup2;</option>
+                            <option value="500">500 m&sup2;</option>
+                            <option value="600">600 m&sup2;</option>
+                            <option value="700">700 m&sup2;</option>
+                            <option value="800">800 m&sup2;</option>
+                            <option value="900">900 m&sup2;</option>
+                            <option value="1000">1000 m&sup2;</option>
+                            <option value="1500">1500 m&sup2;</option>
+                            <option value="+1500">Más de 1500 m&sup2;</option>
+                        </select>
+                        <br />
+                        <br />
+                        <span className="spanRegCol">¿Qué instalaciones puede ofrecer?</span>
+                        <br />
+                        <div>
+                            <button type="button" value="salacine" className="Label-button" name="instalaciones" onClick={(e) => setInstalaciones((instalaciones) => [...instalaciones, e.target.value])} >Sala de cine</button>
+                            <button type="button" value="recreativos" className="Label-button" name="instalaciones" onClick={(e) => setInstalaciones((instalaciones) => [...instalaciones, e.target.value])} >Sala de recreativos</button>
+                            <button type="button" value="salamanualidades" className="Label-button" name="instalaciones" onClick={(e) => setInstalaciones((instalaciones) => [...instalaciones, e.target.value])} >Sala de manualidades</button>
+                            <button type="button" value="salagimnasio" className="Label-button" name="instalaciones" onClick={(e) => setInstalaciones((instalaciones) => [...instalaciones, e.target.value])} >Gimnasio</button>
+                            <button type="button" value="rehabilitacion" className="Label-button" name="instalaciones" onClick={(e) => setInstalaciones((instalaciones) => [...instalaciones, e.target.value])} >Sala de rehabilitación</button>
+                            <button type="button" value="spa" className="Label-button" name="instalaciones" onClick={(e) => setInstalaciones((instalaciones) => [...instalaciones, e.target.value])} >Spa</button>
+                            <button type="button" value="pingpong" className="Label-button" name="instalaciones" onClick={(e) => setInstalaciones((instalaciones) => [...instalaciones, e.target.value])} >Mesa de ping pong</button>
+                            <button type="button" value="billar" className="Label-button" name="instalaciones" onClick={(e) => setInstalaciones((instalaciones) => [...instalaciones, e.target.value])} >Mesa de Billar</button>
+                            <button type="button" value="futbolin" className="Label-button" name="instalaciones" onClick={(e) => setInstalaciones((instalaciones) => [...instalaciones, e.target.value])} >Futbolín</button>
+                            <button type="button" value="trastero" className="Label-button" name="instalaciones" onClick={(e) => setInstalaciones((instalaciones) => [...instalaciones, e.target.value])} >Trastero</button>
+                            <button type="button" value="garage" className="Label-button" name="instalaciones" onClick={(e) => setInstalaciones((instalaciones) => [...instalaciones, e.target.value])} >Plaza de garaje</button>
+                            <button type="button" value="salacocina" className="Label-button" name="instalaciones" onClick={(e) => setInstalaciones((instalaciones) => [...instalaciones, e.target.value])} >Cocina</button>
+                            <button type="button" value="buffet" className="Label-button" name="instalaciones" onClick={(e) => setInstalaciones((instalaciones) => [...instalaciones, e.target.value])} >Buffet</button>
+                            <button type="button" value="lavavajillas" className="Label-button" name="instalaciones" onClick={(e) => setInstalaciones((instalaciones) => [...instalaciones, e.target.value])} >Lavavajillas</button>
+                            <button type="button" value="lavanderia" className="Label-button" name="instalaciones" onClick={(e) => setInstalaciones((instalaciones) => [...instalaciones, e.target.value])} >Lavandería</button>
+                        </div>
+                        <br />
+                        <br />
+                        <span className="spanRegCol">¿Qué tipo de baño puede ofrecer?</span>
+                        <br />
+                        <div className="contenedor-Boolean">
+                            <button type="button" name="lavabo" value="privado" className="Label-button" onClick={() => setLavabo("privado")}>Privado</button>
+                            <button type="button" name="lavabo" value="compartido" className="Label-button" onClick={() => setLavabo("compartido")}>Compartido</button>
+                        </div>
+                        <br />
+                        <span className="spanTest">¿Qué equipamientos exteriores puede ofrecer?</span>
+                        <br />
+                        <div id="respuestasExteriores">
+                            <button type="button" value="no" className="Label-button" name="exteriores" onClick={(e) => setExteriores((exteriores) => [...exteriores, e.target.value])} >Ninguno</button>
+                            <button type="button" value="jardin" className="Label-button" name="exteriores" onClick={(e) => setExteriores((exteriores) => [...exteriores, e.target.value])} >Jardín</button>
+                            <button type="button" value="terraza" className="Label-button" name="exteriores" onClick={(e) => setExteriores((exteriores) => [...exteriores, e.target.value])} >Terraza</button>
+                            <button type="button" value="canchabaloncesto" className="Label-button" name="exteriores" onClick={(e) => setExteriores((exteriores) => [...exteriores, e.target.value])} >Cancha de baloncesto</button>
+                            <button type="button" value="huerto" className="Label-button" name="exteriores" onClick={(e) => setExteriores((exteriores) => [...exteriores, e.target.value])} >Huerto</button>
+                            <button type="button" value="barbacoa" className="Label-button" name="exteriores" onClick={(e) => setExteriores((exteriores) => [...exteriores, e.target.value])} >Zona de barbacoa</button>
+                            <button type="button" value="canchapadel" className="Label-button" name="exteriores" onClick={(e) => setExteriores((exteriores) => [...exteriores, e.target.value])} >Pista de pádel</button>
+                            <button type="button" value="piscina" className="Label-button" name="exteriores" onClick={(e) => setExteriores((exteriores) => [...exteriores, e.target.value])} >Piscina</button>
+                            <button type="button" value="cubierta" className="Label-button" name="exteriores" onClick={(e) => setExteriores((exteriores) => [...exteriores, e.target.value])} >Piscina cubierta</button>
+                            <button type="button" value="campofutbol" className="Label-button" name="exteriores" onClick={(e) => setExteriores((exteriores) => [...exteriores, e.target.value])} >Campo de fútbol</button>
+                            <button type="button" value="campogolf" className="Label-button" name="exteriores" onClick={(e) => setExteriores((exteriores) => [...exteriores, e.target.value])} >Campo de golf</button>
+                            <button type="button" value="campohipica" className="Label-button" name="exteriores" onClick={(e) => setExteriores((exteriores) => [...exteriores, e.target.value])} >Hípica</button>
+                            <button type="button" value="esqui" className="Label-button" name="exteriores" onClick={(e) => setExteriores((exteriores) => [...exteriores, e.target.value])} >Pistas de esquí</button>
+                        </div>
+                        <br />
+                        <br />
+                        <span className="spanRegCol">¿Se puede llegar en transporte público?</span>
+                        <br />
+                        <div className="contenedor-Boolean">
+                            <button type="button" name="facilAcceso" value="si" className="Label-button-Boolean" onClick={() => setFacilAcceso(true)}>Sí</button>
+                            <button type="button" name="facilAcceso" value="no" className="Label-button-Boolean" onClick={() => setFacilAcceso(false)}>No</button>
+                        </div>
+                        <br />
+                        <div className="contenedor-Boton-Registrar">
+                            <button type="button" className="Btn-Default-Perfil"><span className="Texto-Blanco-Perfil">Registrar Co-living</span></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <NavBar />
         </div>
 
     )

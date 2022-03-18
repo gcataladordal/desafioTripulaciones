@@ -20,11 +20,11 @@ function BusquedaUsuario() {
     const [genero, setGenero] = useState("");
     const [oficio, setOficio] = useState("");
     const [idiomas, setIdiomas] = useState("");
-    const [orientacionSexual, setOrientacionSexual] = useState("");
-    const [religion, setReligion] = useState("");
-    const [politica, setPolitica] = useState("");
-    const [mascotas, setMascotas] = useState("");
-    const [fumador, setFumador] = useState("");
+    const [orientacionSexual, setOrientacionSexual] = useState(false);
+    const [religion, setReligion] = useState(false);
+    const [politica, setPolitica] = useState(false);
+    const [mascotas, setMascotas] = useState(false);
+    const [fumador, setFumador] = useState(false);
     const [caracter, setCaracter] = useState("");
     const [musica, setMusica] = useState("")
     const [deportes, setDeportes] = useState("");
@@ -80,7 +80,6 @@ function BusquedaUsuario() {
         }
 
         axios.post("/busquedausuario", caracteristicasTest).then((res) => {
-            console.log(res.data)
             window.location.href = "http://localhost:3000/resultadobusquedauser"
         })
 
@@ -163,11 +162,11 @@ function BusquedaUsuario() {
                     <br />
                     <span className="spanBusqUser">Buscar por normas de convivencia:</span>
                     <div className="container-Test">
-                        <button type="button" value="si" className="Label-button" name="orientacionsexual" onClick={() => setOrientacionSexual(false)} >LGBT+ friendly</button>
-                        <button type="button" value="si" className="Label-button" name="religion" onClick={() => setReligion(false)} >Religión friendly</button>
-                        <button type="button" value="si" className="Label-button" name="fumador" onClick={() => setFumador(false)} >Abierto a fumadores</button>
-                        <button type="button" value="si" className="Label-button" name="mascotas" onClick={() => setMascotas(false)} >Que quiera mascotas</button>
-                        <button type="button" value="si" className="Label-button" name="politica" onClick={() => setPolitica(false)} >Abierto a ideologías políticas</button>
+                        <button type="button" value="si" className="Label-button" name="orientacionsexual" onClick={() => setOrientacionSexual(true)} >LGBT+ friendly</button>
+                        <button type="button" value="si" className="Label-button" name="religion" onClick={() => setReligion(true)} >Religión friendly</button>
+                        <button type="button" value="si" className="Label-button" name="fumador" onClick={() => setFumador(true)} >Abierto a fumadores</button>
+                        <button type="button" value="si" className="Label-button" name="mascotas" onClick={() => setMascotas(true)} >Que quiera mascotas</button>
+                        <button type="button" value="si" className="Label-button" name="politica" onClick={() => setPolitica(true)} >Abierto a ideologías políticas</button>
                     </div>
                     <br />
                     <span className="spanBusqUser">Buscar por carácter:</span>

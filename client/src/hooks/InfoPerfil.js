@@ -22,7 +22,6 @@ const InfoPerfil = (props) => {
         let dataUser = await axios.get(`${props}`, {
             headers: { Authorization: `Bearer ${token}` }
         })
-        console.log(dataUser)
         setInfoUsuarios(dataUser)
     }
     return [infoUsuarios]

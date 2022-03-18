@@ -11,10 +11,8 @@ function Pasarela() {
         if (auth === true) {
             
             let id_usuario = usuario.id_usuario
-            console.log(id_usuario)
             obtenerData(id_usuario)
         } else {
-            console.log("hola")
         }
     }, [auth]);
 
@@ -22,7 +20,6 @@ function Pasarela() {
 
         let obtenerInfo = await axios.get(`http://ec2-18-216-211-70.us-east-2.compute.amazonaws.com/api/recommend/users/update/${id_usuario}`)
 
-        console.log(obtenerInfo)
     };
 
 

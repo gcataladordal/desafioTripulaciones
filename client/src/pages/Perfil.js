@@ -19,6 +19,11 @@ function Perfil() {
     const [idiomasList2, setIdiomasList2] = useState(false)
     const [idiomasList3, setIdiomasList3] = useState(false)
 
+
+
+
+
+
     useEffect(() => {
         if (auth === true && typeof (dataUser) !== "string" && typeof (usuario) !== "string") {
             setLoading(false)

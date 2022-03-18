@@ -15,6 +15,9 @@ class Colivings extends Component {
                     <div>
                         <span className="Bienvenido">Colivings en España</span>
                     </div>
+                    <div className="expl-Mapa">
+                        <span className="spanRegCol">Puedes moverte por el mapa para ver la información de los Colivings</span>
+                    </div>
                     <div id="map">
                         <MapContainer center={[40.4169473, -3.7057172]} zoom={6}>
                             <TileLayer

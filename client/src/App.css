@@ -108,13 +108,19 @@
 }
 
 #map {
+  
   width: auto;
   height: auto;
   display:flex;
   justify-content: center; 
 }
 
+.expl-Mapa{
+  padding-top: 50px;
+}
+
 .leaflet-container {
+  
   width: 340px; 
   height: 500px;
 }
@@ -917,3 +923,45 @@ img.Icon-left-arrow {
 .contenedor-Boton-Buscar {
 padding: 12px 0px 100px
 }
+
+.contenedor-Boton-Registrar {
+  padding: 12px 0px 100px
+  }
+
+  .Btn-Default-Regist{
+    width: 343px;
+  height: 56px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 35px 110px;
+  border-radius: 10px;
+  margin: 10px 0px;
+  background-color: #053061;
+  }
+
+  .spanRegCol {
+    width: 52px;
+    height: 11px;
+    margin: 48px 16px 16px 0;
+    font-family: Lato;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.14;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000;
+  }
+
+  .contenedor-Overlay-User {
+    width: 343px;
+    display: flex;
+    justify-content: right;
+    padding: 20px 25px 10px;
+    align-items: center;
+  }
+
