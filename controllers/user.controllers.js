@@ -5,7 +5,6 @@ const infoTestAfinidad = require("../models/infoTestAfinidad");
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const jwt = require("jsonwebtoken");
-req
 const router = require("express").Router();
 const fetch = require("node-fetch")
 
